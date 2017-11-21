@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', 'HomeController@index');
+
+// Route::get('/questions', 'HomeController@questions');
+// Route::get('/methods', 'HomeController@questions');
+// Route::get('/plasma', 'HomeController@questions');
+// Route::get('/questions', 'HomeController@questions');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
