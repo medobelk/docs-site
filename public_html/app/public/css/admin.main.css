@@ -1,0 +1,179 @@
+ body{
+	color:black;
+	font-size:10pt;
+	font-family:"proxima-nova", "Avenir", "Futura", "Helvetica", "Arial", sans-serif;
+	background-color:white;
+	margin:0;
+	padding:10pt;
+ }
+ 
+ div.hr{
+	width:auto;
+	border-bottom:1px dotted #C6C6C2;
+	margin: 10pt 0;
+ }
+ 
+a{
+	color:black;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#B30A0A;
+	text-decoration:underline;
+}
+ 
+a.logout{
+	float:right;
+}
+ 
+ a.add{
+	display:block;
+	height:32px;
+	width:auto;
+	padding-left:40px;
+	background:url(../img/admin/add.png) left center no-repeat;
+	font-size:28px;
+	padding-top:2px;
+	text-decoration:none;
+ }
+ 
+ a.del{
+	display:block;
+	height:32px;
+	width:auto;
+	padding-left:40px;
+	background:url(../img/admin/delete.png) left center no-repeat;
+	font-size:28px;
+	padding-top:2px;
+	text-decoration:none;
+ }
+ 
+ a.list{
+	display:block;
+	height:32px;
+	width:auto;
+	padding-left:40px;
+	background:url(../img/admin/book.png) left center no-repeat;
+	font-size:28px;
+	padding-top:2px;
+	text-decoration:none;
+ }
+ 
+ a.add-to-list{
+	display:block;
+	height:32px;
+	width:auto;
+	padding-left:40px;
+	background:url(../img/admin/book_add.png) left center no-repeat;
+	font-size:28px;
+	padding-top:2px;
+	text-decoration:none;
+ }
+ 
+ div.msg_ok{
+	display:block;
+	height:32px;
+	width:auto;
+	padding-left:40px;
+	background:url(../img/admin/accept.png) left center no-repeat;
+	font-size:28px;
+	padding-top:2px;
+	text-decoration:none;
+ }
+ 
+ div.menu_line1{
+	width:auto;
+	margin:5px 0;
+	height:32px;
+	font-size:28px;
+	background: #F2F2ED;
+	padding:3px 7px;
+ }
+ 
+ div.menu_line1 a{
+	float:left;
+ }
+ 
+ div.menu_line1 a.add{
+	float:right;
+ }
+ 
+ div.footer{
+	width:auto;
+	text-align:center;
+	padding:10px 0;
+ }
+ 
+ form#login-form{
+	zoom: 1;
+	display: block;
+	margin: 10px auto;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	left: 0;
+	right: 0;
+	width: 400px;
+}
+
+ form#login-form label{
+	display:block;
+	float:left;
+	width:150px;
+ }
+ form#login-form input{
+	display:block;
+	float:left;
+	width:200px;
+ }
+ 
+div.list-menu{
+	height:32px;
+}
+ 
+ div.list-menu a{
+	float:right;
+ }
+ 
+ div.menu_line2{
+	width:auto;
+	margin:5px 0;
+	height:32px;
+	font-size:22px;
+	background: #F2F2ED;
+	padding:5px 7px;
+ }
+ 
+ div.menu_line2 a{
+	float:left;
+ }
+ 
+ div.menu_line2 a.list, div.menu_line2 a.add-to-list{
+     float:right;
+ }
+ 
+ div.menu_orders{
+	width:auto;
+	margin:5px 0;
+	height:32px;
+	font-size:22px;
+	background: #857ff2;
+	padding:5px 7px;
+ }
+ 
+ div.menu_orders a{
+	color:#ffffff;
+ }
+
+ form.edform label{
+     display:block;
+     float:left;
+     width:170px;
+ }
+ 
+ form.edform input{
+     display:block;
+     float:left;
+     width:200px;
+ }
