@@ -11,12 +11,13 @@
 |
 */
 
-// Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
-// Route::get('/questions', 'HomeController@questions');
-// Route::get('/methods', 'HomeController@questions');
-// Route::get('/plasma', 'HomeController@questions');
-// Route::get('/questions', 'HomeController@questions');
+Route::get('/questions', 'QuestionsController@add');
+
+Route::get('/methods', 'HomeController@questions');
+Route::get('/plasma', 'HomeController@questions');
+Route::get('/contacts', 'HomeController@contacts');
 
 
 Route::group(['prefix' => 'admin'], function () {
