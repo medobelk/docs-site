@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
 {
-    public function add()
+    public function index()
     {
-    	return view('add-question');
+    	return view('add-review');
     }
 }

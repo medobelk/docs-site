@@ -23,6 +23,7 @@
     </div>
 
 	@include('layouts.scripts')
+  @include('layouts.google-analytics')
 
   </body>
 </html>

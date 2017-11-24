@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__container">
-    <div class="header__logo"><a class="header-logo" href="index.html"><img class="header-logo__img" src="img/logo/logo.png" alt="" role="presentation"/></a>
+    <div class="header__logo"><a class="header-logo" href="{{ url('/') }}"><img class="header-logo__img" src="img/logo/logo.png" alt="" role="presentation"/></a>
     </div>
     <div class="header__telephones"><a class="header-telephone" href="##"><i class="header-telephone__icon fa fa-phone"></i><a class="header-telephone__telephone-link">+38(067) 489 91 34</a><a class="header-telephone__telephone-link">+38(048) 704 37 58</a></a>
     </div>

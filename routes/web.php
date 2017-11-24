@@ -13,7 +13,7 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/questions', 'QuestionsController@add');
+Route::get('/reviews', 'QuestionsController@index');
 
 Route::get('/methods', 'HomeController@questions');
 Route::get('/plasma', 'HomeController@questions');

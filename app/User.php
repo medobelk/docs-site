@@ -26,4 +26,14 @@ class User extends \TCG\Voyager\Models\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function visits()
+    {
+        return $this->hasMany(Visit::class);
+    }
+
+    public function analyzes()
+    {
+        return $this->hasMany(Analyze::class);
+    }
 }

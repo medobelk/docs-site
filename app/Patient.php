@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Patient extends Model
 {
@@ -14,16 +16,15 @@ class Patient extends Model
         'password', 'remember_token',
     ];
 
-    public function analyzes()
-    {
-    	return $this->hasMany(Analyze::class);
-    }
+    // public function visits()
+    // {
+    // 	return $this->hasMany(Visit::class);
+    // }
 
-    public function visits()
-    {
-    	return $this->hasMany(Visit::class);
-    }
-
+    // public function analyzes()
+    // {
+    // 	return $this->hasMany(Analyze::class);
+    // }
     // public function reviews()
     // {
     // 	return 
