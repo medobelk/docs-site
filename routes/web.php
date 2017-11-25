@@ -12,13 +12,18 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::post('/enroll', 'HomeController@enroll');
+
 
 Route::get('/reviews', 'QuestionsController@index');
-
-Route::get('/methods', 'HomeController@questions');
 Route::get('/plasma', 'HomeController@questions');
-Route::get('/contacts', 'HomeController@contacts');
 
+//misc info routes
+Route::get('/about-doctor', 'HomeController@about');
+Route::get('/pricing', 'HomeController@pricing');
+Route::get('/diseases', 'HomeController@diseases');
+Route::get('/contacts', 'HomeController@contacts');
+Route::get('/treatment', 'HomeController@treatment');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

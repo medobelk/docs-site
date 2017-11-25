@@ -59,11 +59,18 @@
           </div>
         </div>
         <div class="doctor-form">
-          <form class="form-body">
-            <div class="form-body__title">Приходите на приём
-            </div><input class="form-body__field" placeholder="Ваше имя*" type="text"/><input class="form-body__field" placeholder="Телефон*" type="text"/><input class="form-body__field" placeholder="Дата*" type="text"/><input class="form-body__field" placeholder="Время*" type="text"/><textarea class="form-body__field" rows="5" name="Суть проблемы">Say hello to</textarea>
-            <p class="form-body__text">Удостоверьтесь что данные указаны верно
-            </p><input class="form-body__write-btn" type="submit" value="Записаться"/>
+          <form class="form-body" method="POST" action="{{ url('/enroll') }}">
+            {{ csrf_field() }}
+            {{ dump(session()->all()) }}
+            <div class="form-body__title">Приходите на приём</div>
+            <input class="form-body__field" name="patient_name" placeholder="Ваше Ф.И.О.*" type="text"/>
+            <input class="form-body__field" name="patient_phone" placeholder="Телефон*" type="text"/>
+            <input class="form-body__field" name="patient_email" placeholder="e-mail*" type="text"/>
+            <input class="form-body__field" id="datepicker" name="patient_visit_date" placeholder="Дата*" type="text"/>
+            <input class="form-body__field" name="patient_visit_time" placeholder="Время*" type="text"/>
+            <textarea class="form-body__field" name="patient_complaints" rows="5" placeholder="Суть проблемы"></textarea>
+            <p class="form-body__text">Удостоверьтесь что данные указаны верно</p>
+            <input class="form-body__write-btn" type="submit" value="Записаться"/>
           </form>
         </div>
       </div>
@@ -72,4 +79,19 @@
     @include('layouts.sidebar')
 
   </section>
+@endsection
+
+@section('page-scripts')
+  <script>
+    $('document').ready(function () {
+      var form_errors = {!! json_encode(session()->get('form_errors')) !!};
+      if( form_errors ){
+        $.each(form_errors, function (field_name, field_error) {
+          $('input[name='+field_name+']').css('border', '1px solid red');
+        });
+      }
+
+      $( "#datepicker" ).datepicker();
+    });
+  </script>
 @endsection

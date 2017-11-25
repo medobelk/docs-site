@@ -17,7 +17,7 @@ use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
 use App\Visit;
 
-class VoyagerPatientsController extends Controller
+class VoyagerUsersController extends Controller
 {
     use BreadRelationshipParser;
     //***************************************
@@ -581,7 +581,7 @@ class VoyagerPatientsController extends Controller
 
     public function show(Request $request, $id)
     {
-    	$visits = Visit::where('patient_id', $id)->with('analyzes')->get();
+    	$visits = Visit::where('user_id', $id)->with('analyzes')->get();
     	
         $slug = $this->getSlug($request);
 

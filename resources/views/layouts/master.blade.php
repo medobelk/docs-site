@@ -24,6 +24,7 @@
 
 	@include('layouts.scripts')
   @include('layouts.google-analytics')
+  @yield('page-scripts')
 
   </body>
 </html>
