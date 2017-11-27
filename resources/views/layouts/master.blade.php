@@ -24,7 +24,8 @@
 
 	@include('layouts.scripts')
   @include('layouts.google-analytics')
-  @yield('page-scripts')
+  @include('layouts.form-errors-script')
+  @include('layouts.create-question-form-success')
 
   </body>
 </html>

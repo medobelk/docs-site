@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use App\Visit;
 use App\Event;
 use App\AnonimRequest;
+use App\QuestionSubscription;
+use App\Services\GoogleCalendar;
 
 class HomeController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
@@ -25,16 +28,76 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, GoogleCalendar $google)
     {
+        $calendarId = "YourCalendarID";
+        $result = $google->get($calendarId);
+        dd($result);
         $events = Event::orderBy('id', 'desc')->take(5)->get();
 
         return view('welcome', compact('events'));
     }
 
-    public function contacts()
+    public function reviews()
     {
-        return view('contacts');
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+
+        return view('reviews', compact('events'));
+    }
+
+    public function questions()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+
+        return view('questions', compact('events'));
+    }
+
+    public function contacts()
+    {   
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('contacts', compact('events') );
+    }
+
+    public function about()
+    {   
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('about-doctor', compact('events'));
+    }
+
+    public function diseases()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('diseases', compact('events'));
+    }
+
+    public function treatment()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('treatments', compact('events'));
+    }
+
+    public function pricing()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('pricing', compact('events'));
+    }
+
+    public function diseaseMan()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('disease-man', compact('events'));
+    }
+
+    public function diseaseWooman()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('disease-wooman', compact('events'));
+    }
+
+    public function diseaseKidneys()
+    {
+        $events = Event::orderBy('id', 'desc')->take(5)->get();
+        return view('disease-kidneys', compact('events'));
     }
 
     public function enroll(Request $request)
@@ -57,7 +120,7 @@ class HomeController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/')
+            return back()
                         ->withInput()
                         ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
@@ -72,6 +135,33 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        return redirect('/');
+        return back();
+    }
+
+    public function createQuestion(Request $request)
+    {   
+    
+        $validator = Validator::make($request->all(), [
+            'question_name' => 'required|min:15',
+            'question_email' => 'required|email',
+            'question_complaints' => 'min:30'
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                        ->withInput()
+                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+        }
+        //$validator->errors()->keys();
+
+        $subscription = new QuestionSubscription();
+
+        $subscription->name = $request->question_name;
+        $subscription->email = $request->question_email;
+        $subscription->complaints = $request->question_complaints;
+        $subscription->subscribe = $request->question_subscription === 'on' ? 1 : 0;
+        $subscription->save();
+
+        return back()->with('thanks_block', true);
     }
 }

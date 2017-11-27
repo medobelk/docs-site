@@ -15,15 +15,20 @@ Route::get('/', 'HomeController@index');
 Route::post('/enroll', 'HomeController@enroll');
 
 
-Route::get('/reviews', 'QuestionsController@index');
 Route::get('/plasma', 'HomeController@questions');
 
 //misc info routes
-Route::get('/about-doctor', 'HomeController@about');
+Route::get('/reviews', 'HomeController@reviews');
+Route::get('/QA/getlist', 'HomeController@questions');
+Route::post('/create-question', 'HomeController@createQuestion');
+Route::get('/Pagec/view/name/about', 'HomeController@about');
 Route::get('/pricing', 'HomeController@pricing');
-Route::get('/diseases', 'HomeController@diseases');
+Route::get('/Pagec/view/name/hvor', 'HomeController@diseases');
 Route::get('/contacts', 'HomeController@contacts');
-Route::get('/treatment', 'HomeController@treatment');
+Route::get('/Pagec/view/name/methods', 'HomeController@treatment');
+Route::get('/disease-man', 'HomeController@diseaseMan');
+Route::get('/disease-wooman', 'HomeController@diseaseWooman');
+Route::get('/disease-kidneys', 'HomeController@diseaseKidneys');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

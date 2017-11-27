@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class QuestionsController extends Controller
 {
-    public function index()
+    // public function index()
+    // {
+    // 	return view('add-review');
+    // }
+
+    public function index(Request $request)
     {
-    	return view('add-review');
+    	return view('add-question');
     }
 }

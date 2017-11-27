@@ -1,18 +1,52 @@
 <header class="header">
   <div class="header__container">
-    <div class="header__logo"><a class="header-logo" href="{{ url('/') }}"><img class="header-logo__img" src="img/logo/logo.png" alt="" role="presentation"/></a>
+    <div class="mobile-menu"><img class="mobile-menu__icon" src="{{ asset('img/mobile-burger.png') }}" alt="" role="presentation"/>
+      <div class="mobile-menu__links hide">
+        <a class="mobile-menu__link" href="{{ url('/about-doctor') }}">обо мне</a>
+        <a class="mobile-menu__link" href="{{ url('/diseases') }}">заболевания</a>
+        <a class="mobile-menu__link" href="{{ url('/treatment') }}">методы лечения</a>
+        <a class="mobile-menu__link" href="{{ url('/pricing') }}">цены</a>
+        <a class="mobile-menu__link" href="{{ url('/contacts') }}">контакты</a>
+        <a class="mobile-menu__link" href="{{ url('/questions') }}">вопросы</a>
+        <div class="header__private-cabinet">
+          <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+        </div>
+      </div>
     </div>
-    <div class="header__telephones"><a class="header-telephone" href="##"><i class="header-telephone__icon fa fa-phone"></i><a href="tel:+380674899134" class="header-telephone__telephone-link">+38(067) 489 91 34</a><a href="tel:+380487043758" class="header-telephone__telephone-link">+38(048) 704 37 58</a></a>
+    <div class="header__logo"><a class="header-logo" href="{{ url('/') }}"><img class="header-logo__img" src="{{ asset('img/logo/logo.png') }}" alt="" role="presentation"/></a>
+    </div>
+    <div class="header__telephones">
+      <a class="header-telephone" href="##">
+        <i class="header-telephone__icon fa fa-phone"></i>
+        <a href="tel:+380674899134" class="header-telephone__telephone-link first">+38(067)
+          <SPAN>489 91 34</SPAN>
+        </a>
+        <a href="tel:+380487043758" class="header-telephone__telephone-link second">+38(048)
+          <SPAN>704 37 58</SPAN>
+        </a>
+      </a>
     </div>
     <div class="header__adress">
-      <div class="header-adress"><i class="header-adress__icon fa fa-map-marker"></i><span class="header-adress__text">Семинарская 7, каб. 21</span>
+      <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-ico.png') }}" alt="" role="presentation"/><span class="header-adress__text">Семинарская 7, каб. 21</span>
       </div>
     </div>
     <div class="header__nav">
-      <nav class="header-nav"><a class="header-nav__link" href="index.html">обо мне</a><a class="header-nav__link" href="index.html">заболевания</a><a class="header-nav__link" href="index.html">методы лечения</a><a class="header-nav__link" href="index.html">цены</a><a class="header-nav__link" href="contacts.html">контакты</a><a class="header-nav__link" href="index.html">вопросы</a>
+      <nav class="header-nav">
+        <a class="header-nav__link" href="{{ url('/Pagec/view/name/about') }}">обо мне</a>
+        <a class="header-nav__link" href="{{ url('/Pagec/view/name/hvor') }}">заболевания</a>
+        <a class="header-nav__link" href="{{ url('/Pagec/view/name/methods') }}">методы лечения</a>
+        <a class="header-nav__link" href="{{ url('/pricing') }}">цены</a>
+        <a class="header-nav__link" href="{{ url('/contacts') }}">контакты</a>
+        <a class="header-nav__link" href="{{ url('/QA/getlist') }}">вопросы</a>
       </nav>
     </div>
-    <div class="header__private-cabinet"><a class="private-cabinet" href="{{ url('login') }}"><i class="private-cabinet__icon fa fa-lock"></i><i class="private-cabinet__text">Вход</i></a>
+    
+    <div class="header__private-cabinet">
+      @if( Auth::check() )
+        <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Выход</i></a>
+      @else
+        <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+      @endif
     </div>
   </div>
 </header>

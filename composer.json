@@ -10,6 +10,7 @@
     "require": {
         "php": ">=7.0.0",
         "fideloper/proxy": "~3.3",
+        "google/apiclient": "^2.2",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "tcg/voyager": "^1.0"
@@ -23,7 +24,8 @@
     "autoload": {
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "vendor/google/apiclient/src/Google"
         ],
         "psr-4": {
             "App\\": "app/"
