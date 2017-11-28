@@ -26,6 +26,6 @@
   @include('layouts.google-analytics')
   @include('layouts.form-errors-script')
   @include('layouts.create-question-form-success')
-
+  
   </body>
 </html>

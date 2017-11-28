@@ -29,7 +29,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request, GoogleCalendar $google)
-    {
+    {   
+
+        // $calendarId = "cynerdemid@gmail.com";
+        // $result = $google->get($calendarId);
+        
         $events = Event::orderBy('id', 'desc')->take(5)->get();
 
         return view('welcome', compact('events'));
@@ -132,14 +136,14 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        return back();
+        return back()->with('thanks_block', true);
     }
 
     public function createQuestion(Request $request)
     {   
     
         $validator = Validator::make($request->all(), [
-            'question_name' => 'required|min:15',
+            // 'question_name' => 'required|min:15',
             'question_email' => 'required|email',
             'question_complaints' => 'min:30'
         ]);
@@ -153,7 +157,7 @@ class HomeController extends Controller
 
         $subscription = new QuestionSubscription();
 
-        $subscription->name = $request->question_name;
+        $subscription->name = strlen($request->question_name) > 0 ? $request->question_name: 'Аноним';
         $subscription->email = $request->question_email;
         $subscription->complaints = $request->question_complaints;
         $subscription->subscribe = $request->question_subscription === 'on' ? 1 : 0;

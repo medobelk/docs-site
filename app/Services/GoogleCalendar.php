@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Services;
 
@@ -13,59 +13,21 @@ class GoogleCalendar {
 
     function __construct() {
 
-        // putenv('GOOGLE_APPLICATION_CREDENTIALS=' . base_path() . '/resources/assets/medobelk-service-account-credentials.json');
-        // dd(getenv('GOOGLE_APPLICATION_CREDENTIALS'));
-
         $this->client = new \Google_Client();
-        
-        $scopes = array('https://www.googleapis.com/auth/calendar');
+        $this->client->setApplicationName("MEDOBELKS TESTS");        
+        $this->client->setAuthConfig( base_path() . '/resources/assets/me-service-acc-pass.json' );
+        $scopes = array('https://www.googleapis.com/auth/calendar'); //array('Google_Service_Calendar::CALENDAR_READONLY');
         $this->client->setScopes($scopes);
-        $this->client->setApplicationName("Medobelks Calendar");
-        $key = base_path() . Config::get('google.key_file_location');
-        $this->client->setAuthConfig($key);
-        $this->client->setAccessType('offline');
-        
+
+        $user_to_impersonate = 'cynerdemid@gmail.com';
+        $this->client->setSubject($user_to_impersonate);
+
         $this->service = new \Google_Service_Calendar($this->client);
-        // $scopes = array('https://www.googleapis.com/auth/calendar');
-        // $key = base_path() . Config::get('google.key_file_location');
-        // dd($this->service);
-        // $this->client->setApplicationName("Medobelks Calendar");
-        // $this->client->setAuthConfig($key);
-        // $this->client->setScopes($scopes);
-        // $this->client->setAccessType('offline');
-        // $this->service = new \Google_Service_Calendar($this->client);
-            
 
-        /* Get config variables */
-        // $client_id = Config::get('google.client_id');
-        // $service_account_name = Config::get('google.service_account_name');
-        // $key_file_location = base_path() . Config::get('google.key_file_location');
-        // $key = base_path() . Config::get('google.key_file_location');
-        // // $key = file_get_contents($key_file_location);
-        // $scopes = array('https://www.googleapis.com/auth/calendar');
-
-        // $this->client = new \Google_Client();
-        // $this->client->setApplicationName("Medobelks Calendar");
-        // $this->client->setScopes($scopes);
-        // $this->client->setAuthConfig($key);
-        // $this->client->setAccessType('offline');
-        // $this->service = new \Google_Service_Calendar($this->client);
-
-        // /* If we have an access token */
+        /* If we have an access token */
         // if (Cache::has('service_token')) {
-        //   //$this->client->setAccessToken(Cache::get('service_token'));
+        //   $this->client->setAccessToken(Cache::get('service_token'));
         // }
-
-        
-        /* Add the scopes you need */
-        
-        // $cred = new \Google_Auth_AssertionCredentials(
-        //     $service_account_name,
-        //     $scopes,
-        //     $key
-        // );
-
-        // $this->client->setAssertionCredentials($cred);
 
         // if ($this->client->getAuth()->isAccessTokenExpired()) {
         //   $this->client->getAuth()->refreshTokenWithAssertion($cred);

@@ -816,11 +816,11 @@ a {
         @media (max-width: 480px) {
           .merhods .main .main-info__left-part {
             display: none; } }
-        .merhods .main .main-info__left-part .erorr-404 {
+        .erorr-404 {
           padding-top: 50px;
           padding-left: 40px;
           text-align: center; }
-          .merhods .main .main-info__left-part .erorr-404__image-404 {
+          .erorr-404__image-404 {
             width: 100%; }
       .merhods .main .main-info__middle-part {
         box-sizing: border-box;
@@ -843,13 +843,13 @@ a {
             padding-right: 0.83333%;
             padding-left: 5%;
             padding-right: 5%; } }
-        .merhods .main .main-info__middle-part .error-text {
+        .error-text {
           padding-top: 50px;
           font-family: "Segoe UI";
           font-size: 14px; }
-          .merhods .main .main-info__middle-part .error-text__text {
+          .error-text__text {
             padding-bottom: 20px; }
-          .merhods .main .main-info__middle-part .error-text__text.link {
+          .error-text__text.link {
             text-decoration: underline;
             color: #7b89b2; }
       .merhods .main .main-info__right-part {
@@ -4809,11 +4809,11 @@ footer {
         @media (max-width: 480px) {
           .merhods .main .main-info__left-part {
             display: none; } }
-        .merhods .main .main-info__left-part .erorr-404 {
+        .erorr-404 {
           padding-top: 50px;
           padding-left: 40px;
           text-align: center; }
-          .merhods .main .main-info__left-part .erorr-404__image-404 {
+          .erorr-404__image-404 {
             width: 100%; }
       .merhods .main .main-info__middle-part {
         box-sizing: border-box;
@@ -4836,13 +4836,13 @@ footer {
             padding-right: 0.83333%;
             padding-left: 5%;
             padding-right: 5%; } }
-        .merhods .main .main-info__middle-part .error-text {
+        .error-text {
           padding-top: 50px;
           font-family: "Segoe UI";
           font-size: 14px; }
-          .merhods .main .main-info__middle-part .error-text__text {
+          .error-text__text {
             padding-bottom: 20px; }
-          .merhods .main .main-info__middle-part .error-text__text.link {
+          .error-text__text.link {
             text-decoration: underline;
             color: #7b89b2; }
       .merhods .main .main-info__right-part {
