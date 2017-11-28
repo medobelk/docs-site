@@ -13,7 +13,7 @@
                   <div class="methods-list__methods">
                     <div class="methods-body">
                       <div class="method"><img class="method__dis-image" src="img/disase-image.png" alt="" role="presentation"/>
-                        <h4 class="method__title"> Плазмоферез
+                        <h4 class="method__title">Плазмолифтинг
                         </h4>
                         <p class="method__text">Метод плазмалифтинга в урологии основан на способности определенных компонентов  крови оказывать  сильное влияние на процессы восстановления и омоложения тканей.
                         </p>

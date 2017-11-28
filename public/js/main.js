@@ -4,7 +4,6 @@ $(document).ready(function() {
         dots: true,
         navigation: true,
         navigationText: ["left", "right"],
-        autoplay: true,
         loop: true,
     });
 
