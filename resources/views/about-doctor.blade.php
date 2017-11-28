@@ -12,7 +12,7 @@
             <div class="main-info">
               <div class="content-area">
                 <div class="doctor-info">
-                  <div class="doctor-info__top"><img class="doctor-image" src="img/questions-image/doctor-image.png" alt="" role="presentation"/>
+                  <div class="doctor-info__top"><img class="doctor-image" src="{{ asset('img/questions-image/doctor-image.png') }}" alt="" role="presentation"/>
                     <div class="doctor-text">
                       <h3 class="doctor-text__name">Брезицкий Юрий Иосифович
                       </h3>
