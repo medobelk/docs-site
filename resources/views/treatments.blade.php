@@ -62,4 +62,3 @@
         </div>
       </section>
 @endsection
-@include('layouts.create-question-form-success')

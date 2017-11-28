@@ -52,4 +52,5 @@
       
     </div>
   </section>
+@include('layouts.map-script')
 @endsection

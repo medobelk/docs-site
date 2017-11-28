@@ -151,7 +151,8 @@ class HomeController extends Controller
         if ($validator->fails()) {
             return back()
                         ->withInput()
-                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()))
+                        ->with('thanks_block', true);
         }
         //$validator->errors()->keys();
 
