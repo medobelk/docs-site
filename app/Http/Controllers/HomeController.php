@@ -136,7 +136,7 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        return back();
+        return back()->with('thanks_block', true);
     }
 
     public function createQuestion(Request $request)
@@ -151,8 +151,7 @@ class HomeController extends Controller
         if ($validator->fails()) {
             return back()
                         ->withInput()
-                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()))
-                        ->with('thanks_block', true);
+                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
         //$validator->errors()->keys();
 
