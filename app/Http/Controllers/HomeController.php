@@ -30,9 +30,6 @@ class HomeController extends Controller
      */
     public function index(Request $request, GoogleCalendar $google)
     {
-        $calendarId = "YourCalendarID";
-        $result = $google->get($calendarId);
-        dd($result);
         $events = Event::orderBy('id', 'desc')->take(5)->get();
 
         return view('welcome', compact('events'));

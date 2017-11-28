@@ -28,7 +28,7 @@ class GoogleCalendar {
         $this->service = new \Google_Service_Calendar($this->client);
         // $scopes = array('https://www.googleapis.com/auth/calendar');
         // $key = base_path() . Config::get('google.key_file_location');
-        dd($this->service);
+        // dd($this->service);
         // $this->client->setApplicationName("Medobelks Calendar");
         // $this->client->setAuthConfig($key);
         // $this->client->setScopes($scopes);
