@@ -10,7 +10,7 @@ return [
     | The Client ID can be found in the OAuth Credentials under Service Account
     |
     */
-    'client_id' => '1051220004631-8av2cs9uiqtdn5a6880c6qmh8nq75qmu.apps.googleusercontent.com',
+    'client_id' => 'medobelks-servise@medobelk-doctors-site.iam.gserviceaccount.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
     | OAuth Credentials under Service Account
     |
     */
-    'service_account_name' => 'cynerdemid@gmail.com',
+    'service_account_name' => 'medobelks_servise',
 
     /*
     |--------------------------------------------------------------------------
@@ -31,5 +31,5 @@ return [
     | This is the location of the .p12 file from the Laravel root directory
     |
     */
-    'key_file_location' => '/resources/assets/client_secret.json',
+    'key_file_location' => '/resources/assets/me-service-account-password.p12',
 ];

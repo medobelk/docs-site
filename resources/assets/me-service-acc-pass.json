@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "medobelk-doctors-site",
+  "private_key_id": "2ed60d6385fea34868f0d630ea9e81c14e120b6b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJ2sXcUXwaKDLQ\nId3T2bT3kf5N1DeZUy0PxvfIWGBsT24/1fkEuH579x4toUIvOgZROwN6wbliJ7Y4\n4GaVO1n0dSrSKzSSVQSBbuomU2GyeDFT1MCsIE6GSHlbcFFj2DecoKFC5qh2VHC5\nhH36IecSlEwWlMzncDHmnZ6k1eiH4W1/9UQa9LGEpYxJTbWpPF/YDo+NjCeR8val\nmaqsGLqUp1RF4yc9aSRPCLNzdAAG9IdSixZsQDydQLoPBcQNoCBhLr3q0v51oOoV\ncG74tjoLyChgETcKcjLUrw6glw1YK4SLWot7ihKquGyounkppvTYTf6PKskga+Bn\nL46mx2AxAgMBAAECggEAGQF94O8EQ35G2zNS1m+CJGhE23HmiFs+OhXhNMPEAC7v\n3r8cZ/oOCz/gEHGJcC3NQgtgQTkWBOOcBpxAAQ029dp8+UfKbbVUB0/M+H38XJ5Y\nqASzcK9Y4vg/9nSp1Idgzkm06IOIC46m30ibTZ0dEddmvKZm4uXqfKH6mPt54Lkz\nFDbpeITlMvVTUrgrHvOccMo0NKKs+ifxWSbW1BhuXZksv12fZJ2xEf1WUHbQ6v9I\nwgKhYliT12fndq4Ixzko/Gi+xVfW+l1oRqLIwnGHTqFf6DlhlDZb1Xk2jMqNYVPF\n/plGlx4U+XJawKaj49ADj9JXIbYhwGptTop1UYPhsQKBgQD8fL1OzENDpPH3/5Nq\nPi9Z0GwsCxwytSu7X1cnReS17U2KKmC2t0nukGC9WphltxtZ4ZUTTyJ3cMxvQLKR\nG8nRGJzKxKBrRga2AfUXgLC+7m2hc/T2ASwPwraa3d7V02g5khjA76dshzUx+rAq\nsqZhv7AfrfuacOziYilGHm/fuQKBgQDMqbMdvczU2pm0z9FNXIny2of9HVV5V2CC\nGaDZf9CRURoJaBTBYUw9VJHdFTAoz4fVMpwuVDo60eMDS/bPzNQWhhbsF1Wq8lrs\nGF4LPbWyetED2UjatEgVJ3VDRbE0F+LWm+n1/CxOAYrWgK9X6wTqCPDFA4/EEQ7j\noN7nhHsQOQKBgEZiC2+U10dbCqykTRa3wQFbbVwVuMWV5Vv1JtlmzWu9e/kA+TbV\n/0EGdEE0qPjpwzEaBjF8xNHg2sxEj8KNqYOlRcfsaf+dZK+F+imUETEYS+1O4sFU\n8FBwafDf2odmyE4MIORfqh9BzZ1iEYvFg0YKZnFeUZ3qzs4IqRLH103ZAoGBAMnh\nY0OlI1WbRB8tF6Kd851Qnu+4bcXBwPrUWOvyvkN5optAxahzV4bv0uonqle3Tp+o\nypKQltfKjYmE9zLHMzX8ksPTyLdVVQaqiqm/92jU6TRIsyq4xpnHUE5JgqCGJ0XW\nihQQ6YsQzmkEivHIbBKHOyi7eKbIxM0YtIffEJ1RAoGANu+JN9ZJSIMHYiCXS8dQ\nsv8BG1qyQ+FnikZMeyXT2E72JT6oCUBKi+sJCOMoxsMy0vJc/mvVipqivCKnO9a2\nk7T7qum4wygtWY2ltspuo5hVHbJmW9zK8LyQZG3Ny5ElS66p9FKqt9bR7ezMTFBw\n+zSWrYZPopZcOSSSd7nrSjw=\n-----END PRIVATE KEY-----\n",
+  "client_email": "medobelks-service-doctor@medobelk-doctors-site.iam.gserviceaccount.com",
+  "client_id": "108810337543179294206",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/medobelks-service-doctor%40medobelk-doctors-site.iam.gserviceaccount.com"
+}
