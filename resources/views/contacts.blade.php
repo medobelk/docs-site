@@ -19,8 +19,8 @@
                   <div class="contacts-main">
                     <div class="contacts-item">
                       <div class="contacts-item__name">Телефоны
-                      </div><img class="contacts-item__icon ico-one" src="img/tel-ico.png" alt="" role="presentation"/><span class="contacts-item__value">+ 38(099)-489-91-34</span>
-                      <BR></BR><span class="contacts-item__value two">+ 38(099)-704-37-58</span>
+                      </div><img class="contacts-item__icon ico-one" src="img/tel-ico.png" alt="" role="presentation"/><span class="contacts-item__value">+ 38(067)-489-91-34</span>
+                      <BR></BR><span class="contacts-item__value two">+ 38(048)-704-37-58</span>
                     </div>
                     <div class="contacts-item">
                       <div class="contacts-item__name">График роботы

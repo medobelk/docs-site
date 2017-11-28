@@ -584,29 +584,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    .merhods .main .questions-list {
-      box-sizing: border-box;
-      width: 100%;
-      float: left;
-      padding-left: 0.83333%;
-      padding-right: 0.83333%;
-      padding-left: 10px;
-      padding-right: 0;
-      background: #e4e4e4;
-      padding-bottom: 30px; }
-      .merhods .main .questions-list__image {
-        width: 95%; }
-      .merhods .main .questions-list__item {
-        box-sizing: border-box;
-        width: 100%;
-        float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%;
-        box-sizing: border-box;
-        width: 25%;
-        float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+
     .merhods .main .main-info {
       background: #F4F4F4;
       padding-bottom: 40px; }
@@ -1383,6 +1361,9 @@ a {
       .diseases .main .main-info .methods-list {
         padding-top: 50px;
         padding-left: 40px; }
+        @media (max-width: 480px) {
+          .diseases .main .main-info .methods-list.two-text {
+            padding-right: 40px; } }
         .diseases .main .main-info .methods-list__methods {
           margin-bottom: 20px; }
           .diseases .main .main-info .methods-list__methods .methods-body__title {
