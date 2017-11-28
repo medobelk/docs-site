@@ -2,14 +2,18 @@
   <div class="header__container">
     <div class="mobile-menu"><img class="mobile-menu__icon" src="{{ asset('img/mobile-burger.png') }}" alt="" role="presentation"/>
       <div class="mobile-menu__links hide">
-        <a class="mobile-menu__link" href="{{ url('/about-doctor') }}">обо мне</a>
-        <a class="mobile-menu__link" href="{{ url('/diseases') }}">заболевания</a>
-        <a class="mobile-menu__link" href="{{ url('/treatment') }}">методы лечения</a>
-        <a class="mobile-menu__link" href="{{ url('/pricing') }}">цены</a>
-        <a class="mobile-menu__link" href="{{ url('/contacts') }}">контакты</a>
-        <a class="mobile-menu__link" href="{{ url('/questions') }}">вопросы</a>
-        <div class="header__private-cabinet">
-          <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+        <div class="flex-block">
+          <div class="links-block">
+              <a class="mobile-menu__link" href="{{ url('/about-doctor') }}">обо мне</a>
+              <a class="mobile-menu__link" href="{{ url('/diseases') }}">заболевания</a>
+              <a class="mobile-menu__link" href="{{ url('/treatment') }}">методы лечения</a>
+              <a class="mobile-menu__link" href="{{ url('/pricing') }}">цены</a>
+              <a class="mobile-menu__link" href="{{ url('/contacts') }}">контакты</a>
+              <a class="mobile-menu__link" href="{{ url('/questions') }}">вопросы</a>
+          </div>
+          <div class="header__private-cabinet private-visible">
+            <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+          </div>
         </div>
       </div>
     </div>
