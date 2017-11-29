@@ -1,11 +1,11 @@
-<div class="questions-list"><a class="questions-list__item item-one" href="{{ url('/disease-wooman') }}"><span class="questions-list__title">Заболевания у женщин</span>
+<div class="questions-list"><a class="questions-list__item item-one" href="{{ url('/disease-wooman') }}"><span class="questions-list__title">Когда обращаться женщинам</span>
   <div class="img-text"><img class="img-text__img no-hover" src="{{ asset('img/top-pne.png') }}" alt="" role="presentation"/><img class="img-text__img hover-image hide" src="{{ asset('img/top-pne-hover.png') }}" alt="" role="presentation"/>
     <ol class="img-text__list">
       <LI>1. Учащенное болезненное мочеиспускание</LI>
       <LI>2. Боли в пояснице</LI>
       <LI>3. Выделения из мочеиспускательного канала</LI>
     </ol>
-  </div></a><a class="questions-list__item item-two" href="{{ url('/disease-man') }}"><span class="questions-list__title">Заболевания у мужчин</span>
+  </div></a><a class="questions-list__item item-two" href="{{ url('/disease-man') }}"><span class="questions-list__title">Когда обращаться мужчинам</span>
   <div class="img-text"><img class="img-text__img no-hover" src="{{ asset('img/top-man.png') }}" alt="" role="presentation"/><img class="img-text__img hover-image hide" src="{{ asset('img/top-man-hover.png') }}" alt="" role="presentation"/>
     <ol class="img-text__list">
       <LI>1. Рези при мочеиспускании</LI>
