@@ -145,7 +145,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             // 'question_name' => 'required|min:15',
             'question_email' => 'required|email',
-            'question_complaints' => 'min:30'
+            'question_complaints' => 'required|min:30'
         ]);
 
         if ($validator->fails()) {
