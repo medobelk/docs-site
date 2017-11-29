@@ -4471,7 +4471,7 @@ footer {
     @media (max-width: 768px) {
       .intro .main {
         box-sizing: border-box;
-        width: 75%;
+        width: 100%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; } }
