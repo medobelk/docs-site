@@ -182,13 +182,21 @@ a {
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%; }
+
     @media (max-width: 991px) {
-      .contacts .doctor-form {
-        box-sizing: border-box;
-        width: 100%;
-        float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; } }
+    .contacts .doctor-form {
+    width: 100%;
+    padding-left: 30%;
+    padding-right: 30%;
+} }
+
+    @media (max-width: 480px) {
+    .contacts .doctor-form {
+    width: 100%;
+    padding-left: 15%;
+    padding-right: 15%;
+} }
+
   .contacts .main {
     box-sizing: border-box;
     width: 83.33333%;
@@ -201,7 +209,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .contacts .main {
         box-sizing: border-box;
         width: 100%;
@@ -276,8 +284,8 @@ a {
             box-sizing: border-box;
             width: 100%;
             float: left;
-            padding-left: 0.83333%;
-            padding-right: 0.83333%; } }
+            padding-left: 2%;
+            spadding-right: 2%; } }
         .contacts .main .main-info .contacts-map__service {
           margin-bottom: 20px; }
           .contacts .main .main-info .contacts-map__service .service-body__title {
@@ -321,23 +329,21 @@ a {
                   margin-top: 40px;
                   padding-left: 0; } }
               .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item {
-                margin-bottom: 30px;
-                text-align: center; }
+                margin-bottom: 30px; }
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__name {
                   font-size: 16px;
                   margin-bottom: 20px;
                   color: gray;
+                  text-align: center;
                   font-family: "Roboto Condensed"; }
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value {
                   font-size: 16px;
-                  padding-left: 10px;
                   color: #3f3f3f;
+                      line-height: 20px;
                   font-family: "Segoe UI"; }
-                .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value.two {
-                  padding-left: 30px; }
-  .contacts .ico-one {
-    position: relative;
-    top: 20px; }
+                .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value.two {    display: inline-block;
+    margin-top: 10px; }
+  .contacts .ico-one {}
   .contacts .ico-two {
     position: relative;
     top: 3px; }
@@ -357,7 +363,7 @@ a {
   .prices .doctor-form .form-body__title {
     position: relative;
     right: 40px; }
-  @media (max-width: 991px) {
+  @media (max-width: 768px) {
     .prices .sidebar {
       display: none; } }
   @media (max-width: 991px) {
@@ -380,7 +386,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .prices .main {
         box-sizing: border-box;
         width: 100%;
@@ -888,7 +894,7 @@ a {
   .about-page .doctor-form .form-body__title {
     position: relative;
     right: 45px; }
-  @media (max-width: 991px) {
+  @media (max-width: 768px) {
     .about-page .sidebar {
       display: none; } }
   .about-page__container {
@@ -908,7 +914,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .about-page .main {
         box-sizing: border-box;
         width: 100%;
@@ -1219,7 +1225,7 @@ a {
     content: "";
     display: table;
     clear: both; }
-  @media (max-width: 991px) {
+  @media (max-width: 768px) {
     .diseases .sidebar {
       display: none; } }
   @media (max-width: 991px) {
@@ -1242,7 +1248,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .diseases .main {
         box-sizing: border-box;
         width: 100%;
@@ -1361,6 +1367,14 @@ a {
       .diseases .main .main-info .methods-list {
         padding-top: 50px;
         padding-left: 40px; }
+
+        @media (max-width: 480px) {
+              .diseases .main .main-info .methods-list {
+            padding-right: 40px;}
+        }
+
+    
+
         @media (max-width: 480px) {
           .diseases .main .main-info .methods-list.two-text {
             padding-right: 40px; } }
@@ -1445,7 +1459,7 @@ a {
     content: "";
     display: table;
     clear: both; }
-  @media (max-width: 991px) {
+  @media (max-width: 768px) {
     .all-questions .sidebar {
       display: none; } }
   @media (max-width: 991px) {
@@ -1468,7 +1482,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .all-questions .main {
         width: 100%; } }
     .all-questions .main .main-info {
@@ -1736,7 +1750,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .zabolevania-pochek .main {
         width: 100%; } }
     .zabolevania-pochek .main .main-info {
@@ -1866,7 +1880,8 @@ a {
             display: flex; }
       .zabolevania-pochek .main .main-info .zabs-list {
         padding-top: 40px;
-        padding-left: 40px; }
+        padding-left: 40px;
+        padding-right: 40px; }
         .zabolevania-pochek .main .main-info .zabs-list__zabs {
           margin-bottom: 20px; }
           .zabolevania-pochek .main .main-info .zabs-list__zabs .zabs-body {
@@ -1989,7 +2004,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .zabolevania-mans .main {
         width: 100%; } }
     .zabolevania-mans .main .main-info {
@@ -2119,7 +2134,8 @@ a {
             display: flex; }
       .zabolevania-mans .main .main-info .zabs-list {
         padding-top: 40px;
-        padding-left: 40px; }
+        padding-left: 40px;
+        padding-right: 40px; }
         .zabolevania-mans .main .main-info .zabs-list__zabs {
           margin-bottom: 20px; }
           .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body {
@@ -2260,7 +2276,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .zabolevania-womans .main {
         width: 100%; } }
     .zabolevania-womans .main .main-info {
@@ -2391,6 +2407,17 @@ a {
       .zabolevania-womans .main .main-info .zabs-list {
         padding-top: 40px;
         padding-left: 40px; }
+
+        @media (max-width: 991px){
+        .zabolevania-womans .main .main-info .zabs-list {
+            padding-right: 40px;
+        }
+
+        .all-questions .main .main-info .reviws-list {
+        padding-right: 40px;
+        }
+        }
+
         .zabolevania-womans .main .main-info .zabs-list__zabs {
           margin-bottom: 20px; }
           .zabolevania-womans .main .main-info .zabs-list__zabs .zabs-body {
@@ -2531,7 +2558,7 @@ a {
       content: "";
       display: table;
       clear: both; }
-    @media (max-width: 991px) {
+    @media (max-width: 768px) {
       .zabolevania-all .main {
         width: 100%; } }
     .zabolevania-all .main .main-info {
@@ -3799,7 +3826,7 @@ footer {
   background: #58647c;
   color: white;
   padding-top: 30px;
-  padding-bottom: 30px; }
+  border-top: 3px solid #CECECE;}
   footer .footer-patient-body {
     margin: 0 auto; }
     footer .footer-patient-body:after {
@@ -3889,6 +3916,42 @@ footer {
   padding-right: 0;
   background: #e4e4e4;
   padding-bottom: 30px; }
+
+              @media (max-width: 991px) {
+      .questions-list{
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-bottom: 0;
+        } }
+
+    @media (max-width: 480px) {
+      .questions-list{
+        padding-left: 40px;
+        padding-right: 40px;
+        } }
+
+
+
+
+@media (max-width: 768px) and (min-width: 650px) {
+        .questions-list__item {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 40px;
+    height: 200px;
+}
+}
+
+@media (max-width: 650px) and (min-width: 480px) {
+.questions-list__title {
+    justify-content: center;
+    
+}
+}
+
   .questions-list .hover-title {
     color: #64C8E2; }
   .questions-list .hide {
@@ -3897,8 +3960,21 @@ footer {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 24px;
     color: #59647A;
-    display: inline-block;
-    margin-bottom: 20px; }
+    align-items: center;
+    display: flex;
+    font-weight: 300;
+    margin-bottom: 20px;  }
+
+
+.questions-list__title:before{
+  content: '';
+  width: 2px;
+  height: 20px;
+  background: #58647c;
+  display: block;
+  margin-right: 15px;
+}
+
   .questions-list__image {
     width: 95%; }
     @media (max-width: 991px) {
@@ -3909,23 +3985,24 @@ footer {
     width: 25%;
     float: left;
     padding-left: 0.83333%;
-    padding-right: 0.83333%; }
+    padding-right: 2%; }
     @media (max-width: 991px) {
       .questions-list__item {
         box-sizing: border-box;
         width: 50%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%;
-        padding-bottom: 40px;
-        height: 210px; } }
-    @media (max-width: 480px) {
+        padding-left: 1%;
+        padding-right: 1%;
+        padding-bottom: 40px;} }
+    @media (max-width: 650px) {
       .questions-list__item {
         box-sizing: border-box;
         width: 100%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%;
+        height: auto;
+        padding-bottom: 20px;
         text-align: center; } }
     .questions-list__item .img-text {
       display: -webkit-box;
@@ -3933,12 +4010,12 @@ footer {
       display: -ms-flexbox;
       display: flex; }
       .questions-list__item .img-text img {
-        width: 50px;
-        height: 70px;
-        margin-right: 20px; }
+            width: 80px;}
       .questions-list__item .img-text__list li {
         color: #3f3f3f;
         font-family: "Segoe UI";
+        word-wrap: break-word;
+        text-align: left;
         font-size: 14px;
         line-height: 18px;
         margin-bottom: 10px; }
@@ -3960,7 +4037,7 @@ footer {
       float: left;
       padding-left: 0.83333%;
       padding-right: 0.83333%; } }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .sidebar {
       display: none; } }
   .sidebar .newses .news {
@@ -4068,17 +4145,15 @@ footer {
   padding-right: 50px; }
   @media (max-width: 991px) {
     .doctor-form-two {
-      padding-left: 3%;
-      padding-right: 3%; } }
+    padding-left: 30%;
+    padding-right: 30%; } }
   @media (max-width: 480px) {
     .doctor-form-two {
       box-sizing: border-box;
       width: 100%;
       float: left;
-      padding-left: 0.83333%;
-      padding-right: 0.83333%;
-      padding-left: 2%;
-      padding-right: 2%; } }
+      padding-left: 15%;
+      padding-right: 15%; } }
   .doctor-form-two .form-body__title {
     color: #a0a0a0;
     font-size: 30px;
@@ -4611,6 +4686,7 @@ footer {
   background: #58647c;
   color: white; }
   footer .footer-body {
+    padding-bottom: 30px;
     width: 70%;
     margin: 0 auto;
     display: -webkit-box;
@@ -5101,3 +5177,141 @@ footer {
       .all-reviews .question__name:hover {
         color: red;
         cursor: pointer; }
+
+.item-three .questions-list__title,
+.item-four .questions-list__title{
+  align-items: flex-start;
+}
+
+.questions-list__title{
+  font-size: 23px;
+}
+
+.questions-list__item .img-text img,
+.questions-list__item .img-text img{
+  align-items: flex-start;
+}
+
+
+      .item-three .img-text img,
+      .item-four .img-text img{
+        width: 60px;
+        height: 80px;
+        margin-right: 10px; }
+
+
+
+    .long-footer{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      border-top: 3px solid #CECECE;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .long-footer__info-one{
+        font-size: 16px;
+        padding-left: 40px;
+    }
+
+    .long-footer__info-two{
+        font-size: 16px;
+        padding-right: 40px;
+    }
+
+    .author-link{
+        color: #6FBCD2;
+        border-bottom: 1px solid #6FBCD2;
+        margin-left: 10px;
+        font-size: 14px;
+    }  
+
+            @media (max-width: 480px) {
+          .long-footer {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            } }
+
+
+@media (max-width: 480px) {
+                .long-footer__info-one{
+        font-size: 16px;
+        padding-left: 0;
+        padding-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+
+    .long-footer__info-two{
+        font-size: 16px;
+        padding-right: 0;
+    }
+}
+
+
+.contact-item-body{
+  display: flex;
+  align-items: center;
+}
+
+.contact-item-body .image{
+  margin-right: 10px;
+}
+
+.contact-item-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+  @media (max-width: 480px) {
+.contact-item-body {
+    justify-content: center;
+}
+}
+
+.main-info__middle-part .reviws-list{
+  padding-right: 40px;
+}
+
+  @media (max-width: 991px) {
+.zabolevania-all .main .main-info .zabs-list {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+}
+
+  @media (max-width: 480px) {
+.zabolevania-all .main .main-info .zabs-list__zabs .zabs-body__title {
+    text-align: center;
+}
+
+.zabolevania-all .main .main-info .zabs-list{
+  padding-top: 0px;
+}
+}
+
+  @media (max-width: 991px) {
+.about-page .main .main-info .serfs-list {
+    padding-right: 40px;
+}
+}
+
+
+  @media (max-width: 480px) {
+.about-page .main .main-info .content-area .doctor-info__top{
+  padding-right: 40px;
+}
+
+
+.owl-carousel .owl-nav{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 90px;
+    right: -5px;
+}

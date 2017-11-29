@@ -38,4 +38,8 @@
       </p>
     </div>
   </div>
+  <div class="long-footer">
+        <p class="long-footer__info-one">2017 &copy; docurolog</p>
+        <p class="long-footer__info-two">дизайн и поддержка сайта<img src=""/><a class="author-link" href="#">Katrin Briz</a></p>
+    </div>
 </footer>

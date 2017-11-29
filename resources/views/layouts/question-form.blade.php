@@ -7,6 +7,6 @@
 		<textarea class="form-body__field" name="question_complaints" rows="5" placeholder="Суть проблемы*">{{ old('question_complaints') }}</textarea>
 		<input class="form-body__check-box" id="subscride-checkbox" name="question_subscription" type="checkbox" checked>
 		<label for="subscride-checkbox" class="form-body__text">Получить ответ на почту</label>
-		<input class="form-body__write-btn" type="submit" value="Записаться"/>
+		<input class="form-body__write-btn" type="submit" value="Отправить"/>
 	</form>
 </div>
