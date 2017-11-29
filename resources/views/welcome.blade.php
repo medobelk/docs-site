@@ -9,7 +9,7 @@
             
             <div class="main-info">
               <div class="content-area">
-                <div class="doctor-info">
+                <div class="doctor-info" id="left-part">
                   <div class="doctor-info__top"><img class="doctor-image" src="img/questions-image/doctor-image.png" alt="" role="presentation"/>
                     <div class="doctor-text">
                       <h3 class="doctor-text__name">Брезицкий Юрий Иосифович
@@ -36,7 +36,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="doctor-services">
+                <div class="doctor-services" id="middle-part">
                   <div class="doctor-services__service">
                     <div class="service-body">
                       <h4 class="service-body__title">Диагностика

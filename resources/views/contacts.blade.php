@@ -74,5 +74,5 @@
       
     </div>
   </section>
-{{--@include('layouts.map-script')--}}
+  @include('layouts.map-script')
 @endsection
