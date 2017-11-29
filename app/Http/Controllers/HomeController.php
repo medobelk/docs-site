@@ -8,7 +8,6 @@ use App\Visit;
 use App\Event;
 use App\AnonimRequest;
 use App\QuestionSubscription;
-use App\Services\GoogleCalendar;
 
 class HomeController extends Controller
 {
@@ -28,7 +27,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, GoogleCalendar $google)
+    public function index(Request $request)
     {   
 
         // $calendarId = "cynerdemid@gmail.com";
