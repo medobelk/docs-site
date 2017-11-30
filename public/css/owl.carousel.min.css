@@ -12,9 +12,30 @@
     position: absolute;
     width: 100%;
     top: 90px;
+    font-size: 40px;
+    color: #CECECE;
 }
 
-.owl-item .item{
-    padding-left: 20px;
-    padding-right: 20px;
+.owl-prev{
+    position: relative;
+    right: 40px;
+}
+
+
+
+.owl-prev {
+    position: relative;
+    right: 40px;
+}
+
+.owl-next{
+    position: relative;
+    left: 25px;
+}
+
+@media (max-width: 768px) {
+    .owl-prev{
+        position: relative;
+        right: 30px;
+    }
 }

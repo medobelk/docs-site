@@ -34,12 +34,14 @@
     <div class="footer-item three">
       <p class="footer-item__title">Плазмолифтинг
       </p>
-      <p class="footer-item__review info">Один из новых немедикаментозных методов лечения. Использую при лечении хронических цистита, пиелонефрита, других заболеваний. Уже после 2х процедур пациенты отмечают значительное улучшение состояния. Метод предполагает введение  обогащенной тромбоцитами плазмы самого больного.
-      </p>
+      <a href=""><p class="footer-item__review info">Один из новых немедикаментозных методов лечения. Использую при лечении хронических цистита, пиелонефрита, других заболеваний. Уже после 2х процедур пациенты отмечают значительное улучшение состояния. Метод предполагает введение  обогащенной тромбоцитами плазмы самого больного.
+      </p></a>
     </div>
   </div>
   <div class="long-footer">
+    <div class="container long-inner">
         <p class="long-footer__info-one">2017 &copy; docurolog</p>
-        <p class="long-footer__info-two">дизайн и поддержка сайта<img src=""/><a class="author-link" href="#">Katrin Briz</a></p>
+        <p class="long-footer__info-two">дизайн и поддержка сайта<img class="foot-ico" src="{{ asset('img/foot-ico.png') }}"/><a class="author-link" href="#">Katrin Briz</a></p>
+    </div>
     </div>
 </footer>

@@ -4,7 +4,7 @@ $(document).ready(function() {
         dots: true,
         navigation: true,
         nav:true,
-        navText: ["<", ">"],
+        navText: ["<img src='img/prev.png' alt='' role='presentation'/>","<img src='img/next.png' alt='' role='presentation'/>"],
         loop: true,
     });
 
