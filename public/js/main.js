@@ -4,7 +4,7 @@ $(document).ready(function() {
         dots: true,
         navigation: true,
         nav:true,
-        navText: ["<img src='img/prev.png' alt='' role='presentation'/>","<img src='img/next.png' alt='' role='presentation'/>"],
+        navText: ["<img src='{{ asset('img/prev.png') }}' alt='' role='presentation'/>","<img src='{{ asset('img/next.png') }}' alt='' role='presentation'/>"],
         loop: true,
     });
 
