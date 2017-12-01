@@ -126,48 +126,62 @@
                         @foreach( $visits as $key => $visit )
                             
                             <div class="card">
-                                <div class="card-header" role="tab" id="heading{{ $visit->id }}">
-                                    <h5 class="mb-0 panel-title">
-                                        <a data-toggle="collapse" href="#collapse{{ $visit->id }}" aria-expanded="false" aria-controls="collapse{{ $visit->id }}">
-                                          Visit : {{ $visit->visit_date }}
-                                        </a>
-                                    </h5>
-                                </div>
-
+                                <a data-toggle="collapse" href="#collapse{{ $visit->id }}" aria-expanded="false" aria-controls="collapse{{ $visit->id }}">
+                                    <div class="card-header" style="background-color: #88D8FE;" role="tab" id="heading{{ $visit->id }}">
+                                        <h5 class="mb-0 panel-title">
+                                              Visit : {{ $visit->visit_date }}
+                                              <span class="icon voyager-double-down"></span>
+                                        </h5>
+                                    </div>
+                                </a>
                                 <div id="collapse{{ $visit->id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                        <div class="form-group">
-                                            <label for="visit_date">Дата Визита</label>
-                                            <span class="form-control" type="text" id="visit_date" name="visit_date">{{ $visit->visit_date }}</span>
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Дата Визита</h3>
                                         </div>
-                                            
-                                        <div class="form-group">
-                                            <label for="complaints">Жалобы</label>
-                                            <span class="form-control" id="complaints" name="complaints">{{ $visit->complaints }}</span>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="treatment">Kурс Лечения</label>
-                                            <span class="form-control" id="treatment" name="treatment">{{ $visit->treatment }}</span>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="recomendations">Рекомендации</label>
-                                            <span class="form-control" id="recomendations" name="recomendations">{{ $visit->recomendations }}</span>
+                                        <div class="panel-body">
+                                            <p>{{ $visit->visit_date }}</p>
                                         </div>
                                         
-                                        <div class="form-group">
-                                            <label for="diagnosis">Диагноз</label>
-                                            <span class="form-control" id="diagnosis" name="diagnosis">{{ $visit->diagnosis }}</span>
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Жалобы</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>{{ $visit->complaints }}</p>
+                                        </div>
+
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Kурс Лечения</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>{{ $visit->treatment }}</p>
+                                        </div>
+
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Рекомендации</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>{{ $visit->recomendations }}</p>
+                                        </div>
+
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Диагноз</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <p>{{ $visit->diagnosis }}</p>
                                         </div>
                                         
                                         <div class="analyzes-wrapper" style="display: flex; justify-content: flex-start; align-items: center;">
                                             <div class="form-group">
-                                                <label for="">Анализы</label>
-                                                <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
-                                                    @foreach($visit->analyzes as $analyze)
-                                                        <a href="{{ $analyze->path }}" style="margin-right: 15px;"><span class="icon voyager-file-text" style="padding-right: 5px; "></span>{{ $analyze->name }}</a>
-                                                    @endforeach
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">Анализы</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
+                                                        @foreach($visit->analyzes as $analyze)
+                                                            <a href="{{ $analyze->path }}" style="margin-right: 15px;"><span class="icon voyager-file-text" style="padding-right: 5px; "></span>{{ $analyze->name }}</a>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

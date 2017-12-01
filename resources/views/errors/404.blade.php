@@ -6,7 +6,7 @@
       @include('layouts.question-list')
       <div class="main-info">
         <div class="main-info__left-part">
-          <div class="erorr-404"><img class="erorr-404__image-404" src="img/404-page.png" alt="" role="presentation"/>
+          <div class="erorr-404"><img class="erorr-404__image-404" src="{{ asset('img/404-page.png') }}" alt="" role="presentation"/>
           </div>
         </div>
         <div class="main-info__middle-part">
