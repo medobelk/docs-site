@@ -180,10 +180,8 @@ a {
     display: flex; }
   .contacts .doctor-form {
     box-sizing: border-box;
-    width: 25%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%; }
+    width: 28%;
+    float: left;  }
 
     @media (max-width: 991px) {
     .contacts .doctor-form {
@@ -201,7 +199,7 @@ a {
 
   .contacts .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -275,7 +273,7 @@ a {
             display: flex; }
       .contacts .main .main-info .contacts-map {
         box-sizing: border-box;
-        width: 70.83333%;
+        width: 72%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%;
@@ -312,6 +310,8 @@ a {
             @media (max-width: 480px) {
               .contacts .main .main-info .contacts-map__service .service-body .contact-main-block {
                 -webkit-box-orient: vertical;
+                padding-left: 40px;
+                padding-right: 40px;
                 -webkit-box-direction: normal;
                 -webkit-flex-direction: column;
                     -ms-flex-direction: column;
@@ -323,9 +323,13 @@ a {
                   width: 50%; } }
               @media (max-width: 480px) {
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block__map {
-                  width: 100%; } }
+                  width: 100%;
+                  height: 400px;} }
             .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main {
-              padding-left: 45px; }
+              padding-left: 45px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;}
               @media (max-width: 480px) {
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main {
                   margin-top: 40px;
@@ -336,7 +340,7 @@ a {
                   font-size: 16px;
                   margin-bottom: 20px;
                   color: gray;
-                  text-align: center;
+                  text-align: left;
                   font-family: "Roboto Condensed"; }
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value {
                   font-size: 16px;
@@ -378,7 +382,7 @@ a {
     display: flex; }
   .prices .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -404,7 +408,7 @@ a {
         clear: both; }
       .prices .main .main-info__left-part {
         box-sizing: border-box;
-        width: 37.5%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -424,7 +428,7 @@ a {
             padding-right: 0.83333%; } }
       .prices .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 37.5%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -444,7 +448,7 @@ a {
             padding-right: 0.83333%; } }
       .prices .main .main-info__right-part {
         box-sizing: border-box;
-        width: 25%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -906,7 +910,7 @@ a {
     display: flex; }
   .about-page .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -932,10 +936,10 @@ a {
         clear: both; }
       .about-page .main .main-info__left-part {
         box-sizing: border-box;
-        width: 37.5%;
+        width: 36%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+        padding-left: 0;
+        padding-right: 0; }
         @media (max-width: 991px) {
           .about-page .main .main-info__left-part {
             box-sizing: border-box;
@@ -952,10 +956,10 @@ a {
             padding-right: 0.83333%; } }
       .about-page .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+        padding-left: 40px;
+        padding-right: 10px; }
         @media (max-width: 991px) {
           .about-page .main .main-info__middle-part {
             box-sizing: border-box;
@@ -972,10 +976,10 @@ a {
             padding-right: 0.83333%; } }
       .about-page .main .main-info__right-part {
         box-sizing: border-box;
-        width: 29.16667%;
+        width: 28%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+        padding-left: 40px;
+        padding-right: 0; }
         @media (max-width: 991px) {
           .about-page .main .main-info__right-part {
             box-sizing: border-box;
@@ -1240,7 +1244,7 @@ a {
     display: flex; }
   .diseases .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -1266,10 +1270,10 @@ a {
         clear: both; }
       .diseases .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+        padding-left: 0;
+        padding-right: 0; }
         @media (max-width: 991px) {
           .diseases .main .main-info__left-part {
             box-sizing: border-box;
@@ -1286,7 +1290,7 @@ a {
             padding-right: 0.83333%; } }
       .diseases .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1306,7 +1310,7 @@ a {
             padding-right: 0.83333%; } }
       .diseases .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1474,7 +1478,7 @@ a {
     display: flex; }
   .all-questions .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -1496,7 +1500,7 @@ a {
         clear: both; }
       .all-questions .main .main-info__left-part {
         box-sizing: border-box;
-        width: 37.5%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1516,7 +1520,7 @@ a {
             padding-right: 0.83333%; } }
       .all-questions .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 37.5%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1536,9 +1540,9 @@ a {
             padding-right: 0.83333%; } }
       .all-questions .main .main-info__right-part {
         box-sizing: border-box;
-        width: 25%;
+        width: 28%;
         float: left;
-        padding-left: 0.83333%;
+        padding-left: 10px;
         padding-right: 0.83333%; }
         @media (max-width: 991px) {
           .all-questions .main .main-info__right-part {
@@ -1597,6 +1601,7 @@ a {
             display: flex; }
       .all-questions .main .main-info .reviws-list {
         padding-top: 40px;
+        padding-right: 20px;
         padding-left: 40px; }
         .all-questions .main .main-info .reviws-list__reviws {
           margin-bottom: 20px; }
@@ -1742,7 +1747,7 @@ a {
     display: flex; }
   .zabolevania-pochek .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -1764,7 +1769,7 @@ a {
         clear: both; }
       .zabolevania-pochek .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1788,7 +1793,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-pochek .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1812,7 +1817,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-pochek .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -1883,7 +1888,7 @@ a {
       .zabolevania-pochek .main .main-info .zabs-list {
         padding-top: 40px;
         padding-left: 40px;
-        padding-right: 40px; }
+ }
         .zabolevania-pochek .main .main-info .zabs-list__zabs {
           margin-bottom: 20px; }
           .zabolevania-pochek .main .main-info .zabs-list__zabs .zabs-body {
@@ -1996,7 +2001,7 @@ a {
     display: flex; }
   .zabolevania-mans .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -2018,7 +2023,7 @@ a {
         clear: both; }
       .zabolevania-mans .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2042,7 +2047,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-mans .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2066,7 +2071,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-mans .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2136,8 +2141,7 @@ a {
             display: flex; }
       .zabolevania-mans .main .main-info .zabs-list {
         padding-top: 40px;
-        padding-left: 40px;
-        padding-right: 40px; }
+        padding-left: 40px;  }
         .zabolevania-mans .main .main-info .zabs-list__zabs {
           margin-bottom: 20px; }
           .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body {
@@ -2181,24 +2185,7 @@ a {
             .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body__text.last {
               font-style: italic;
               font-size: 18px; }
-  .zabolevania-mans .sidebar {
-    box-sizing: border-box;
-    width: 16.66667%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    background: #e4e4e4; }
-    .zabolevania-mans .sidebar .newses .news {
-      padding-left: 10px; }
-      .zabolevania-mans .sidebar .newses .news__date {
-        font-size: 16px;
-        color: #414040; }
-      .zabolevania-mans .sidebar .newses .news__name {
-        font-size: 16px;
-        padding-top: 10px; }
-      .zabolevania-mans .sidebar .newses .news__text {
-        font-size: 16px;
-        padding-top: 10px; }
+
   .zabolevania-mans .price-row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2268,7 +2255,7 @@ a {
     display: flex; }
   .zabolevania-womans .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -2290,7 +2277,7 @@ a {
         clear: both; }
       .zabolevania-womans .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2314,7 +2301,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-womans .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2338,7 +2325,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-womans .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2463,24 +2450,6 @@ a {
             .zabolevania-womans .main .main-info .zabs-list__zabs .zabs-body__text.last {
               font-style: italic;
               font-size: 18px; }
-  .zabolevania-womans .sidebar {
-    box-sizing: border-box;
-    width: 16.66667%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    background: #e4e4e4; }
-    .zabolevania-womans .sidebar .newses .news {
-      padding-left: 10px; }
-      .zabolevania-womans .sidebar .newses .news__date {
-        font-size: 16px;
-        color: #414040; }
-      .zabolevania-womans .sidebar .newses .news__name {
-        font-size: 16px;
-        padding-top: 10px; }
-      .zabolevania-womans .sidebar .newses .news__text {
-        font-size: 16px;
-        padding-top: 10px; }
   .zabolevania-womans .price-row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2550,7 +2519,7 @@ a {
     display: flex; }
   .zabolevania-all .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -2572,10 +2541,10 @@ a {
         clear: both; }
       .zabolevania-all .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%; }
+        padding-left: 0;
+        padding-right: 0; }
         @media (max-width: 991px) {
           .zabolevania-all .main .main-info__left-part {
             box-sizing: border-box;
@@ -2596,7 +2565,7 @@ a {
             padding-right: 3%; } }
       .zabolevania-all .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2618,11 +2587,10 @@ a {
             padding-right: 0.83333%; } }
       .zabolevania-all .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
-        padding-left: 0.83333%;
-        padding-right: 0.83333%;
-        padding-left: 2%; }
+        padding-right: 0;
+        padding-left: 40px; }
         @media (max-width: 991px) {
           .zabolevania-all .main .main-info__right-part {
             box-sizing: border-box;
@@ -4636,6 +4604,11 @@ footer {
             float: none;
             padding-left: 40px;
             width: 100%; } }
+
+        @media (max-width: 991px){
+          .intro .main .main-info .content-area .doctor-services {
+            padding-right: 40px;
+          }}
         .intro .main .main-info .content-area .doctor-services__service {
           margin-bottom: 20px; }
           .intro .main .main-info .content-area .doctor-services__service .service-body__title {
@@ -4972,7 +4945,7 @@ footer {
     display: flex; }
   .all-reviews .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -4994,7 +4967,7 @@ footer {
         clear: both; }
       .all-reviews .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -5014,7 +4987,7 @@ footer {
             padding-right: 0.83333%; } }
       .all-reviews .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -5034,7 +5007,7 @@ footer {
             padding-right: 0.83333%; } }
       .all-reviews .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -5303,7 +5276,7 @@ footer {
 }
 
 .main-info__middle-part .reviws-list{
-  padding-right: 40px;
+  padding-right: 20px;
 }
 
   @media (max-width: 991px) {
