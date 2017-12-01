@@ -45,3 +45,17 @@
     </div>
     </div>
 </footer>
+@section('page-scripts')
+<script>
+
+  $(".owl-carousel").owlCarousel({
+      items: 1,
+      dots: true,
+      navigation: true,
+      nav:true,
+      navText: ["<img src='{{ asset('img/prev.png') }}' alt='' role='presentation'/>","<img src='{{ asset('img/next.png') }}' alt='' role='presentation'/>"],
+      loop: true,
+  });
+
+</script>
+@endsection

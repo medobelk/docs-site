@@ -1,12 +1,4 @@
 $(document).ready(function() {
-    $(".owl-carousel").owlCarousel({
-        items: 1,
-        dots: true,
-        navigation: true,
-        nav:true,
-        navText: ["<img src='{{ asset('img/prev.png') }}' alt='' role='presentation'/>","<img src='{{ asset('img/next.png') }}' alt='' role='presentation'/>"],
-        loop: true,
-    });
 
     $(".mobile-menu__icon").click(function () {
         $(".mobile-menu__links").slideToggle();

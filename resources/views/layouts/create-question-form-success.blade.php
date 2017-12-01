@@ -2,7 +2,6 @@
   $('document').ready(function () {    
     var thanks_block = {!! json_encode(session()->get('thanks_block')) !!};
 
-    console.log(thanks_block);
     if( thanks_block === true ){
       $('.main-info__left-part').empty();
       $('.main-info__middle-part').empty();
