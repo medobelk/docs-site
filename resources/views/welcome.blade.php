@@ -60,8 +60,9 @@
                 </div>
               </div>
               
-              @include('layouts.enroll-form')
-
+              <div id="right-part">
+                @include('layouts.enroll-form')
+              </div>
             </div>
           </div>
           

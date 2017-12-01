@@ -135,7 +135,7 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        return back()->with('thanks_block', true);
+        return back()->with('thanks_block', 'enrollTrue');
     }
 
     public function createQuestion(Request $request)
@@ -162,6 +162,6 @@ class HomeController extends Controller
         $subscription->subscribe = $request->question_subscription === 'on' ? 1 : 0;
         $subscription->save();
 
-        return back()->with('thanks_block', true);
+        return back()->with('thanks_block', 'questionTrue');
     }
 }

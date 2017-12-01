@@ -19,7 +19,7 @@
         </div>
         <div class="main-info__right-part">
           
-          @include('layouts.question-form')
+          {{-- @include('layouts.question-form') --}}
 
         </div>
       </div>

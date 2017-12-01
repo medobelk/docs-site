@@ -10,6 +10,7 @@
 
   </head>
   <body class="page">
+    
     <div class="page__wrap">
         
       @include('layouts.header')
@@ -25,7 +26,7 @@
 	@include('layouts.scripts')
   @include('layouts.google-analytics')
   @include('layouts.form-errors-script')
-  @include('layouts.create-question-form-success')
+  @include('layouts.create-question-enroll-form-success')
   @yield('page-scripts')
 
   </body>
