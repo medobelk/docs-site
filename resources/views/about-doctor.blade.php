@@ -39,10 +39,19 @@
                           <h4 class="service-body__title">Последний оставленный отзыв:
                           </h4>
                           <div class="reviews">
-                            <p class="reviews__name">Юлия
+                            <p class="reviews__name">
+
+                              @if( $review->authority === 'USER' )
+                                {{ $review->user->name }}
+                              @else
+                                {{ 'Аноним' }}
+                              @endif
+                              
                             </p>
-                            <p class="reviews__review">Лечила цистит. Самые хорошие впечаления. До Юрия Иосифовича лечилась много лет в нескольких местах. После лечения у Брезицкого несколько лет обострений не было. Однако сейчас появились проблемы, а он поменял место работы и я не могла его найти.Теперь благодаря Вашему сайту, я знаю куда обратиться.
-                            </p><a class="reviews__read-all" href="all-reviws.html">читать все отзывы</a>
+                            <p class="reviews__review">
+                              {{ $review->body }}
+                            </p>
+                            <a class="reviews__read-all" href="{{ url('/reviews') }}">читать все отзывы</a>
                           </div>
                         </div>
                       </div>

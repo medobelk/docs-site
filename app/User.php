@@ -36,4 +36,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Analyze::class);
     }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

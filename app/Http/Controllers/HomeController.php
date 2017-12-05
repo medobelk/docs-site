@@ -6,12 +6,15 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Visit;
 use App\Event;
+use App\Review;
 use App\AnonimRequest;
 use App\QuestionSubscription;
 
 class HomeController extends Controller
 {
     
+    public $events;
+
     /**
      * Create a new controller instance.
      *
@@ -20,6 +23,7 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
+        $this->events = Event::orderBy('id', 'desc')->take(5)->get();
     }
 
     /**
@@ -32,72 +36,93 @@ class HomeController extends Controller
 
         // $calendarId = "cynerdemid@gmail.com";
         // $result = $google->get($calendarId);
-        
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
 
-        return view('welcome', compact('events'));
+        return view('welcome')->with('events', $this->events);
     }
+
+
+
+
+    public function erectDisfunction()
+    {
+        return view('infoPages.erect-disfunction')->with('events', $this->events);
+    }
+
+    public function pielonefrit()
+    {
+        return view('infoPages.pielonefrit')->with('events', $this->events);
+    }
+
+    public function prostatit()
+    {
+        return view('infoPages.prostatit')->with('events', $this->events);
+    }
+
+    public function uretrit()
+    {
+        return view('infoPages.uretrit')->with('events', $this->events);
+    }
+
+    public function zistit()
+    {
+        return view('infoPages.zistit')->with('events', $this->events);
+    }
+
+
+
 
     public function reviews()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-
-        return view('reviews', compact('events'));
+        $reviews = Review::where('status', 'APPROVED')->with('user')->orderBy('created_at', 'desc')->take(6)->get();
+        return view('reviews')->with( ['events' => $this->events, 'reviews' => $reviews] );
     }
 
     public function questions()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-
-        return view('questions', compact('events'));
+        return view('questions')->with('events', $this->events);
     }
 
     public function contacts()
     {   
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('contacts', compact('events') );
+        return view('contacts')->with('events', $this->events);
     }
 
     public function about()
     {   
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('about-doctor', compact('events'));
+        // $lastReview = Review::where('status', 'APPROVED')->orderBy('created_at', 'desc')->first();
+        $lastReview = Review::where('status', 'APPROVED')->latest()->with('user')->first();
+
+        return view('about-doctor')->with( ['events' => $this->events, 'review' => $lastReview]);
     }
 
     public function diseases()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('diseases', compact('events'));
+        return view('diseases')->with('events', $this->events);
     }
 
     public function treatment()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('treatments', compact('events'));
+        return view('treatments')->with('events', $this->events);
     }
 
     public function pricing()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('pricing', compact('events'));
+        return view('pricing')->with('events', $this->events);
     }
 
     public function diseaseMan()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('disease-man', compact('events'));
+        return view('disease-man')->with('events', $this->events);
     }
 
     public function diseaseWooman()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('disease-wooman', compact('events'));
+        return view('disease-wooman')->with('events', $this->events);
     }
 
     public function diseaseKidneys()
     {
-        $events = Event::orderBy('id', 'desc')->take(5)->get();
-        return view('disease-kidneys', compact('events'));
+        return view('disease-kidneys')->with('events', $this->events);
     }
 
     public function enroll(Request $request)

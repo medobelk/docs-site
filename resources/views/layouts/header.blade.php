@@ -17,7 +17,10 @@
         </div>
       </div>
     </div>
-    <div class="header__logo"><a class="header-logo" href="{{ url('/') }}"><img class="header-logo__img" src="{{ asset('img/logo/logo.png') }}" alt="" role="presentation"/></a>
+    <div class="header__logo">
+      <a class="header-logo" href="{{ url('/') }}">
+        <img class="header-logo__img" src="{{ asset('img/logo/logo.png') }}" alt="" role="presentation"/>
+      </a>
     </div>
     <div class="header__telephones">
       <a class="header-telephone" href="##">
@@ -45,11 +48,19 @@
       </nav>
     </div>
     
-    <div class="header__private-cabinet">
-      @if( Auth::check() )
-        <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Выход</i></a>
+    <div class="header__private-cabinet"> 
+      @if( Auth::guest() )
+        <a href="{{ route('login') }}" class="private-cabinet">
+          <img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i>
+        </a>
       @else
-        <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+        <a href="{{ route('logout') }}" class="private-cabinet" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          <img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/>
+          <i class="private-cabinet__text">Выход</i>
+        </a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+          {{ csrf_field() }}
+        </form>
       @endif
     </div>
   </div>
