@@ -25,7 +25,7 @@
                     </p>
                     <div class="value diplom-serf">
                       
-                      <a class="diplom" href="{{ url('/about-doctor') }}"><img class="diplom__image" src="img/diplom.png" alt="" role="presentation"/>
+                      <a class="diplom" href="{{ url('/Pagec/view/name/sertificates') }}"><img class="diplom__image" src="img/diplom.png" alt="" role="presentation"/>
                         <p class="diplom__link">Дипломы, сертификаты</p>
                       </a>
 

@@ -68,6 +68,11 @@ class HomeController extends Controller
         return view('infoPages.zistit')->with('events', $this->events);
     }
 
+    public function setificate()
+    {
+        return view('infoPages.sertificate')->with('events', $this->events);
+    }
+
 
 
 
