@@ -28,5 +28,8 @@ $(document).ready(function() {
         $(".item-four .hover-image").toggleClass('hide');
         $(".item-four .no-hover").toggleClass('hide');
     });
+
+    $('#ex1').zoom();
+
 });
 
