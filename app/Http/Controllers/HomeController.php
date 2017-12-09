@@ -8,7 +8,11 @@ use App\Visit;
 use App\Event;
 use App\Review;
 use App\AnonimRequest;
-use App\QuestionSubscription;
+use App\Question;
+use App\Answer;
+use App\User;
+use App\Mail\EnrollRegistered;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -84,7 +88,24 @@ class HomeController extends Controller
 
     public function questions()
     {
-        return view('questions')->with('events', $this->events);
+        $questions = Question::all()->toArray();
+
+        $questionsLeftPart = array_slice($questions, 0, count($questions) / 2);
+        $questionsMiddlePart = array_slice($questions, count($questions) / 2);
+
+        return view('questions')->with([
+            'events' => $this->events,
+            'questionsLeftPart' => $questionsLeftPart,
+            'questionsMiddlePart' => $questionsMiddlePart
+        ]);
+    }
+
+    public function dialogs(Request $request, $id)
+    {
+        $question = Question::where('id', $id)->first();
+        $answers = Answer::where('question_id', $id)->first();
+
+        return view('dialog');
     }
 
     public function contacts()
@@ -140,6 +161,7 @@ class HomeController extends Controller
         //     ],
         //     'patient_email' => 'required|email',
         // ]);
+
         $validator = Validator::make($request->all(), [
             'patient_name' => 'required|min:15',
             'patient_phone' => [
@@ -151,10 +173,10 @@ class HomeController extends Controller
 
         if ($validator->fails()) {
             return back()
-                        ->withInput()
-                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+                ->withInput()
+                ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
-        //$validator->errors()->keys();
+        $validator->errors()->keys();
 
         $userRequest = new AnonimRequest();
 
@@ -164,6 +186,8 @@ class HomeController extends Controller
         //$userRequest->date = $request->patient_visit_date . ' ' . $request->patient_visit_time;
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
+
+        Mail::to( User::where('role_id', 3)->get() )->send( new EnrollRegistered( $userRequest ) );
 
         return back()->with('thanks_block', 'enrollTrue');
     }

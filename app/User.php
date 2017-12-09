@@ -41,4 +41,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Review::class);
     }
+
+    public function answers()
+    {
+        return $this->hasMany(Answer::class);
+    }
 }

@@ -16,9 +16,14 @@ use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use Illuminate\Support\Facades\Auth;
-use App\Visit;
 
-class VoyagerUsersController extends Controller
+use Illuminate\Support\Facades\Mail;
+use App\Analyze;
+use App\Question;
+use App\Answer;
+use App\Mail\AnswerPosted;
+
+class VoyagerQuestionsController extends Controller
 {
     use BreadRelationshipParser;
     //***************************************
@@ -102,7 +107,6 @@ class VoyagerUsersController extends Controller
                 if ($row->type == 'password') {
                     $content = $data->{$row->field};
                 }
-
             }
 
             if ($row->type == 'relationship' && $options->type == 'belongsToMany') {
@@ -113,7 +117,6 @@ class VoyagerUsersController extends Controller
             }
         }
 
-        $data->role_id = is_null( $data->role_id ) ? 2 : $data->role_id;
         $data->save();
 
         // Save translations
@@ -437,9 +440,7 @@ class VoyagerUsersController extends Controller
                 break;
 
             case 'relationship':
-
                     return $request->input($row->field);
-
                 break;
 
             /********** ALL OTHER TEXT TYPE **********/
@@ -495,8 +496,6 @@ class VoyagerUsersController extends Controller
     {
         // GET THE SLUG, ex. 'posts', 'pages', etc.
 
-        $authUser = Auth::user();
-
         $slug = $this->getSlug($request);
 
         // GET THE DataType based on the slug
@@ -530,31 +529,14 @@ class VoyagerUsersController extends Controller
 
             if ($orderBy && in_array($orderBy, $dataType->fields())) {
                 $querySortOrder = (!empty($sortOrder)) ? $sortOrder : 'DESC';
-
-                if( $authUser->role_id === 1 ){
-                    $dataTypeContent = call_user_func([
-                        $query->with($relationships)->orderBy($orderBy, $querySortOrder),
-                        $getter,
-                    ]);
-                }else{
-                    $dataTypeContent = call_user_func([
-                        $query->where('role_id', 2)->with($relationships)->orderBy($orderBy, $querySortOrder),
-                        $getter,
-                    ]);
-                }
-
+                $dataTypeContent = call_user_func([
+                    $query->with($relationships)->orderBy($orderBy, $querySortOrder),
+                    $getter,
+                ]);
             } elseif ($model->timestamps) {
-                if( $authUser->role_id === 1 ){
-                    $dataTypeContent = call_user_func([$query->latest($model::CREATED_AT), $getter]);
-                }else{
-                    $dataTypeContent = call_user_func([$query->where('role_id', 2)->latest($model::CREATED_AT), $getter]);
-                }
+                $dataTypeContent = call_user_func([$query->latest($model::CREATED_AT), $getter]);
             } else {
-                if( $authUser->role_id === 1 ){
-                    $dataTypeContent = call_user_func([$query->with($relationships)->orderBy($model->getKeyName(), 'DESC'), $getter]);
-                }else{
-                    $dataTypeContent = call_user_func([$query->where('role_id', 2)->with($relationships)->orderBy($model->getKeyName(), 'DESC'), $getter]);
-                }
+                $dataTypeContent = call_user_func([$query->with($relationships)->orderBy($model->getKeyName(), 'DESC'), $getter]);
             }
 
             // Replace relationships' keys for labels and create READ links if a slug is provided.
@@ -604,8 +586,8 @@ class VoyagerUsersController extends Controller
     //****************************************
 
     public function show(Request $request, $id)
-    {
-    	$visits = Visit::where('user_id', $id)->with('analyzes')->get();
+    {	
+    	$analyzes = Analyze::where('visit_id', $id)->get();
     	
         $slug = $this->getSlug($request);
 
@@ -635,13 +617,52 @@ class VoyagerUsersController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.read';
+        $view = 'voyager::bread.read';
 
-        if (view()->exists("voyager_custom.$slug.read")) {
-            $view = "voyager_custom.$slug.read";
+        $answers = Answer::where('question_id', $id)->with('user')->get()->toArray();
+
+        if (view()->exists("voyager::$slug.read")) {
+            $view = "voyager::$slug.read";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'visits'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'analyzes', 'answers'));
+    }
+
+    public function createAnswer(Request $request)
+    {
+    	$question = Question::where('id', $request->question_id)->first();
+        // Check permission
+    	
+        // Validate fields with ajax
+        $val = Validator::make($request->all(), [
+            "complaints" => "required|min:15",
+            "question_id" => "required"
+        ]);
+
+        if ($val->fails()) {
+            return response()->json(['errors' => $val->messages()]);
+        }
+
+        if (!$request->ajax()) {
+            
+            $newAnswer = new \App\Answer();
+            $newAnswer->question_id = $request->question_id;
+            $newAnswer->body = $request->complaints;
+            $newAnswer->user_id = Auth::user()->id;
+            $newAnswer->save();
+
+            $question = Question::where('id', $request->question_id)->with('user')->first();
+
+            Mail::to( $question->email )->send( new AnswerPosted($question) );
+            // event(new BreadDataAdded($dataType, $data));
+
+            return redirect()
+                ->route("voyager.questions.index")
+                ->with([
+                        'message'    => "Ваш ответ успешно опубликован",
+                        'alert-type' => 'success',
+                    ]);
+        }
     }
 
     //***************************************
@@ -659,8 +680,6 @@ class VoyagerUsersController extends Controller
     public function edit(Request $request, $id)
     {
 
-        $authUser = Auth::user();
-
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -676,12 +695,6 @@ class VoyagerUsersController extends Controller
 
         foreach ($dataType->editRows as $key => $row) {
             $details = json_decode($row->details);
-
-            if ( $authUser->role_id !== 1 && $row->field === 'user_belongsto_role_relationship' || $row->field === 'role_id'){
-                unset($dataType->editRows[$key]);
-                continue;
-            }
-            
             $dataType->editRows[$key]['col_width'] = isset($details->width) ? $details->width : 100;
         }
 
@@ -719,6 +732,7 @@ class VoyagerUsersController extends Controller
         $this->authorize('edit', $data);
 
         // Validate fields with ajax
+
         $val = $this->validateBread($request->all(), $dataType->editRows);
 
         if ($val->fails()) {
@@ -754,8 +768,6 @@ class VoyagerUsersController extends Controller
 
     public function create(Request $request)
     {
-        $authUser = Auth::user();
-
         $slug = $this->getSlug($request);
 
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
@@ -769,12 +781,6 @@ class VoyagerUsersController extends Controller
 
         foreach ($dataType->addRows as $key => $row) {
             $details = json_decode($row->details);
-
-            if ( $authUser->role_id !== 1 && $row->field === 'user_belongsto_role_relationship' || $row->field === 'role_id'){
-                unset($dataType->addRows[$key]);
-                continue;
-            }
-
             $dataType->addRows[$key]['col_width'] = isset($details->width) ? $details->width : 100;
         }
 
