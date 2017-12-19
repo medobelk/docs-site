@@ -17,5 +17,14 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "vue": "^2.1.10"
+    },
+    "dependencies": {
+        "bootstrap-datetime-picker": "^2.4.4",
+        "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+        "fullcalendar": "^3.7.0",
+        "jquery-datetimepicker": "^2.5.14",
+        "moment": "^2.19.4",
+        "moment-datetime": "0.0.2",
+        "owl.carousel2": "^2.2.1"
     }
 }

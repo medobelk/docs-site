@@ -13,20 +13,23 @@
                   <div class="reviws-list__reviws">
                     <div class="reviws-body">
                       <div class="last-reviews">
-                        @for($i = 0; $i < 3; $i++)
-                        <div class="review">
-                          <a class="review__name" href="#">
-                            @if( $reviews[$i]->authority == 'USER' )
-                              {{ $reviews[$i]->user->name }}
-                            @else
-                              {{ 'Аноним' }}
-                            @endif
-                          </a>
-                          <p class="review__text">
-                            {{ $reviews[$i]->body }}
-                          </p>
-                        </div>
-                        @endfor
+                        
+                        @if( $reviews->count() > 0 )
+                          @for($i = 0; $i < 3; $i++)
+                          <div class="review">
+                            <a class="review__name" href="#">
+                              @if( $reviews[$i]->authority == 'USER' )
+                                {{ $reviews[$i]->user->name }}
+                              @else
+                                {{ 'Аноним' }}
+                              @endif
+                            </a>
+                            <p class="review__text">
+                              {{ $reviews[$i]->body }}
+                            </p>
+                          </div>
+                          @endfor
+                        @endif
                         <!-- <div class="review"><a class="review__name" href="#">Алексей</a>
                           <p class="review__text">
                             Мне 21 год. В связи с фимозом хотел делать обрезание, но Юрий Иосифович порекомендовал не удалять полностью, а сделать пластику крайней плоти.Прошёл месяц после операции - результатом доволен. Личная жизнь наладилась. Большая мужская благодарность доктору.
@@ -47,20 +50,22 @@
                   <div class="reviws-list__reviws">
                     <div class="reviws-body">
                       <div class="last-reviews">
-                        @for($i = 3; $i < 6; $i++)
-                        <div class="review">
-                          <a class="review__name" href="#">
-                            @if( $reviews[$i]->authority == 'USER' )
-                              {{ $reviews[$i]->user->name }}
-                            @else
-                              {{ 'Аноним' }}
-                            @endif
-                          </a>
-                          <p class="review__text">
-                            {{ $reviews[$i]->body }}
-                          </p>
-                        </div>
-                        @endfor
+                        @if( $reviews->count() > 0 )
+                          @for($i = 3; $i < 6; $i++)
+                          <div class="review">
+                            <a class="review__name" href="#">
+                              @if( $reviews[$i]->authority == 'USER' )
+                                {{ $reviews[$i]->user->name }}
+                              @else
+                                {{ 'Аноним' }}
+                              @endif
+                            </a>
+                            <p class="review__text">
+                              {{ $reviews[$i]->body }}
+                            </p>
+                          </div>
+                          @endfor
+                        @endif
                       </div>
                     </div>
                   </div>

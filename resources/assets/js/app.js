@@ -7,7 +7,16 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.moment = require('moment');
+// require('bootstrap-datetime-picker/js/bootstrap-datetimepicker.js');
+// require('bootstrap-datetime-picker/css/bootstrap-datetimepicker.css');
+// require('eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js');
+require('owl.carousel2/dist/assets/owl.carousel.css');
+require('owl.carousel2/dist/owl.carousel.min.js');
+
+require('jquery-datetimepicker/build/jquery.datetimepicker.full.js');
+
+// window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,8 +24,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app'
+// });

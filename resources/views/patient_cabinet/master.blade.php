@@ -13,22 +13,16 @@
     
     <div class="page__wrap">
         
-      @include('layouts.header')
+      @include('patient_cabinet.header')
 
       <div class="test-block">
       </div>
       
       @yield('content')
       
-      @include('layouts.footer')
+      @include('patient_cabinet.footer')
     </div>
 
 	@include('layouts.scripts')
-  @include('layouts.google-analytics')
-  @include('layouts.form-errors-script')
-  @include('layouts.create-question-enroll-form-success')
-  @include('layouts.enroll-dates-handler')
-  @yield('page-scripts')
-
   </body>
 </html>

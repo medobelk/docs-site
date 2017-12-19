@@ -46,4 +46,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function data($id)
+    {   
+        return new UserData($this->where('id', $id));
+    }
 }

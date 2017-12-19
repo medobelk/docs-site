@@ -16,74 +16,56 @@ use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
-    
-    public $events;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-        $this->events = Event::orderBy('id', 'desc')->take(5)->get();
-    }
-
-    /**
-     * Show the application dashboard. 
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {   
 
         // $calendarId = "cynerdemid@gmail.com";
         // $result = $google->get($calendarId);
 
-        return view('welcome')->with('events', $this->events);
+        // $user = new User;
+
+        // $reviews = $user->data(2)->visits();
+        // dd($reviews);
+
+
+        return view('welcome');
     }
-
-
-
 
     public function erectDisfunction()
     {
-        return view('infoPages.erect-disfunction')->with('events', $this->events);
+        return view('infoPages.erect-disfunction');
     }
 
     public function pielonefrit()
     {
-        return view('infoPages.pielonefrit')->with('events', $this->events);
+        return view('infoPages.pielonefrit');
     }
 
     public function prostatit()
     {
-        return view('infoPages.prostatit')->with('events', $this->events);
+        return view('infoPages.prostatit');
     }
 
     public function uretrit()
     {
-        return view('infoPages.uretrit')->with('events', $this->events);
+        return view('infoPages.uretrit');
     }
 
     public function zistit()
     {
-        return view('infoPages.zistit')->with('events', $this->events);
+        return view('infoPages.zistit');
     }
 
     public function setificate()
     {
-        return view('infoPages.sertificate')->with('events', $this->events);
+        return view('infoPages.sertificate');
     }
-
-
-
 
     public function reviews()
     {
         $reviews = Review::where('status', 'APPROVED')->with('user')->orderBy('created_at', 'desc')->take(6)->get();
-        return view('reviews')->with( ['events' => $this->events, 'reviews' => $reviews] );
+        return view('reviews')->with(['reviews' => $reviews] );
     }
 
     public function questions()
@@ -94,7 +76,7 @@ class HomeController extends Controller
         $questionsMiddlePart = array_slice($questions, count($questions) / 2);
 
         return view('questions')->with([
-            'events' => $this->events,
+           
             'questionsLeftPart' => $questionsLeftPart,
             'questionsMiddlePart' => $questionsMiddlePart
         ]);
@@ -118,37 +100,37 @@ class HomeController extends Controller
         // $lastReview = Review::where('status', 'APPROVED')->orderBy('created_at', 'desc')->first();
         $lastReview = Review::where('status', 'APPROVED')->latest()->with('user')->first();
 
-        return view('about-doctor')->with( ['events' => $this->events, 'review' => $lastReview]);
+        return view('about-doctor')->with('review', $lastReview);
     }
 
     public function diseases()
     {
-        return view('diseases')->with('events', $this->events);
+        return view('diseases');
     }
 
     public function treatment()
     {
-        return view('treatments')->with('events', $this->events);
+        return view('treatments');
     }
 
     public function pricing()
     {
-        return view('pricing')->with('events', $this->events);
+        return view('pricing');
     }
 
     public function diseaseMan()
     {
-        return view('disease-man')->with('events', $this->events);
+        return view('disease-man');
     }
 
     public function diseaseWooman()
     {
-        return view('disease-wooman')->with('events', $this->events);
+        return view('disease-wooman');
     }
 
     public function diseaseKidneys()
     {
-        return view('disease-kidneys')->with('events', $this->events);
+        return view('disease-kidneys');
     }
 
     public function enroll(Request $request)
@@ -208,7 +190,7 @@ class HomeController extends Controller
         }
         //$validator->errors()->keys();
 
-        $subscription = new QuestionSubscription();
+        $subscription = new Question();
 
         $subscription->name = strlen($request->question_name) > 0 ? $request->question_name: 'Аноним';
         $subscription->email = $request->question_email;
@@ -217,5 +199,10 @@ class HomeController extends Controller
         $subscription->save();
 
         return back()->with('thanks_block', 'questionTrue');
+    }
+
+    public function undefinderRouter($undfPath)
+    {
+        return view('errors.404');
     }
 }

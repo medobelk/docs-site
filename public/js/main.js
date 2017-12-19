@@ -29,7 +29,5 @@ $(document).ready(function() {
         $(".item-four .no-hover").toggleClass('hide');
     });
 
-    $('#ex1').zoom();
-
 });
 

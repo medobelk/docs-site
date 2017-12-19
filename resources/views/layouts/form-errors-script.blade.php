@@ -7,7 +7,5 @@
         $('textarea[name='+ field_name +']').css('border', '1px solid red');
       });
     }
-
-    $( "#datepicker" ).datepicker();
   });
 </script>

@@ -49,10 +49,18 @@ Route::get('/disease-man', 'HomeController@diseaseMan');
 Route::get('/disease-wooman', 'HomeController@diseaseWooman');
 Route::get('/disease-kidneys', 'HomeController@diseaseKidneys');
 
+//users cabinet
+Route::get('/cabinet', 'PatientsController@index');
+Route::get('/cabinet-question', 'PatientsController@question');
+Route::get('/cabinet-enroll', 'PatientsController@enroll');
+Route::get('/cabinet-review', 'PatientsController@review');
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 Auth::routes();
+
+Route::get('/{undfPath}', 'HomeController@undefinderRouter');
 
 //Route::get('/home', 'HomeController@index')->name('home');

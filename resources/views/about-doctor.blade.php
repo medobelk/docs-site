@@ -39,18 +39,21 @@
                           <h4 class="service-body__title">Последний оставленный отзыв:
                           </h4>
                           <div class="reviews">
-                            <p class="reviews__name">
-
-                              @if( $review->authority === 'USER' )
-                                {{ $review->user->name }}
-                              @else
-                                {{ 'Аноним' }}
-                              @endif
-                              
-                            </p>
-                            <p class="reviews__review">
-                              {{ $review->body }}
-                            </p>
+                            @if( isset($review) )
+                              <p class="reviews__name">
+                                
+                                
+                                  @if( $review->authority === 'USER' )
+                                    {{ $review->user->name }}
+                                  @else
+                                    {{ 'Аноним' }}
+                                  @endif
+                                
+                              </p>
+                              <p class="reviews__review">
+                                {{ $review->body }}
+                              </p>
+                            @endif
                             <a class="reviews__read-all" href="{{ url('/reviews') }}">читать все отзывы</a>
                           </div>
                         </div>
