@@ -92,7 +92,7 @@ class HomeController extends Controller
 
     public function contacts()
     {   
-        return view('contacts')->with('events', $this->events);
+        return view('contacts');
     }
 
     public function about()
