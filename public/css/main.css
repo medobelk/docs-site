@@ -1043,7 +1043,7 @@ a {
             margin-top: 10px;
             font-style: italic;
             font-family: "Segoe UI";
-            line-height: 19px;
+            line-height: 18px;
             font-weight: 400; }
             @media (max-width: 991px) {
               .about-page .main .main-info .content-area .doctor-info__top .doctor-text__info {
@@ -1053,13 +1053,14 @@ a {
           height: 225px; }
           @media (max-width: 1200px) {
             .about-page .main .main-info .content-area .doctor-info__top .doctor-image {
-              width: 50%; } }
+              width: 50%; 
+              height: 180px;} }
           @media (max-width: 991px) {
             .about-page .main .main-info .content-area .doctor-info__top .doctor-image {
               width: 100px;
               height: 120px; } }
       .about-page .main .main-info .content-area .doctor-info__bottom .info-text {
-        font-size: 0.8em;
+        font-size: 14px;
         padding-left: 40px;
         margin-top: 20px;
         font-family: "Segoe UI";
@@ -1985,7 +1986,7 @@ a {
       display: inline-block;
       margin-bottom: 20px; }
       .zabolevania-pochek .question__name:hover {
-        color: red;
+        color: #64c8e2;
         cursor: pointer; }
 
 .zabolevania-mans {
@@ -2246,7 +2247,7 @@ a {
       display: inline-block;
       margin-bottom: 20px; }
       .zabolevania-mans .question__name:hover {
-        color: red;
+        color: #64c8e2;
         cursor: pointer; }
 
 .zabolevania-womans {
@@ -2517,7 +2518,19 @@ a {
       display: inline-block;
       margin-bottom: 20px; }
       .zabolevania-womans .question__name:hover {
-        color: red;
+        color: #64c8e2;
+        cursor: pointer; }
+
+        .zabolevania-womans .question__name:visited,
+        .zabolevania-mans .question__name:visited,
+        .zabolevania-pochek .question__name:visited {
+        color: #6a597a;
+        cursor: pointer; }
+
+        .zabolevania-womans .question__name:active,
+        .zabolevania-mans .question__name:active,
+        .zabolevania-pochek .question__name:active{
+        color: #64c8e2;
         cursor: pointer; }
 
 .zabolevania-all {
@@ -5642,3 +5655,56 @@ footer {
 .not-found-text{
   padding-top: 60px;
 }
+
+.otvet-btn:hover{
+	color: #64c8e2;
+}
+
+.about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list .serfs ol a li:hover{
+	color: #64c8e2;
+}
+
+.about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list .serfs ol a :active{
+	color: #64c8e2;
+}
+
+.about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list .serfs ol a :visited{
+	color: #6a597a;
+}
+
+
+.reviews__read-all:active{
+	color: #64c8e2!important;
+}
+
+.reviews__read-all:hover{
+	color: #64c8e2!important;
+}
+
+.intro .main .main-info .content-area .doctor-info__bottom .diplom-serf a:hover{
+	color: #64c8e2;
+}
+
+
+
+@media screen and (min-width:0\0) { 
+    .intro .main .main-info .content-area .doctor-info__top .doctor-image,
+    .about-page .main .main-info .content-area .doctor-info__top .doctor-image{
+    	width: 150px;
+    	height: auto;
+    	margin-bottom: 20px;
+    }
+
+    .intro .main .main-info .content-area .doctor-info__top,
+    .about-page .main .main-info .content-area .doctor-info__top{
+    	display: block;
+    	text-align: left;
+    }
+
+    .intro .main .main-info .content-area .doctor-info__top .doctor-text,
+    .about-page .main .main-info .content-area .doctor-info__top .doctor-text{
+    	padding-left: 0;
+    }
+}
+
+

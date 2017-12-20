@@ -29,15 +29,10 @@ $(document).ready(function() {
         $(".item-four .no-hover").toggleClass('hide');
     });
 
-        $('#viewArea').zoomMarker({
-            src: "img/sertificate.png",
-            rate: 0.2, // from 0 to 1
-            markers:[
-                {src:"marker.png", x:500, y:500},
-                {src:"marker.png", x:200, y:200},
-                {src:"marker.png", x:1280, y:720, size:20},
-            ]
-        });
+    $("#zoom_02").elevateZoom({
+      zoomType              : "inner",
+      cursor: "crosshair"
+    });
 
 });
 

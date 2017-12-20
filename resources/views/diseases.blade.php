@@ -26,7 +26,7 @@
                       </DIV>
                       <DIV class="list-item">
                         <SPAN>3</SPAN>
-                        <LI><a href="">Орхит</a></LI>
+                        <LI>Орхит</LI>
                       </DIV>
                       <DIV class="list-item">
                         <SPAN>4</SPAN>
@@ -38,7 +38,7 @@
                       </DIV>
                       <DIV class="list-item">
                         <SPAN>6</SPAN>
-                        <LI><a href="">Варикоцеле</a></LI>
+                        <LI>Варикоцеле</LI>
                       </DIV>
                       <DIV class="list-item">
                         <SPAN>7</SPAN>
@@ -62,7 +62,7 @@
                         <LI>
                           Склероатрофический лихен или лейкоплакияСтриктура ( сужение мочеиспукательного канала)
                           Недержание мочи
-                          <a href="">Фимоз</a>
+                          Фимоз
                         </LI>
                       </DIV>
                       <DIV class="list-item">

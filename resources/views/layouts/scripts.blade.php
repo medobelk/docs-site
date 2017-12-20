@@ -1,9 +1,7 @@
 
 <script src="{{ asset('js/compiled.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-<script src="{{ asset('js/hammer.min.js') }}"></script>
-<script src="{{ asset('js/jquery.mousewheel.min.js') }}"></script>
-<script src="{{ asset('js/zoom-marker.js') }}"></script>
+<script src="{{ asset('js/jquery.elevatezoom.js') }}"></script>
 <!-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> -->
 
 

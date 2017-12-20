@@ -16,7 +16,7 @@
                       	<h4 class="method__title serf_title-main serf-titul">Свидетельство про аттестацию в 2015 году </h4>
                       	<div class="single-sertificate">
                       		<span class='zoom' id='ex1'> 
-                      			<img class="sertificate-image" id='jack' src="{{ asset('img/sertificate.png') }}" alt="" role="presentation"/>
+                            <img id="zoom_02" class="sertificate-image" src="{{ asset('img/sertificate.png') }}"" data-zoom-image="{{ asset('img/sertificate-big.png') }}"/>
                       		</span>
 	                      	
 	                      	<div class="serf-info">
@@ -25,9 +25,7 @@
 	                      	</div>
                       	</div>
 
-                          <div id="picview" class="picview">
-                              <img src="{{ asset('img/sertificate.png') }}" name="viewArea" id="viewArea" draggable="false">
-                          </div>
+                        
                       </div>
                     </div>
                   </div>
