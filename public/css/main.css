@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i|Raleway:100,100i,200,200i,300,300i,400,400i,500,500i");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i");
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -293,7 +293,7 @@ a {
             font-size: 30px;
             font-weight: 400;
             padding-bottom: 20px;
-            font-family: "Roboto Condensed"; }
+            font-family: 'Roboto Condensed', sans-serif; }
           .contacts .main .main-info .contacts-map__service .service-body__text {
             font-size: 16px;
             margin-bottom: 10px; }
@@ -339,16 +339,17 @@ a {
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__name {
                   font-size: 16px;
                   margin-bottom: 20px;
+                  padding-left: 35px;
                   color: gray;
                   text-align: left;
-                  font-family: "Roboto Condensed"; }
+                  font-family: 'Roboto Condensed', sans-serif; }
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value {
-                  font-size: 16px;
+                  font-size: 14px;
                   color: #3f3f3f;
                       line-height: 20px;
                   font-family: "Segoe UI"; }
                 .contacts .main .main-info .contacts-map__service .service-body .contact-main-block .contacts-main .contacts-item__value.two {    display: inline-block;
-    margin-top: 10px; }
+    margin-top: 0; }
   .contacts .ico-one {}
   .contacts .ico-two {
     position: relative;
@@ -517,7 +518,7 @@ a {
             font-size: 30px;
             font-weight: 400;
             padding-bottom: 20px;
-            font-family: "Roboto Condensed";
+            font-family: 'Roboto Condensed', sans-serif;
             line-height: 30px; }
           .prices .main .main-info .prices-list__prices .prices-body__text {
             font-size: 16px;
@@ -547,6 +548,8 @@ a {
                   padding-left: 10px; }
   .prices .price-row {
     display: -webkit-box;
+    color: #3f3f3f;
+    line-height: 18px;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -555,12 +558,13 @@ a {
         -ms-flex-pack: justify;
             justify-content: space-between;
     margin-bottom: 25px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Segoe UI";
     margin-right: 20px;
-    font-weight: 300; }
+    font-weight: 400; }
     .prices .price-row .info {
       font-style: italic;
+      font-weight: 600;
       width: 100%; }
     .prices .price-row__name {
       width: 60%; }
@@ -737,24 +741,7 @@ a {
           padding: 15px 10px;
           cursor: pointer;
           font-size: 22px; }
-  .merhods .sidebar {
-    box-sizing: border-box;
-    width: 16.66667%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    background: #e4e4e4; }
-    .merhods .sidebar .newses .news {
-      padding-left: 10px; }
-      .merhods .sidebar .newses .news__date {
-        font-size: 16px;
-        color: #414040; }
-      .merhods .sidebar .newses .news__name {
-        font-size: 16px;
-        padding-top: 10px; }
-      .merhods .sidebar .newses .news__text {
-        font-size: 16px;
-        padding-top: 10px; }
+
   .merhods .price-row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -827,7 +814,7 @@ a {
         padding-right: 0.83333%; }
         @media (max-width: 480px) {
           .merhods .main .main-info__left-part {
-            display: none; } }
+             } }
         .erorr-404 {
           padding-top: 50px;
           padding-left: 40px;
@@ -1064,7 +1051,7 @@ a {
                 display: none; } }
         .about-page .main .main-info .content-area .doctor-info__top .doctor-image {
           width: 100%;
-          height: 100%; }
+          height: 225px; }
           @media (max-width: 1200px) {
             .about-page .main .main-info .content-area .doctor-info__top .doctor-image {
               width: 50%; } }
@@ -1118,14 +1105,15 @@ a {
             font-style: italic;
             font-size: 16px; }
           .about-page .main .main-info .content-area .doctor-info__bottom .doctor-services__service .service-body .reviews__name {
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 10px;
+            font-weight: 600;
             font-family: "Segoe UI";
             color: #3f3f3f; }
           .about-page .main .main-info .content-area .doctor-info__bottom .doctor-services__service .service-body .reviews__review {
             font-size: 14px;
             font-style: italic;
-            line-height: 20px;
+            line-height: 18px;
             font-family: "Segoe UI";
             color: #3f3f3f; }
           .about-page .main .main-info .content-area .doctor-info__bottom .doctor-services__service .service-body .reviews__read-all {
@@ -1149,7 +1137,7 @@ a {
             .about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list__title {
               padding-left: 20px;
               color: #a0a0a0;
-              font-size: 20px;
+              font-size: 18px;
               font-weight: 400;
               padding-bottom: 20px;
               font-family: 'Roboto Condensed', sans-serif;
@@ -1172,9 +1160,9 @@ a {
               .about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list .serfs ol a li {
                 font-family: "Segoe UI";
                 text-decoration: underline;
-                font-size: 16px;
-                color: #8C94A2;
-                line-height: 20px;
+                font-size: 14px;
+                color: #59647a;
+                line-height: 18px;
                 display: inline-block; }
                 .about-page .main .main-info .serfs-list__serfs .serfs-body .serfs-list .serfs ol a li span {
                   color: #3f3f3f; }
@@ -1186,7 +1174,7 @@ a {
                 font-family: 'Roboto Condensed', sans-serif; }
           .about-page .main .main-info .serfs-list__serfs .serfs-body__title {
             color: #a0a0a0;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 400;
             padding-bottom: 20px;
             font-family: 'Roboto Condensed', sans-serif;
@@ -1401,7 +1389,7 @@ a {
             font-family: 'Roboto Condensed', sans-serif;
             padding-top: 25px; }
           .diseases .main .main-info .methods-list__methods .methods-body .method__text {
-            font-size: 16px;
+            font-size: 14px;
             margin-bottom: 20px;
             font-family: "Segoe UI";
             line-height: 18px;
@@ -1549,8 +1537,23 @@ a {
             box-sizing: border-box;
             width: 100%;
             float: left;
-            padding-left: 0.83333%;
-            padding-right: 0.83333%; } }
+            padding-left: 30%;
+            padding-right: 30%; }
+
+          .all-questions .main .main-info__right-part .doctor-form-two{
+            box-sizing: border-box;
+            width: 100%;
+            float: left;
+            padding-right: 0;
+            padding-left: 0;}}
+
+        @media (max-width: 480px) {
+          .all-questions .main .main-info__right-part {
+            box-sizing: border-box;
+            width: 100%;
+            float: left;
+            padding-left: 10%;
+            padding-right: 10%; } }
       .all-questions .main .main-info .doctor-info {
         box-sizing: border-box;
         width: 41.66667%;
@@ -1608,13 +1611,14 @@ a {
           .all-questions .main .main-info .reviws-list__reviws .reviws-body .last-reviews .review {
             margin-bottom: 30px; }
             .all-questions .main .main-info .reviws-list__reviws .reviws-body .last-reviews .review__name {
-              text-decoration: underline;
               font-weight: bold;
-              color: #59647A;
+              color: #3f3f3f;
               font-family: "Segoe UI";
               padding-top: 10px;
+              word-break: break-all;
               font-size: 14px;
-              display: inline-block; }
+              display: inline-block;
+            }
             .all-questions .main .main-info .reviws-list__reviws .reviws-body .last-reviews .review__date {
               font-size: 14px;
               color: #a0a0a0;
@@ -1623,6 +1627,8 @@ a {
             .all-questions .main .main-info .reviws-list__reviws .reviws-body .last-reviews .review__text {
               font-family: "Segoe UI";
               font-size: 14px;
+              color: #3f3f3f;
+              word-break: break-all;
               line-height: 18px;
               margin-top: 10px; }
           .all-questions .main .main-info .reviws-list__reviws .reviws-body__title {
@@ -1783,6 +1789,11 @@ a {
             padding-left: 3%;
             padding-right: 3%; } }
         @media (max-width: 530px) {
+
+          .zabolevania-all .main .main-info .zabs-list {
+            padding-top: 0px!important;
+          }
+
           .zabolevania-pochek .main .main-info__left-part {
             box-sizing: border-box;
             width: 100%;
@@ -1912,7 +1923,7 @@ a {
                       align-items: center; }
               .zabolevania-pochek .main .main-info .zabs-list__zabs .zabs-body ol .list-item li {
                 font-family: "Segoe UI";
-                font-size: 16px;
+                font-size: 14px;
                 color: #3f3f3f;
                 line-height: 20px;
                 display: inline-block; }
@@ -1920,6 +1931,7 @@ a {
                   color: #3f3f3f; }
               .zabolevania-pochek .main .main-info .zabs-list__zabs .zabs-body ol .list-item span {
                 padding-top: 2px;
+                font-size: 14px;
                 display: inline-block;
                 padding-right: 10px;
                 color: #a0a0a0;
@@ -1954,7 +1966,8 @@ a {
       margin-left: 10px; }
     .zabolevania-pochek .question__text {
       padding-bottom: 5px;
-      font-size: 16px;
+          color: #3f3f3f;
+      font-size: 14px;
       font-family: "Segoe UI";
       line-height: 18px; }
     .zabolevania-pochek .question__answer-btn, .zabolevania-pochek .question__edit-btn, .zabolevania-pochek .question__del-btn {
@@ -2037,6 +2050,11 @@ a {
             padding-left: 3%;
             padding-right: 3%; } }
         @media (max-width: 530px) {
+          .zabolevania-pochek .main .main-info .zabs-list {
+            padding-top: 0px;
+            padding-right: 40px;
+          }
+
           .zabolevania-mans .main .main-info__left-part {
             box-sizing: border-box;
             width: 100%;
@@ -2165,14 +2183,15 @@ a {
                       align-items: center; }
               .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body ol .list-item li {
                 font-family: "Segoe UI";
-                font-size: 16px;
+                font-size: 14px;
                 color: #3f3f3f;
-                line-height: 20px;
+                line-height: 18px;
                 display: inline-block; }
                 .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body ol .list-item li span {
                   color: #3f3f3f; }
               .zabolevania-mans .main .main-info .zabs-list__zabs .zabs-body ol .list-item span {
                 padding-top: 2px;
+                font-size: 14px;
                 display: inline-block;
                 padding-right: 10px;
                 color: #a0a0a0;
@@ -2208,7 +2227,8 @@ a {
       margin-left: 10px; }
     .zabolevania-mans .question__text {
       padding-bottom: 5px;
-      font-size: 16px;
+      color: #3f3f3f;
+      font-size: 14px;
       font-family: "Segoe UI";
       line-height: 18px; }
     .zabolevania-mans .question__answer-btn, .zabolevania-mans .question__edit-btn, .zabolevania-mans .question__del-btn {
@@ -2291,6 +2311,11 @@ a {
             padding-left: 3%;
             padding-right: 3%; } }
         @media (max-width: 530px) {
+          .zabolevania-mans .main .main-info .zabs-list {
+            padding-top: 0;
+            padding-right: 40px;
+          }
+
           .zabolevania-womans .main .main-info__left-part {
             box-sizing: border-box;
             width: 100%;
@@ -2430,14 +2455,15 @@ a {
                       align-items: center; }
               .zabolevania-womans .main .main-info .zabs-list__zabs .zabs-body ol .list-item li {
                 font-family: "Segoe UI";
-                font-size: 16px;
+                font-size: 14px;
                 color: #3f3f3f;
-                line-height: 20px;
+                line-height: 18px;
                 display: inline-block; }
                 .zabolevania-womans .main .main-info .zabs-list__zabs .zabs-body ol .list-item li span {
                   color: #3f3f3f; }
               .zabolevania-womans .main .main-info .zabs-list__zabs .zabs-body ol .list-item span {
                 padding-top: 2px;
+                font-size: 14px;
                 display: inline-block;
                 padding-right: 10px;
                 color: #a0a0a0;
@@ -2472,7 +2498,8 @@ a {
       margin-left: 10px; }
     .zabolevania-womans .question__text {
       padding-bottom: 5px;
-      font-size: 16px;
+      font-size: 14px;
+          color: #3f3f3f;
       font-family: "Segoe UI";
       line-height: 18px; }
     .zabolevania-womans .question__answer-btn, .zabolevania-womans .question__edit-btn, .zabolevania-womans .question__del-btn {
@@ -2555,6 +2582,10 @@ a {
             padding-left: 3%;
             padding-right: 3%; } }
         @media (max-width: 530px) {
+          .zabolevania-womans .main .main-info .zabs-list {
+            padding-top: 0px;
+          }
+
           .zabolevania-all .main .main-info__left-part {
             box-sizing: border-box;
             width: 100%;
@@ -2674,14 +2705,15 @@ a {
                       align-items: center; }
               .zabolevania-all .main .main-info .zabs-list__zabs .zabs-body ol .list-item li {
                 font-family: "Segoe UI";
-                font-size: 16px;
+                font-size: 14px;
                 color: #3f3f3f;
-                line-height: 20px;
+                line-height: 18px;
                 display: inline-block; }
                 .zabolevania-all .main .main-info .zabs-list__zabs .zabs-body ol .list-item li span {
                   color: #3f3f3f; }
               .zabolevania-all .main .main-info .zabs-list__zabs .zabs-body ol .list-item span {
                 padding-top: 2px;
+                font-size: 14px;
                 display: inline-block;
                 padding-right: 10px;
                 color: #a0a0a0;
@@ -3531,6 +3563,7 @@ a {
               align-items: center; }
       .header__adress .header-adress__icon {
         padding-right: 5px;
+        width: 25px;
         font-size: 24px; }
   .header__nav {
     display: -webkit-box;
@@ -3628,9 +3661,12 @@ a {
               align-items: center; }
       .header__private-cabinet .private-cabinet__icon {
         padding-right: 10px;
+        width: 25px;
         font-size: 22px; }
       .header__private-cabinet .private-cabinet__text {
-        font-family: "Segoe UI"; }
+        font-family: "Segoe UI";
+        font-size: 14px;
+      color: white;}
 
 .header-patient {
   background-color: #58647c;
@@ -3930,7 +3966,7 @@ footer {
     color: #59647A;
     align-items: center;
     display: flex;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 20px;  }
 
 
@@ -4014,22 +4050,22 @@ footer {
     font-family: "Segoe UI";
     padding-bottom: 30px; }
     .sidebar .newses .news__date {
-      font-size: 14px;
+      font-size: 12px;
       color: #a0a0a0; }
       @media (max-width: 768px) {
         .sidebar .newses .news__date {
           font-size: 12px; } }
     .sidebar .newses .news__name {
-      font-size: 14px;
+      font-size: 12px;
       padding-top: 5px;
       line-height: 16px; }
       @media (max-width: 768px) {
         .sidebar .newses .news__name {
           font-size: 12px; } }
     .sidebar .newses .news__text {
-      font-size: 14px;
+      font-size: 12px;
       padding-top: 5px;
-      line-height: 16px;
+      line-height: 18px;
       color: #3f3f3f; }
       @media (max-width: 768px) {
         .sidebar .newses .news__text {
@@ -4074,7 +4110,8 @@ footer {
         position: static !important; } }
     @media (max-width: 1200px) {
       .doctor-form .form-body__title {
-        font-size: 26px; } }
+        font-size: 26px;
+        white-space: normal;} }
     @media (max-width: 768px) {
       .doctor-form .form-body__title {
         font-size: 24px;
@@ -4113,9 +4150,20 @@ footer {
   padding-left: 0;
   padding-right: 50px; }
   @media (max-width: 991px) {
-    .doctor-form-two {
-    padding-left: 30%;
-    padding-right: 30%; } }
+    .merhods .main-info__right-part .doctor-form-two {
+    }
+
+    .merhods .main-info__right-part .doctor-form-two {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+@media (max-width: 768px) {
+  .merhods .doctor-form-two {
+
+  }
+}
   @media (max-width: 480px) {
     .doctor-form-two {
       box-sizing: border-box;
@@ -4538,7 +4586,7 @@ footer {
                   display: none; } }
           .intro .main .main-info .content-area .doctor-info__top .doctor-image {
             width: 100%;
-            height: 100%; }
+            height: 225px; }
             @media (max-width: 1200px) {
               .intro .main .main-info .content-area .doctor-info__top .doctor-image {
                 width: 50%; } }
@@ -4584,6 +4632,7 @@ footer {
             color: #7b89b2; }
             .intro .main .main-info .content-area .doctor-info__bottom .diplom-serf a p {
               margin-left: 10px;
+              line-height: 18px;
               font-family: "Segoe UI";
               font-size: 14px; }
           .intro .main .main-info .content-area .doctor-info__bottom .diplom-serf .diplom, .intro .main .main-info .content-area .doctor-info__bottom .diplom-serf .serf {
@@ -4687,6 +4736,7 @@ footer {
         footer .footer-body .footer-item {
           box-sizing: border-box;
           width: 29.16667%;
+          margin-top: 0!important;
           float: left;
           padding-left: 0.83333%;
           padding-right: 0.83333%;
@@ -4702,7 +4752,7 @@ footer {
         padding-bottom: 10px; }
       footer .footer-body .footer-item__review {
         font-family: "Segoe UI";
-        font-size: 16px;
+        font-size: 14px;
         padding-bottom: 10px;
         font-style: italic;
         line-height: 18px; }
@@ -4733,7 +4783,7 @@ footer {
         font-size: 14px;
         margin-top: 20px;
         width: 150px;
-        line-height: 20px;
+        line-height: 18px;
         font-family: "Segoe UI"; }
         @media (max-width: 768px) {
           footer .footer-body .footer-item__grafic {
@@ -4745,7 +4795,7 @@ footer {
         font-size: 14px;
         margin-top: 20px;
         width: 150px;
-        line-height: 20px;
+        line-height: 18px;
         font-family: "Segoe UI"; }
         @media (max-width: 768px) {
           footer .footer-body .footer-item__address {
@@ -4773,6 +4823,7 @@ footer {
 
       footer .footer-body .footer-item.three{
         width: 100%;
+        margin-top: 30px;
       }
 
       footer .footer-body{
@@ -4838,7 +4889,7 @@ footer {
     display: flex; }
   .merhods .main {
     box-sizing: border-box;
-    width: 83.33333%;
+    width: 86%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
@@ -4851,10 +4902,23 @@ footer {
     @media (max-width: 768px) {
       .merhods .main {
         box-sizing: border-box;
-        width: 75%;
+        width: 100%;
         float: left;
         padding-left: 0.83333%;
-        padding-right: 0.83333%; } }
+        padding-right: 0.83333%; }
+
+      .merhods .main .main-info__left-part{
+        width: 50%!important;
+      }
+
+      .merhods .main .main-info__middle-part{
+        width: 50%!important;
+      }
+
+      .merhods .main .main-info__right-part{
+        width: 100%!important;
+      }
+    }
     @media (max-width: 480px) {
       .merhods .main {
         box-sizing: border-box;
@@ -4871,23 +4935,23 @@ footer {
         clear: both; }
       .merhods .main .main-info__left-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
         @media (max-width: 480px) {
           .merhods .main .main-info__left-part {
-            display: none; } }
+            width: 100%!important; } }
         .erorr-404 {
-          padding-top: 50px;
-          padding-left: 40px;
+          padding-top: 60px;
+          padding-left: 60px;
           padding-right: 40px;
           text-align: center; }
           .erorr-404__image-404 {
-            width: 200px; }
+            width: 90%; }
       .merhods .main .main-info__middle-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 36%;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%;
@@ -4900,17 +4964,25 @@ footer {
         @media (max-width: 480px) {
           .merhods .main .main-info__middle-part {
             box-sizing: border-box;
-            width: 50%;
+            width: 100%!important;
             float: left;
             padding-left: 0.83333%;
             padding-right: 0.83333%;
             padding-left: 5%;
-            padding-right: 5%; } }
+            padding-right: 5%; }
+
+          .erorr-404__image-404 {
+            width: 60%;
+            margin-bottom: 30px;
+          }
+        }
         .error-text {
           padding-top: 50px;
+          color: #3f3f3f;
           padding-right: 40px;
           font-family: "Segoe UI";
-          font-size: 14px; }
+          font-size: 14px;
+          line-height: 18px; }
         @media (max-width: 480px) {
           .error-text {
             padding-top: 0px;
@@ -4925,12 +4997,10 @@ footer {
             color: #7b89b2; }
       .merhods .main .main-info__right-part {
         box-sizing: border-box;
-        width: 33.33333%;
+        width: 28%;
         float: left;
         padding-left: 0.83333%;
-        padding-right: 0.83333%;
-        padding-left: 2%;
-        padding-right: 4%; }
+        padding-right: 0.83333%;  }
         @media (max-width: 480px) {
           .merhods .main .main-info__right-part {
             box-sizing: border-box;
@@ -5225,11 +5295,11 @@ footer {
     }
 
     .long-footer__info-one{
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .long-footer__info-two{
-        font-size: 16px;
+        font-size: 14px;
         text-align: right;
     }
 
@@ -5263,7 +5333,7 @@ footer {
 
 @media (max-width: 480px) {
                 .long-footer__info-one{
-        font-size: 16px;
+        font-size: 14px;
         padding-left: 0;
         padding-bottom: 10px;
     }
@@ -5272,7 +5342,7 @@ footer {
   @media (max-width: 480px) {
 
     .long-footer__info-two{
-        font-size: 16px;
+        font-size: 14px;
         padding-right: 0;
     }
 }
@@ -5367,7 +5437,7 @@ footer {
 
 .single-sertificate{
   display: flex;
-  padding-left: 10%;
+  padding-left: 0;
   padding-right: 10%;
 }
 
@@ -5398,7 +5468,7 @@ footer {
 
 .serf_title-main{
   padding-top: 0!important;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 768px) {
@@ -5437,3 +5507,76 @@ footer {
 }
 
 
+.zabs-body ol .list-item{
+	padding-bottom: 10px!important;
+}
+
+.contacts-item__icon{
+  width: 25px;
+}
+
+.first-logo-part{
+  color: #00DD1B;
+  font-size: 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+}
+
+.inner-part-logo{
+  color: #63C9E2;
+}
+
+.zabolevania-all .main .main-info .zabs-list__zabs .zabs-body ol .list-item li a{
+  text-decoration: underline;
+  font-size: 14px;
+  color: #59647a;
+}
+
+.pielo-inner{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.merhods .doctor-form-two .form-body__title{
+  white-space: normal;
+}
+
+
+
+@media (max-width: 991px) {
+  .merhods .main-info__right-part .doctor-form-two   {
+    padding-left: 0;
+    padding-right: 50px;} }
+
+@media (max-width: 768px) {
+  .merhods .main-info__right-part .doctor-form-two{
+    padding-left: 30%;
+    padding-right: 30%; } }
+
+@media (max-width: 480px) {
+  .merhods .main-info__right-part .doctor-form-two{
+    padding-left: 10%;
+    padding-right: 10%; } }
+
+
+@media (max-width: 991px) {
+  .diseases .main-info__right-part .doctor-form-two{
+    padding-left: 30%;
+    padding-right: 30%; } }
+
+@media (max-width: 480px) {
+  .diseases .main-info__right-part .doctor-form-two{
+    padding-left: 10%;
+    padding-right: 10%; } }
+
+
+.otvet-btn{
+  text-decoration: underline;
+  font-weight: bold;
+  color: #59647A;
+  font-family: "Segoe UI";
+  padding-top: 10px;
+  font-size: 14px;
+  display: block;
+  text-align: right;
+}

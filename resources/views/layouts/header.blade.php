@@ -12,14 +12,17 @@
               <a class="mobile-menu__link" href="{{ url('/QA/getlist') }}">вопросы</a>
           </div>
           <div class="header__private-cabinet private-visible">
-            <a class="private-cabinet"><img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i></a>
+              <a href="{{ route('login') }}" class="private-cabinet">
+                  <img class="private-cabinet__icon" src="{{ asset('img/lock-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i>
+              </a>
           </div>
         </div>
       </div>
     </div>
+
     <div class="header__logo">
       <a class="header-logo" href="{{ url('/') }}"> 
-        <img class="header-logo__img" src="{{ asset('img/logo/logo.png') }}" alt="" role="presentation"/>
+        <span class="first-logo-part">doc<span class="inner-part-logo">Urolog</span></span>
       </a>
     </div>
     <div class="header__telephones">
@@ -34,7 +37,7 @@
       </a>
     </div>
     <div class="header__adress">
-      <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-ico.png') }}" alt="" role="presentation"/><span class="header-adress__text">Семинарская 7, каб. 21</span>
+      <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-header.png') }}" alt="" role="presentation"/><span class="header-adress__text">Семинарская 7, каб. 21</span>
       </div>
     </div>
     <div class="header__nav">
@@ -51,11 +54,11 @@
     <div class="header__private-cabinet"> 
       @if( Auth::guest() )
         <a href="{{ route('login') }}" class="private-cabinet">
-          <img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i>
+          <img class="private-cabinet__icon" src="{{ asset('img/lock-ico.png') }}" alt="" role="presentation"/><i class="private-cabinet__text">Вход</i>
         </a>
       @else
         <a href="{{ route('logout') }}" class="private-cabinet" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-          <img class="private-cabinet__icon" src="{{ asset('img/mobi-ico.png') }}" alt="" role="presentation"/>
+          <img class="private-cabinet__icon" src="{{ asset('img/lock-ico.png') }}" alt="" role="presentation"/>
           <i class="private-cabinet__text">Выход</i>
         </a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">

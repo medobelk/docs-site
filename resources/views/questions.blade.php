@@ -19,6 +19,7 @@
                             <p class="review__text">
                               {{ $question["complaints"] }}
                             </p>
+                            <p ><a class="otvet-btn" href="">Ответ</a></p>
                           </div>
                         @endforeach
                         <!-- <div class="review"><a class="review__name" href="#">Виктория</a><span class="review__date">11.8.2017</span>
@@ -46,6 +47,8 @@
                             <p class="review__text">
                               {{ $question["complaints"] }}
                             </p>
+
+                            <p ><a class="otvet-btn" href="">Ответ</a></p>
                           </div>
                         @endforeach
                         <!-- <div class="review"><a class="review__name" href="#">Константин</a><span class="review__date">11.8.2017</span>

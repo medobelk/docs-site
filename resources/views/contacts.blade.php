@@ -36,7 +36,7 @@
                       <div class="contacts-item__name">График роботы</div>
                       <div class="contact-item-body">
                       <div class="image">
-                        <img class="contacts-item__icon ico-two" src="img/clock.png" alt="" role="presentation"/>
+                        <img class="contacts-item__icon ico-two" src="img/time-ico.png" alt="" role="presentation"/>
                       </div>
                       <span class="contacts-item__value">Пн-Пт с 9:00 до 15:00</span>
                       </div>
@@ -45,7 +45,7 @@
                       <div class="contacts-item__name">Адрес</div>
                       <div class="contact-item-body">
                       <div class="image">
-                        <img class="contacts-item__icon ico-two" src="img/mark-ico.png" alt="" role="presentation"/>
+                        <img class="contacts-item__icon ico-two" src="img/marker-ico.png" alt="" role="presentation"/>
                       </div>
                       <span class="contacts-item__value">Семинарская 7, кабинет 21</span>
                       </div>
