@@ -174,7 +174,7 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        Mail::to( User::where('role_id', 3)->get() )->send( new EnrollRegistered( $userRequest ) );
+        //Mail::to( User::where('role_id', 3)->get() )->send( new EnrollRegistered( $userRequest ) );
 
         return back()->with('thanks_block', 'enrollTrue');
     }
