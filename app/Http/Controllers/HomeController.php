@@ -57,6 +57,11 @@ class HomeController extends Controller
         return view('infoPages.zistit');
     }
 
+    public function setificates()
+    {
+        return view('infoPages.sertificates');
+    }
+
     public function setificate()
     {
         return view('infoPages.sertificate');
