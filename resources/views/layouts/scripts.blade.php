@@ -4,7 +4,6 @@
 <script src="{{ asset('js/main.js') }}"></script>
 <!-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> -->
 
-пше
 
 <!-- <script src="{{ asset('js/collapse.js') }}"></script>
 <script src="{{ asset('js/transition.js') }}"></script> -->
