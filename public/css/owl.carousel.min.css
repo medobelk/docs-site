@@ -21,21 +21,8 @@
     right: 40px;
 }
 
-
-
-.owl-prev {
-    position: relative;
-    right: 40px;
-}
-
 .owl-next{
     position: relative;
-    left: 30px;
+    left: 40px;
 }
 
-@media (max-width: 768px) {
-    .owl-prev{
-        position: relative;
-        right: 30px;
-    }
-}
