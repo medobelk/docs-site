@@ -95,9 +95,8 @@ class HomeController extends Controller
     public function dialogs(Request $request, $id)
     {
         $question = Question::where('id', $id)->first();
-        $answers = Answer::where('question_id', $id)->first();
-
-        return view('dialog');
+        $answer = Answer::where('question_id', $id)->first();
+        return view('dialog')->with( ['question' => $question, 'answer' => $answer] );;
     }
 
     public function contacts()
