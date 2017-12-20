@@ -24,16 +24,28 @@
 	                      		<p class="serf-info__text">15 июля 2015г присвоена высшая категория по специальности «урология». </p>
 	                      	</div>
                       	</div>
+
+                          <div id="picview" class="picview">
+                              <img src="{{ asset('img/sertificate.png') }}" name="viewArea" id="viewArea" draggable="false">
+                          </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+                <div class="main-info__right-part">
+
+                    @include('layouts.enroll-form')
+
+                </div>
             </div>
           </div>
-          
+
 		  @include('layouts.sidebar')
 
         </div>
       </section>
+
+
 @endsection

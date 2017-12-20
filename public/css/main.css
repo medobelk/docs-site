@@ -5442,7 +5442,22 @@ footer {
 }
 
 .main .main-info .single-part{
-  width: 100%;
+  width: 72%;
+}
+
+
+@media (max-width: 991px) {
+  .main .main-info .single-part {
+    width: 100%;
+  }
+}
+
+
+
+.single-sertificate {
+  display: flex;
+  padding-left: 0;
+  padding-right: 10%;
 }
 
 .serf-info{
@@ -5477,6 +5492,7 @@ footer {
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
+  padding-right: 0;
 }
 
 .serf-list{
@@ -5589,7 +5605,7 @@ footer {
 
 
   .all-serfs {
-    width: 100% !important;
+    width: 72% !important;
 
   }
 @media (max-width: 480px) {

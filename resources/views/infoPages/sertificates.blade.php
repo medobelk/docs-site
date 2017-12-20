@@ -89,10 +89,16 @@
               </div>
             </div>
           </div>
+
+          <div class="main-info__right-part">
+
+            @include('layouts.enroll-form')
+
+          </div>
         </div>
       </div>
 
       @include('layouts.sidebar')
-
+    </div>
   </section>
 @endsection
