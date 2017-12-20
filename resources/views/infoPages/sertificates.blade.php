@@ -8,63 +8,8 @@
         @include('layouts.question-list')
 
         <div class="main-info">
-          <div class="main-info__left-part">
-            <div class="main-info">
-              <div class="content-area">
-                <div class="doctor-info">
-                  <div class="doctor-info__top"><img class="doctor-image" src="{{ asset('img/questions-image/doctor-image.png') }}" alt="" role="presentation"/>
-                    <div class="doctor-text">
-                      <h3 class="doctor-text__name">Брезицкий Юрий Иосифович
-                      </h3>
-                      <h3 class="doctor-text__employ">Врач-уролог высшей категории
-                      </h3>
-                      <h3 class="doctor-text__info">Работает по программе проекта ЮНИСЕФ "Клиника дружественная молодежи"
-                      </h3>
-                    </div>
-                  </div>
-                  <div class="doctor-info__bottom">
-                    <p class="info-text">Автор 8 докладов на международных конференциях, автор 5 публикаций в специальных профессиональных журналах, автор методических рекомендаций по лечению урологических больных методами озонотерапии МОЗ Украины.
-                    </p>
-                    <div class="doctor-services">
-                      <div class="doctor-services__service">
-                        <div class="service-body">
-                          <h4 class="service-body__title">Диагностика
-                          </h4>
-                          <p class="service-body__text">Бактериоскопия, цитология, бакпосев, реакция иммунофлуоресценции (прямой, непрямой), определение чувствительности возбудителя к антибиотикам, вирусологические исследования, П.Ц.Р. (полимеразно-цепная реакция), иммуноферментный анализ (ИФА).
-                          </p>
-                        </div>
-                      </div>
-                      <div class="doctor-services__service">
-                        <div class="service-body">
-                          <h4 class="service-body__title">Последний оставленный отзыв
-                          </h4>
-                          <div class="reviews">
-                            @if( isset($review) )
-                              <p class="reviews__name">
-                                
-                                
-                                  @if( $review->authority === 'USER' )
-                                    {{ $review->user->name }}
-                                  @else
-                                    {{ 'Аноним' }}
-                                  @endif
-                                
-                              </p>
-                              <p class="reviews__review">
-                                {{ $review->body }}
-                              </p>
-                            @endif
-                            <a class="reviews__read-all" href="{{ url('/reviews') }}">читать все отзывы</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main-info__middle-part">
+
+          <div class="main-info__middle-part all-serfs">
             <div class="serfs-list">
               <div class="serfs-list__serfs">
                 <div class="serfs-body">
@@ -144,14 +89,9 @@
               </div>
             </div>
           </div>
-          <div class="main-info__right-part">
-          
-            @include('layouts.enroll-form')
-
-          </div>
         </div>
       </div>
-      
+
       @include('layouts.sidebar')
 
   </section>

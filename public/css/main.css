@@ -1170,6 +1170,7 @@ a {
                 padding-top: 2px;
                 display: inline-block;
                 padding-right: 10px;
+                font-size: 14px;
                 color: #a0a0a0;
                 font-family: 'Roboto Condensed', sans-serif; }
           .about-page .main .main-info .serfs-list__serfs .serfs-body__title {
@@ -5579,4 +5580,25 @@ footer {
   font-size: 14px;
   display: block;
   text-align: right;
+}
+
+.serf-titul{
+  font-size: 24px!important;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+
+
+  .all-serfs {
+    width: 100% !important;
+
+  }
+@media (max-width: 480px) {
+  .all-serfs .serfs-body__title {
+    padding-top: 40px;
+  }
+}
+
+.no-ital{
+  font-style: normal!important;
 }

@@ -13,7 +13,7 @@
                   <div class="methods-list__methods">
                     <div class="methods-body">
                       <div class="method">
-                      	<h4 class="method__title serf_title-main">Свидетельство про аттестацию в 2015 году </h4>
+                      	<h4 class="method__title serf_title-main serf-titul">Свидетельство про аттестацию в 2015 году </h4>
                       	<div class="single-sertificate">
                       		<span class='zoom' id='ex1'> 
                       			<img class="sertificate-image" id='jack' src="{{ asset('img/sertificate.png') }}" alt="" role="presentation"/>

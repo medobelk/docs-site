@@ -1,10 +1,10 @@
 <!-- <script src="js/jquery.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <!-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> -->
 
-
+пше
 
 <!-- <script src="{{ asset('js/collapse.js') }}"></script>
 <script src="{{ asset('js/transition.js') }}"></script> -->
