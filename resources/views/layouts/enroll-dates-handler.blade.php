@@ -10,7 +10,7 @@
  //        disabledDates: ['2017-12-30'],
  //        disabledTimeIntervals: [[moment({ h: 0 }), moment({ h: 10 })], [moment({ h: 18 }), moment({ h: 24 })]]
  //    });
- 	var allowTimes = ['10','11','12','13','14','15','16','17','18'];
+ 	var allowTimes = ['9', '10','11','12','13','14','15','16','17','18'];
  	$.datetimepicker.setLocale('ru');
 	$('#datetimepicker').datetimepicker({
 		minDate:'+1970/01/02',

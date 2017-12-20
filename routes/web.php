@@ -37,6 +37,7 @@ Route::get('/Pagec/view/name/pielonefrit', 'HomeController@pielonefrit');
 Route::get('/Pagec/view/name/prostatit', 'HomeController@prostatit');
 Route::get('/Pagec/view/name/uretrit', 'HomeController@uretrit');
 Route::get('/Pagec/view/name/zistit', 'HomeController@zistit');
+Route::get('/Pagec/view/name/obrez', 'HomeController@obrez');
 Route::get('/Pagec/view/name/sertificates', 'HomeController@setificates');
 Route::get('/Pagec/view/name/sertificate', 'HomeController@setificate');
 
