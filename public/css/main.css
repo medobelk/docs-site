@@ -843,7 +843,6 @@ a {
             padding-left: 5%;
             padding-right: 5%; } }
         .error-text {
-          padding-top: 50px;
           font-family: "Segoe UI";
           font-size: 14px; }
           .error-text__text {
@@ -4946,10 +4945,10 @@ footer {
         .erorr-404 {
           padding-top: 60px;
           padding-left: 60px;
-          padding-right: 40px;
+          padding-right: 60px;
           text-align: center; }
           .erorr-404__image-404 {
-            width: 90%; }
+            width: 180px; }
       .merhods .main .main-info__middle-part {
         box-sizing: border-box;
         width: 36%;
@@ -4978,7 +4977,6 @@ footer {
           }
         }
         .error-text {
-          padding-top: 50px;
           color: #3f3f3f;
           padding-right: 40px;
           font-family: "Segoe UI";
@@ -5602,4 +5600,29 @@ footer {
 
 .no-ital{
   font-style: normal!important;
+}
+
+.big-obrez{
+  font-size: 18px!important;
+  font-style: italic;
+  line-height: 20px!important;
+}
+
+.itlico{
+  font-style: italic;
+}
+
+.method-name-bol{
+  font-size: 18px;
+  font-style: italic;
+}
+
+.reason-list li{
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+
+.not-found-text{
+  padding-top: 60px;
 }

@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="main-info__middle-part">
-          <div class="error-text">
+          <div class="error-text not-found-text">
             <p class="error-text__text"> Запрашиваемая вами страница еще не создана либо находится в разработке.
             </p>
             <p class="error-text__text"> Если вы не нашли ответа на интересующий вас вопрос, можете задать его здесь, воспользуясь формой.
