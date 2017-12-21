@@ -159,6 +159,7 @@ class HomeController extends Controller
                 'required',
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
+            'patient_visit_date' => 'required',
             'patient_email' => 'required|email',
         ]);
 
