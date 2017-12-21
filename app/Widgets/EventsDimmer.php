@@ -26,8 +26,8 @@ class EventsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-bell',
-            'title'  => "{$count} Событи(я, й, e)",
-            'text'   => 'У вас '. $count .' событи(я, й, е)',
+            'title'  => "События",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => __('Все События'),
                 'link' => route('voyager.events.index'),

@@ -26,8 +26,8 @@ class ReviewsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-chat',
-            'title'  => "{$count} Отзыв(ов , а)",
-            'text'   => 'У вас '. $count .' oтзыв(ов , а)',
+            'title'  => "Отзывы",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => __('Все Отзывы'),
                 'link' => route('voyager.reviews.index'),

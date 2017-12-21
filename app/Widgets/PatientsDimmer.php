@@ -26,8 +26,8 @@ class PatientsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-people',
-            'title'  => "{$count} Пациент(а, ов)",
-            'text'   => 'У вас '. $count .' Пациент(а, ов)',
+            'title'  => "Пациенты",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => __('Все Пациенты'),
                 'link' => route('voyager.users.index'),

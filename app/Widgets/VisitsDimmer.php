@@ -26,8 +26,8 @@ class VisitsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-activity',
-            'title'  => "{$count} Посещени(й, я, е)",
-            'text'   => 'У вас '. $count .' посещени(й, я, е)',
+            'title'  => "Посещения",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => __('Все Посещения'),
                 'link' => route('voyager.visits.index'),

@@ -26,8 +26,8 @@ class RequestsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-window-list',
-            'title'  => "{$count} Заяв(ок, ки, ка)",
-            'text'   => 'У вас '. $count .' заяв(ок, ки, ка)',
+            'title'  => "Заявки",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => __('Все Заявки'),
                 'link' => route('voyager.anonim-requests.index'),

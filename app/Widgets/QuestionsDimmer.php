@@ -26,8 +26,8 @@ class QuestionsDimmer extends AbstractWidget
 
         return view('voyager::dimmer', array_merge($this->config, [
             'icon'   => 'voyager-news',
-            'title'  => "{$count} Вопрос(ов, а)",
-            'text'   => 'У вас '. $count .' вопрос(ов, а)',
+            'title'  => "Вопросы",
+            'text'   => "Всего {$count}",
             'button' => [
                 'text' => "Все вопросы",
                 'link' => route('voyager.questions.index'),
