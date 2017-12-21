@@ -1125,7 +1125,7 @@ a {
             font-size: 14px;
             display: inline-block; }
       .about-page .main .main-info .serfs-list {
-        padding-top: 40px;
+        padding-top: 50px;
         padding-left: 40px; }
         @media (max-width: 480px) {
           .about-page .main .main-info .serfs-list {
@@ -1790,6 +1790,9 @@ a {
             padding-left: 3%;
             padding-right: 3%; } }
         @media (max-width: 530px) {
+			 .zabs-body {
+			    padding-top: 40px!important;
+			}
 
           .zabolevania-all .main .main-info .zabs-list {
             padding-top: 0px!important;
@@ -5173,7 +5176,7 @@ footer {
             display: -ms-flexbox;
             display: flex; }
       .all-reviews .main .main-info .reviws-list {
-        padding-top: 40px;
+        padding-top: 50px;
         padding-left: 40px; }
         .all-reviews .main .main-info .reviws-list__reviws {
           margin-bottom: 20px; }
@@ -5619,6 +5622,7 @@ footer {
 
   .all-serfs {
     width: 72% !important;
+    padding-left: 0!important;
 
   }
 @media (max-width: 480px) {
@@ -5685,6 +5689,10 @@ footer {
 	color: #64c8e2;
 }
 
+.zabs-body {
+    padding-top: 10px!important;
+}
+
 
 
 @media screen and (min-width:0\0) { 
@@ -5708,3 +5716,10 @@ footer {
 }
 
 
+
+
+        @media (max-width: 530px) {
+			 .zabs-body {
+			    padding-top: 20px!important;
+			}
+		}
