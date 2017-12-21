@@ -14,12 +14,12 @@
                       <div class="last-reviews">
                         
                         @foreach( $questionsLeftPart as $key => $question)
-                          <div class="review"><a class="review__name" href='{{ url('/QA/getlist/question/' . $question["id"] ) }}'>{{ $question["name"] }}</a>
+                          <div class="review"><a class="review__name" href=''>{{ $question["name"] }}</a>
                             <span class="review__date">{{ $question["created_at"] }}</span>
                             <p class="review__text">
                               {{ $question["complaints"] }}
                             </p>
-                            <p ><a class="otvet-btn" href="">Ответ</a></p>
+                            <p ><a class="otvet-btn" href="{{ url('/QA/getlist/question/' . $question["id"] ) }}">Ответ</a></p>
                           </div>
                         @endforeach
                         <!-- <div class="review"><a class="review__name" href="#">Виктория</a><span class="review__date">11.8.2017</span>
