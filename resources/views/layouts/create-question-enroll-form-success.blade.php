@@ -13,7 +13,7 @@
       $('.main-info__left-part').append(`<div class="erorr-404"><img class="erorr-404__image-404" src="{{ asset('img/thanks.png') }}" alt="" role="presentation"/></div>`);
 
       $('.main-info__middle-part').append(`
-      <div class="error-text">
+      <div class="error-text thanks-section">
         <p class="error-text__text"> Вы записаны на прием  23.12 в 11:00</p>
         <p class="error-text__text"> Если у вас есть предыдущие анализы или заключения по возникшей проблеме, возьмите их с собой.</p>
         <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
@@ -38,7 +38,7 @@
       $('#left-part').append(`<div class="erorr-404"><img class="erorr-404__image-404" src="{{ asset('img/thanks.png') }}" alt="" role="presentation"/></div>`);
 
       $('#middle-part').append(`
-      <div class="error-text">
+      <div class="error-text thanks-section">
         <p class="error-text__text"> Вы записаны на прием  23.12 в 11:00</p>
         <p class="error-text__text"> Если у вас есть предыдущие анализы или заключения по возникшей проблеме, возьмите их с собой.</p>
         <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
@@ -69,7 +69,7 @@
 
       $('.main-info__left-part').append(`<div class="erorr-404"><img class="erorr-404__image-404" src="{{ asset('img/thanks.png') }}" alt="" role="presentation"/></div>`);
       $('.main-info__middle-part').append(`
-      <div class="error-text">
+      <div class="error-text thanks-section">
         <p class="error-text__text"> Я отвечу вам как только смогу.</p>
         <p class="error-text__text"> Вам на почту прийдет ответ со ссылкой на почту, так же он станет доступен на странице с вопросами.</p>
         <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
@@ -77,7 +77,7 @@
       `);
       $('#left-part').append(`<div class="erorr-404"><img class="erorr-404__image-404" src="{{ asset('img/thanks.png') }}" alt="" role="presentation"/></div>`);
       $('#middle-part').append(`
-      <div class="error-text">
+      <div class="error-text thanks-section">
         <p class="error-text__text"> Я отвечу вам как только смогу.</p>
         <p class="error-text__text"> Вам на почту прийдет ответ со ссылкой на почту, так же он станет доступен на странице с вопросами.</p>
         <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
