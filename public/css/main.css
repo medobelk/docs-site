@@ -2784,7 +2784,6 @@ a {
   padding-bottom: 30px; }
   .main-content .history-body {
     box-sizing: border-box;
-    width: 75%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%; }
@@ -2797,7 +2796,11 @@ a {
       margin-top: 40px; }
       .main-content .history-body .history-field__name {
         box-sizing: border-box;
-        width: 33.33333%;
+        margin-right: 40px;
+        font-family: "Segoe UI";
+        font-size: 14px;
+        text-align: right;
+        width: 150px;
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%;
@@ -2824,10 +2827,15 @@ a {
             font-size: 30px;
             padding-right: 12px; }
           .main-content .history-body .history-field__value.analizi .analiz__link {
-            font-size: 16px; }
+            font-size: 14px;
+            color: #7b89b2;
+            font-family: "Segoe UI";}
       .main-content .history-body .history-field__value {
         box-sizing: border-box;
         width: 66.66667%;
+        font-size: 14px;
+        line-height: 18px;
+        font-family: "Segoe UI";
         float: left;
         padding-left: 0.83333%;
         padding-right: 0.83333%; }
@@ -2862,8 +2870,7 @@ a {
       padding: 10px 0; }
     .main-content__adding-form .form-field__text-field {
       border: none;
-      width: 100%;
-      padding: 10px 0; }
+      padding: 10px 5px; }
     .main-content__adding-form .form-field__submit-btn {
       color: white;
       border: none;
@@ -2880,6 +2887,8 @@ a {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  width: 56.52%;
+  margin-top: 45px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -2888,52 +2897,59 @@ a {
 .main-content .main-part {
   box-sizing: border-box;
   width: 41.66667%;
+  margin-left: 100px;
   float: left;
   padding-left: 0.83333%;
   padding-right: 0.83333%; }
   .main-content .main-part .adding-form {
-    margin-right: 40px; }
+    margin-right: 35px; }
     .main-content .main-part .adding-form .form-field {
       border: none;
       margin-bottom: 15px; }
       .main-content .main-part .adding-form .form-field__name {
-        margin-bottom: 10px; }
+        margin-bottom: 15px;
+        font-size: 14px;
+        font-family: "Segoe UI";}
       .main-content .main-part .adding-form .form-field__input-field {
         border: none;
         padding: 10px;
         width: 400px; }
       .main-content .main-part .adding-form .form-field__text-field {
         border: none;
-        padding: 10px;
-        width: 400px; }
+        width: 100%;}
       .main-content .main-part .adding-form .form-field__submit-btn {
         color: white;
         border: none;
         background: #7CDC3C;
         display: block;
-        width: 100%;
+        width: 104%;
         font-weight: bold;
         padding: 15px 0;
         cursor: pointer;
         font-size: 26px; }
   .main-content .main-part .last-questions__title {
-    font-size: 20px;
+    font-size: 18px;
     color: #373535;
     font-weight: bold;
-    padding-top: 20px;
+    padding-top: 30px;
+    font-family: "Segoe UI";
     padding-bottom: 20px; }
   .main-content .main-part .last-questions .question {
-    margin-bottom: 20px; }
+    margin-bottom: 45px; }
     .main-content .main-part .last-questions .question__date {
-      padding-bottom: 10px;
-      font-size: 16px;
-      color: #7b7070; }
+      padding-bottom: 15px;
+      font-size: 14px;
+      color: #7b7070;
+      font-family: "Segoe UI";}
     .main-content .main-part .last-questions .question__text {
       padding-bottom: 5px;
-      font-size: 16px; }
+      font-size: 14px;
+      line-height: 18px;
+      font-family: "Segoe UI";}
     .main-content .main-part .last-questions .question__answer-btn {
-      color: #7b7070;
-      font-size: 15px;
+      color: #64748B;
+      font-size: 14px;
+      font-family: "Segoe UI";
       text-decoration: underline; }
 
 .main-content {
@@ -3689,13 +3705,14 @@ a {
   position: fixed;
   z-index: 2;
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px; }
+  padding-top: 25px;
+  padding-bottom: 35px; }
   .header-patient__container {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    width: 46%;}
   .header-patient-logo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -3726,14 +3743,14 @@ a {
         -ms-flex-pack: center;
             justify-content: center;
     box-sizing: border-box;
-    width: 66.66667%;
+    width: 65%;
+    margin-left: 30px;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%; }
     .header-patient__nav .header-nav__link {
       font-size: 14px;
-      color: #4a4a4a;
-      font-weight: 300;
+      font-family: "Segoe UI";
       color: white;
       margin-right: 20px;
       border-bottom: 1px solid white;
@@ -3850,7 +3867,7 @@ footer {
   padding-top: 30px;
   border-top: 3px solid #CECECE;}
   footer .footer-patient-body {
-    margin: 0 auto; }
+    width: 56.25%; }
     footer .footer-patient-body:after {
       content: "";
       display: table;
@@ -3870,9 +3887,12 @@ footer {
           -ms-flex-pack: justify;
               justify-content: space-between; }
       footer .footer-patient-body .footer-item__info-one {
-        font-size: 16px; }
+        font-family: "Segoe UI";
+        font-size: 14px; }
       footer .footer-patient-body .footer-item__info-two {
-        font-size: 16px; }
+        font-family: "Segoe UI";
+        text-align: right;
+        font-size: 14px; }
         footer .footer-patient-body .footer-item__info-two .author-link {
           color: #6FBCD2;
           border-bottom: 1px solid #6FBCD2; }
@@ -3886,10 +3906,21 @@ footer {
   .sidebar a {
     display: block;
     text-decoration: underline;
-    font-size: 20px;
+    font-size: 18px;
+    font-family: 'Segoe UI';
+    margin-bottom: 5px;
+    font-weight: 300;
     color: #7b89b2; }
+
+  .control-buttons__anonim{
+    font-family: 'Segoe UI';
+    margin-bottom: 5px;
+    font-weight: 300;
+    color: #3f3f3f;
+  }
+
   .sidebar .control-buttons {
-    margin-top: 30px; }
+    margin-top: 35px; }
 
 .sidebar {
   box-sizing: border-box;
@@ -4050,7 +4081,7 @@ footer {
   padding-left: 0.83333%;
   padding-right: 0.83333%;
   background: #e4e4e4;
-  padding-left: 2%; }
+  padding-left: 0; }
   @media (max-width: 768px) {
     .sidebar {
       box-sizing: border-box;
@@ -4867,9 +4898,9 @@ footer {
   margin-bottom: 20px; }
   .question__date {
     display: inline-block;
-    font-size: 15px;
+    font-size: 14px;
     color: #7b7070;
-    margin-left: 10px; }
+    font-family: "Segoe UI";}
   .question__text {
     padding-bottom: 5px;
     font-size: 16px; }
@@ -5696,6 +5727,247 @@ footer {
 .thanks-section{
   padding-top: 50px;
 }
+
+.history-body~.sidebar{
+  width: 30%;
+  margin-right: 50px;
+}
+
+.foot-patient{
+  padding: 0;
+}
+
+.footer-patient-body{
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 1366px) {
+  .header-patient__container{
+      width: 65%;
+  }
+
+  .main-content__container {
+    width: 62%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content__container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 991px) {
+  .header-patient__container{
+    width: 80%;
+  }
+
+  .main-content__container {
+    width: 90%;
+  }
+
+  .header-patient__nav{
+    margin-left: 0;
+  }
+
+  footer .footer-patient-body{
+    width: 90%;
+  }
+
+  footer .footer-patient-body .footer-item__info-one,
+  footer .footer-patient-body .footer-item__info-two{
+    line-height: 18px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  footer .footer-patient-body {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .main-content__container{
+    width: 100%;
+  }
+
+  .main-content .history-body .history-field__name {
+    width: 120px;
+  }
+
+  .main-content .history-body .history-field__name {
+    margin-right: 30px;
+  }
+
+  .main-content .history-body .history-field__value{
+    width: 50%;
+  }
+
+  .main-content .history-body .history-field__value.analizi {
+    flex-direction: column;
+  }
+
+  .main-content .history-body .history-field__value.analizi .analiz{
+    margin-bottom: 30px;
+  }
+
+
+  .qusetion-main{
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .review-main{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+}
+
+
+
+.header-patient__nav .header-nav{
+  display: flex;
+  align-items: center;
+}
+
+.header-patient .header__private-cabinet{
+  display: block;
+}
+
+.question-continer,
+.enroll-container,
+.patien-reviews-continer{
+  margin-top: 55px;
+}
+
+.question-continer .sidebar,
+.enroll-container .sidebar,
+.patien-reviews-continer .sidebar{
+  width: 25%;
+}
+
+.enroll-container .form-field input:not(.form-field__submit-btn){
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+}
+
+.main-content .enroll-container  .main-part .form-field__name{
+  margin-bottom: 10px;
+}
+
+.bold-name{
+  font-weight: bold;
+  font-family: 'Segoe UI';
+  font-size: 14px;
+}
+
+.main-content .main-part .adding-form .form-field:first-child{
+  margin-bottom: 30px;
+}
+
+.alert-text{
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.patien-reviews-continer .form-field__name{
+  font-size: 14px;
+  font-family: 'Segoe UI';
+  margin-bottom: 15px;
+}
+
+.main-content__adding-form{
+  margin-left: 140px;
+}
+
+.patien-reviews-continer .form-field input:not(.form-field__submit-btn){
+  border: none;
+  border-radius: 2px;
+  width: 97%;
+  padding-left: 10px;
+}
+
+ textarea.form-field__text-field,
+ .form-field input{
+  width: 97%;
+  padding-left: 10px;
+}
+
+textarea.form-field__text-field{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+ .form-field .form-field__submit-btn{
+  margin-top: 35px;
+}
+
+.patien-reviews-continer{
+  margin-bottom: 8.5%;
+}
+
+
+.header-patient__container .mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-patient__container .mobile-menu {
+    display: block;
+  }
+
+  .header-patient__container .mobile-menu__icon {
+    left: 45px;
+    top: 10px;
+  }
+
+  .header-patient__nav{
+    display: none;
+  }
+
+  .header-patient__container{
+    justify-content: space-evenly;
+  }
+
+  .header__container .mobile-menu__links{
+    left: 0;
+    width: 106%;
+  }
+
+  .private-visible {
+    right: 120px;
+  }
+
+  footer .footer-patient-body{
+    width: 80%;
+  }
+
+  .main-content .main-part {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  .main-content .main-part .adding-form {
+    margin-right: 10px;
+  }
+
+  .enroll-main{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .main-content__adding-form {
+    margin-left: 20px;
+    width: 100%;
+    margin-right: 20px;
+  }
+}
+
 
 
 

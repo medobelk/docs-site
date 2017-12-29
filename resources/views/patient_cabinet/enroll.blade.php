@@ -1,33 +1,42 @@
 @extends('patient_cabinet.master')
 
 @section('content')
-<section class="main-content">
-  <div class="main-content__container">
+<section class="main-content enroll-main">
+  <div class="main-content__container enroll-container">
     <div class="main-part">
       <form class="adding-form">
         <div class="form-field">
-          <p class="form-field__name">Суть проблемы
-          </p><textarea class="form-field__text-field" rows="10" name="someTextArea"></textarea>
+          <p class="form-field__name">Имя
+          </p><p class="bold-name">Калина Марина Александровна</p>
         </div>
-        <div class="form-field"><input class="form-field__submit-btn" type="submit" value="Спросить"/>
+
+        <div class="form-field">
+          <p class="form-field__name">Телефон*
+          </p>
+          <input type="text">
+        </div>
+
+        <div class="form-field">
+          <p class="form-field__name">Дата*
+          </p>
+          <input type="text">
+        </div>
+
+        <div class="form-field">
+          <p class="form-field__name">Время*
+          </p>
+          <input type="text">
+        </div>
+
+        <div class="form-field">
+          <p class="form-field__name">Суть проблемы
+          </p>
+          <textarea class="form-field__text-field" rows="10"  name="someTextArea"></textarea>
+        </div>
+        <p class="alert-text">Удостоверьтесь, что все данные указаны верно</p>
+        <div class="form-field"><input class="form-field__submit-btn" type="submit" value="Записаться"/>
         </div>
       </form>
-      <div class="last-questions">
-        <div class="last-questions__title">Предыдущие вопросы
-        </div>
-        <div class="question">
-          <p class="question__date">11.8.2017
-          </p>
-          <p class="question__text">У меня все признаки пиелонефрита,периодически выходит кишечная палочка,сдавала бак посев 10 в 6 ,чем уже не лечилась и антибиотиками и травами, бадами ничего не помогает.подскажите как можно к вам попасть на прием,у меня как раз сейчас стадия обострения.частое мочеиспускание,жжение.Заранее спасибо.
-          </p><a class="question__answer-btn" href="#">Ответ</a>
-        </div>
-        <div class="question">
-          <p class="question__date">11.8.2017
-          </p>
-          <p class="question__text">У меня все признаки пиелонефрита,периодически выходит кишечная палочка,сдавала бак посев 10 в 6 ,чем уже не лечилась и антибиотиками и травами, бадами ничего не помогает.подскажите как можно к вам попасть на прием,у меня как раз сейчас стадия обострения.частое мочеиспускание,жжение.Заранее спасибо.
-          </p><a class="question__answer-btn" href="#">Ответ</a>
-        </div>
-      </div>
     </div>
     
     @include('patient_cabinet.sidebar')
