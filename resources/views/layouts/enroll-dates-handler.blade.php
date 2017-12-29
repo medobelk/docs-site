@@ -19,6 +19,8 @@
 		dayOfWeekStart: 1,
 		disabledWeekDays: [0, 6],
 		allowTimes: allowTimes,
+		formatTime:'H',
+		mask:'9999-12-31 23:00',format:'Y-m-d H:i',
 		onSelectDate:function(ct,$i){
 			
 			var searchDate = String(ct.getFullYear()+"-"+ (parseInt(ct.getMonth()) + 1) +"-"+ct.getDate()) , allowedDateTimes = allowTimes;

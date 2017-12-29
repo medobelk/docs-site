@@ -12,9 +12,17 @@
 */
 
 Route::get('/mailable', function () {
-    $invoice = App\AnonimRequest::find(1);
+    $user = [
+		"_token" => "syBvMw9SOA8lzJPLmH1uqpVPLuO0zIfn6ipFtjs7",
+		"name" => "medobelk medobelkmedobelkmedobelk",
+		"password" => "6A5lJcato",
+		"email" => "evgeniy@studnote.com",
+		"phone" => "+380962422008",
+		"visit_date" => "12/29/2017 7:17 PM",
+		"control_visit" => "01/04/2018 7:16 PM",
+	];
 
-    return new App\Mail\EnrollRegistered($invoice);
+    return new App\Mail\UserRegistered($user);
 });
 
 Route::get('/', 'HomeController@index');
@@ -23,7 +31,10 @@ Route::post('/enroll', 'HomeController@enroll');
 
 Route::get('/plasma', 'HomeController@questions');
 
-// Route::get('/Pagec/view/name/{name}', 'HomeController@pages');
+//Custom Voyager
+Route::post('/admin-cus/enroll-accept/{id}', 'VoyagerActionsController@visit');
+Route::post('/admin-cus/review-accept/{id}', 'VoyagerActionsController@review');
+Route::post('/admin-cus/review-hide/{id}', 'VoyagerActionsController@reviewHide');
 
 //questions routes
 Route::get('/QA/getlist', 'HomeController@questions');

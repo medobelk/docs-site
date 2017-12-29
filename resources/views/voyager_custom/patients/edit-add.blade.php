@@ -123,18 +123,32 @@
 
 @section('javascript')
     <script>
-        var params = {}
-        var $image
+        var params = {};
+        var $image;
+
+        function generatePassword() {        
+            var length = Math.round( 8 - 0.5 + Math.random() * (16 - 8 + 1) ),
+                charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                retVal = "";
+                
+            for (var i = 0, n = charset.length; i < length; ++i) {
+                retVal += charset.charAt(Math.floor(Math.random() * n));
+            }
+            return retVal;
+        }
 
         $('document').ready(function () {
             $('.toggleswitch').bootstrapToggle();
 
             //Init datepicker for date fields if data-datepicker attribute defined
             //or if browser does not handle date inputs
-            $('.form-group input[type=date]').each(function (idx, elt) {
+            $('.form-group input[type=datetime]').each(function (idx, elt) {
                 if (elt.type != 'date' || elt.hasAttribute('data-datepicker')) {
                     elt.type = 'text';
-                    $(elt).datetimepicker($(elt).data('datepicker'));
+                    $(elt).datetimepicker({
+                        format : 'YYYY/MM/DD',
+                        locale: 'ru',
+                    });
                 }
             });
 
@@ -178,6 +192,15 @@
                 $('#confirm_delete_modal').modal('hide');
             });
             $('[data-toggle="tooltip"]').tooltip();
+
+            //CUSTOM
+            var passField = $('input[name=password]');
+            passField.removeAttr('type', "password" );//
+            $('<i class="icon voyager-refresh" id="refreshPass"></i>').insertBefore(passField);
+            passField.val(generatePassword());
+            $('#refreshPass').click(function () {
+                passField.val(generatePassword());
+            });
         });
     </script>
 @stop

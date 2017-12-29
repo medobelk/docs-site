@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Event;
 use App\Visit;
+use App\AnonimRequest;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -17,6 +18,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {   
         $this->composeSidebar();
         $this->composeEnrollForm();
+        $this->composeCalendar();
     }
 
     /**
@@ -69,6 +71,63 @@ class ViewComposerServiceProvider extends ServiceProvider
 
             $view->with( 'availableDatesHours', collect( array_values([$availableDateHours]) ) );
 
+        });
+    }
+
+    public function composeCalendar()
+    {
+        view()->composer('voyager_custom.calendar', function ($view)
+        {
+        
+            $calendarData = [];
+            $visits = Visit::all(['name', 'visit_date'])->toArray();
+            $events = Event::all(['name', 'event_date'])->toArray();
+            $enrolls = AnonimRequest::where('status', 'fresh')->get(['name', 'date'])->toArray();
+            $calendarData = array_merge($visits, $events, $enrolls);
+            
+            foreach ($calendarData as $key => $event) {
+
+                if(array_key_exists('visit_date', $event) ){
+                    
+                    if( $event['visit_date'] ){
+                        $calendarData[$key]['title'] = 'Визит ' . $event['name'];
+                        unset($calendarData[$key]['name']);
+                        $calendarData[$key]['start'] = date('c', strtotime( $event['visit_date']) );
+                        unset($calendarData[$key]['visit_date']);
+                        $calendarData[$key]['color'] = 'red';
+                    }else{
+                        unset($calendarData[$key]);
+                    }
+                }
+
+                if(array_key_exists('event_date', $event) ){
+                    if( $event['event_date'] ){
+                        $calendarData[$key]['title'] = 'Событие ' . $event['name'];
+                        unset($calendarData[$key]['name']);
+                        $calendarData[$key]['start'] = date('c', strtotime($event['event_date']) );
+                        unset($calendarData[$key]['event_date']);
+                        $calendarData[$key]['color'] = 'grey';
+                    }else{
+                        unset($calendarData[$key]);
+                    }
+                }
+
+                if(array_key_exists('date', $event) ){
+                    if( $event['date'] ){
+                        $calendarData[$key]['title'] = 'Запрос ' . $event['name'];
+                        unset($calendarData[$key]['name']);
+                        $calendarData[$key]['start'] = date('c', strtotime($event['date']) );
+                        unset($calendarData[$key]['date']);
+                        $calendarData[$key]['color'] = 'green';
+                    }else{
+                        unset($calendarData[$key]);
+                    }
+                }
+            }
+
+            $calendarData = collect( array_values($calendarData) );
+
+            $view->with( 'calendarData', $calendarData );
         });
     }
 }

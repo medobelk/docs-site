@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}"/>
 <link rel="stylesheet" href="{{ asset('css/owl.theme.default.min.css') }}"/>
 <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 

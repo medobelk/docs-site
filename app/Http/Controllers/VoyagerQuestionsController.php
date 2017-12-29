@@ -555,10 +555,10 @@ class VoyagerQuestionsController extends Controller
         // Check if server side pagination is enabled
         $isServerSide = isset($dataType->server_side) && $dataType->server_side;
 
-        $view = 'voyager_custom.patients.browse';
+        $view = 'voyager::bread.browse';
 
-        if (view()->exists("voyager_custom.$slug.browse")) {
-            $view = "voyager_custom.$slug.browse";
+        if (view()->exists("voyager::$slug.browse")) {
+            $view = "voyager::$slug.browse";
         }
 
         return Voyager::view($view, compact(
@@ -707,10 +707,10 @@ class VoyagerQuestionsController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.edit-add';
+        $view = 'voyager::bread.edit-add';
 
-        if (view()->exists("voyager_custom.$slug.edit-add")) {
-            $view = "voyager_custom.$slug.edit-add";
+        if (view()->exists("voyager::$slug.edit-add")) {
+            $view = "voyager::$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -790,10 +790,10 @@ class VoyagerQuestionsController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.edit-add';
+        $view = 'voyager::bread.edit-add';
 
-        if (view()->exists("voyager_custom.$slug.edit-add")) {
-            $view = "voyager_custom.$slug.edit-add";
+        if (view()->exists("voyager::$slug.edit-add")) {
+            $view = "voyager::$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));

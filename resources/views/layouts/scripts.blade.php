@@ -2,6 +2,8 @@
 <script src="{{ asset('js/compiled.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/jquery.elevatezoom.js') }}"></script>
+<script src="{{ asset('js/moment-locales.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.js"></script>
 <!-- <script src="{{ asset('js/owl.carousel.min.js') }}"></script> -->
 
 

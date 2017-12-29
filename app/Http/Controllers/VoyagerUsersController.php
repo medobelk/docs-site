@@ -17,6 +17,8 @@ use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 use Illuminate\Support\Facades\Auth;
 use App\Visit;
+use App\Mail\UserRegistered;
+use Illuminate\Support\Facades\Mail;
 
 class VoyagerUsersController extends Controller
 {
@@ -573,10 +575,10 @@ class VoyagerUsersController extends Controller
         // Check if server side pagination is enabled
         $isServerSide = isset($dataType->server_side) && $dataType->server_side;
 
-        $view = 'voyager_custom.patients.browse';
+        $view = 'voyager::bread.browse';
 
-        if (view()->exists("voyager_custom.$slug.browse")) {
-            $view = "voyager_custom.$slug.browse";
+        if (view()->exists("voyager::$slug.browse")) {
+            $view = "voyager::$slug.browse";
         }
 
         return Voyager::view($view, compact(
@@ -694,10 +696,10 @@ class VoyagerUsersController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.edit-add';
+        $view = 'voyager::bread.edit-add';
 
-        if (view()->exists("voyager_custom.$slug.edit-add")) {
-            $view = "voyager_custom.$slug.edit-add";
+        if (view()->exists("voyager::$slug.edit-add")) {
+            $view = "voyager::$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -784,10 +786,10 @@ class VoyagerUsersController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.edit-add';
+        $view = 'voyager::bread.edit-add';
 
-        if (view()->exists("voyager_custom.$slug.edit-add")) {
-            $view = "voyager_custom.$slug.edit-add";
+        if (view()->exists("voyager::$slug.edit-add")) {
+            $view = "voyager::$slug.edit-add";
         }
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable'));
@@ -817,9 +819,13 @@ class VoyagerUsersController extends Controller
         }
 
         if (!$request->ajax()) {
+
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
+            $user = $request->all();
 
             event(new BreadDataAdded($dataType, $data));
+
+            Mail::to( $user['email'] )->send( new UserRegistered( $user ) );
 
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
