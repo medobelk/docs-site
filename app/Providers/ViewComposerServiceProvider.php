@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Event;
 use App\Visit;
 use App\AnonimRequest;
+use App\Review;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         $this->composeSidebar();
         $this->composeEnrollForm();
         $this->composeCalendar();
+        $this->composeFooterReviews();
     }
 
     /**
@@ -128,6 +130,15 @@ class ViewComposerServiceProvider extends ServiceProvider
             $calendarData = collect( array_values($calendarData) );
 
             $view->with( 'calendarData', $calendarData );
+        });
+    }
+
+    public function composeFooterReviews()
+    {
+        view()->composer('layouts.footer', function ($view)
+        {
+            $reviews = Review::where('status', 'APPROVED')->orderBy('updated_at', 'desc')->with('user')->take(6)->get();
+            $view->with( 'footerReviews', $reviews );
         });
     }
 }

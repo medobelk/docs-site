@@ -14,7 +14,21 @@
       <p class="footer-item__title">Отзывы пациентов
       </p>
       <DIV class="owl-carousel">
-        <DIV class="item">
+        @foreach( $footerReviews as $review )
+          <DIV class="item">
+            <p class="footer-item__name">
+              @if( $review->authority === 'USER' )
+                {{ $review->user['name'] }}
+              @else
+                Аноним
+              @endif
+            </p>
+            <p class="footer-item__review">
+              {{ $review->body }}
+            </p>
+          </DIV>
+        @endforeach
+        <!-- <DIV class="item">
           <p class="footer-item__name">Юлия
           </p>
           <p class="footer-item__review">Лечила цистит. Самые хорошие впечаления. До Юрия Иосифовича лечилась много лет в нескольких местах. После лечения у Брезицкого несколько лет обострений не было. Однако сейчас появились проблемы, а он поменял место работы и я не могла его найти.Теперь благодаря Вашему сайту, я знаю куда обратиться.
@@ -26,7 +40,7 @@
           <p class="footer-item__review">
             Трихомонаду лечил у многих врачей Одессы. А помог избавиться окончательно Юрий Иосифович. За что благодарен.
           </p>
-        </DIV>
+        </DIV> -->
       </DIV>
     </div>
     <div class="footer-item three">
