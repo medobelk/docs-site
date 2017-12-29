@@ -1,13 +1,13 @@
 @extends('patient_cabinet.master')
 
 @section('content')
-<section class="main-content">
-  <div class="main-content__container">
+<section class="main-content qusetion-main">
+  <div class="main-content__container question-continer">
     <div class="main-part">
       <form class="adding-form">
         <div class="form-field">
           <p class="form-field__name">Суть проблемы
-          </p><textarea class="form-field__text-field" rows="10" name="someTextArea"></textarea>
+          </p><textarea class="form-field__text-field" rows="12"  name="someTextArea"></textarea>
         </div>
         <div class="form-field"><input class="form-field__submit-btn" type="submit" value="Спросить"/>
         </div>
@@ -29,8 +29,8 @@
         </div>
       </div>
     </div>
-    
-    @('patient_cabinet.sidebar')
+
+    @include('patient_cabinet.sidebar')
 
   </div>
 </section>

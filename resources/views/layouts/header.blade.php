@@ -50,7 +50,6 @@
         <a class="header-nav__link" href="{{ url('/QA/getlist') }}">вопросы</a>
       </nav>
     </div>
-    
     <div class="header__private-cabinet"> 
       @if( Auth::guest() )
         <a href="{{ route('login') }}" class="private-cabinet">
