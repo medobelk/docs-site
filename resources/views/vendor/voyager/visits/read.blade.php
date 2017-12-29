@@ -121,7 +121,7 @@
                     @endforeach
 
                     <div class="panel-heading" style="border-bottom: 0;">
-                        <h3 class="panel-title">Analyzes <a href="{{ url('admin/analyzes/create') }}"><span class="icon voyager-plus" style="color: #2ecc71;"></span></a> </h3>
+                        <h3 class="panel-title"><span>Analyzes</span> <a href="{{ url('admin/analyzes/create') }}"><span class="icon voyager-plus" style="color: #2ecc71;"></span></a> </h3>
 
                     </div>
 
@@ -140,6 +140,19 @@
 @stop
 
 @section('javascript')
+    <script>
+        $("h3:contains('Name')").text('Имя');
+        $("h3:contains('Phone')").text('Номер');
+        $("h3:contains('Email')").text('Почта');
+        $("h3:contains('Complaints')").text('Жалобы');
+        $("h3:contains('Treatment')").text('Лечение');
+        $("h3:contains('Recomendations')").text('Рекомендации');
+        $("h3:contains('Diagnosis')").text('Дигноз');
+        $("h3:contains('Visit Date')").text('Дата Визита');
+        $("h3:contains('Status')").text('Статус');
+        $("h3:contains('Created At')").text('Дата Создания');
+        $("h3 span:contains('Analyzes')").text('Анализы');
+    </script>
     @if ($isModelTranslatable)
     <script>
         $(document).ready(function () {

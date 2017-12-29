@@ -202,6 +202,17 @@
 @stop
 
 @section('javascript')
+    <script>
+        $(document).ready(function () {
+            $("h3:contains('name')").text('Имя');
+            $("h3:contains('password')").text('Пароль');
+            $("h3:contains('email')").text('Почта');
+            $("h3:contains('phone')").text('Номер');
+            $("h3:contains('Visit Date')").text('Дата Визита');
+            $("h3:contains('Control Visit')").text('Котрольный Визит');
+            $("h3:contains('created_at')").text('Дата Создания');
+        });
+    </script>
     @if ($isModelTranslatable)
     <script>
         $(document).ready(function () {

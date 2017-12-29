@@ -127,6 +127,13 @@
 @stop
 
 @section('javascript')
+    <script>
+        $(document).ready(function () {
+            $("h3:contains('name')").text('Название');
+            $("h3:contains('path')").text('Путь к Файлу');
+            $("h3:contains('Created At')").text('Дата Создания');
+        });
+    </script>
     @if ($isModelTranslatable)
     <script>
         $(document).ready(function () {

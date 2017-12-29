@@ -154,6 +154,13 @@
         function submitForm() { 
            $('.form-edit-add').submit();
         }
+
+        $(document).ready(function () {
+            $("h3:contains('Name')").text('Название');
+            $("h3:contains('Email')").text('Почта');
+            $("h3:contains('Created At')").text('Дата Создания');
+            $("h3:contains('complaints')").text('Жалобы');
+        });
     </script>
     @if ($isModelTranslatable)
     <script>

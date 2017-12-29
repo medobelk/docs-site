@@ -274,9 +274,13 @@
             form.action = deleteFormAction.match(/\/[0-9]+$/)
                 ? deleteFormAction.replace(/([0-9]+$)/, $(this).data('id'))
                 : deleteFormAction + '/' + $(this).data('id');
-            console.log(form.action);
 
             $('#delete_modal').modal('show');
         });
+
+        $("th:contains('name')").text('Имя');
+        $("th:contains('phone')").text('Номер');
+        $("th:contains('Visit Date')").text('Дата Визита');
+        $("th:contains('Control Visit')").text('Контрольный Визит');
     </script>
 @stop

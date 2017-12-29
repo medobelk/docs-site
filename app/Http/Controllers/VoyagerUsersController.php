@@ -637,11 +637,11 @@ class VoyagerUsersController extends Controller
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($dataTypeContent);
 
-        $view = 'voyager_custom.patients.read';
+        $view = 'voyager::bread.read';
 
-        if (view()->exists("voyager_custom.$slug.read")) {
-            $view = "voyager_custom.$slug.read";
-        }
+        if (view()->exists("voyager::$slug.read")) {
+            $view = "voyager::$slug.read";
+        }   
 
         return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'visits'));
     }
