@@ -280,7 +280,7 @@
             $('#delete_modal').modal('show');
         });
 
-        $("th:contains('Name')").text('Название');
+        $("th:contains('Name')").text('Имя');
         $("th:contains('Phone')").text('Номер');
         $("th:contains('Email')").text('Почта');
         $("th:contains('Diagnosis')").text('Диагноз');

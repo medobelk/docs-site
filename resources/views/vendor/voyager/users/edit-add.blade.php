@@ -218,6 +218,7 @@
 
             $("label:contains('name')").text('Имя');
             $("label:contains('password')").text('Пароль');
+            $("label:contains('Birth Date')").text('Дата Рождения');
             $("label:contains('email')").text('Почта');
             $("label:contains('phone')").text('Номер');
             $("label:contains('Visit Date')").text('Дата Визита');

@@ -582,6 +582,7 @@ class VoyagerVisitsController extends Controller
 
     public function show(Request $request, $id)
     {	
+        // $visits = Visit::where('id', $id)->with('analyzes')->get();
     	$analyzes = Analyze::where('visit_id', $id)->get();
     	
         $slug = $this->getSlug($request);

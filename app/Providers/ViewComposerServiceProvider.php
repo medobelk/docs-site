@@ -7,6 +7,7 @@ use App\Event;
 use App\Visit;
 use App\AnonimRequest;
 use App\Review;
+use Illuminate\Support\Facades\Auth;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {

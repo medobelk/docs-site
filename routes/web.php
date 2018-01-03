@@ -28,19 +28,23 @@ Route::get('/mailable', function () {
 Route::get('/', 'HomeController@index');
 Route::post('/enroll', 'HomeController@enroll');
 
+Route::get('/success-enroll', 'HomeController@successEnroll');
 
-Route::get('/plasma', 'HomeController@questions');
+// Route::get('/plasma', 'HomeController@questions');
 
 //Custom Voyager
 Route::post('/admin-cus/enroll-accept/{id}', 'VoyagerActionsController@visit');
 Route::post('/admin-cus/review-accept/{id}', 'VoyagerActionsController@review');
 Route::post('/admin-cus/review-hide/{id}', 'VoyagerActionsController@reviewHide');
+Route::post('/admin-cus/analyze-edit-add/{analyze}', 'VoyagerActionsController@analyze');
+Route::post('/admin-cus/analyze-delete/{analyze}', 'VoyagerActionsController@analyzeDelete');
 
 //questions routes
 Route::get('/QA/getlist', 'HomeController@questions');
 Route::get('/QA/getlist/question/{id}', 'HomeController@dialogs');
 Route::post('/create-question', 'HomeController@createQuestion');
 Route::post('/create-answer', 'VoyagerQuestionsController@createAnswer');
+Route::get('/success-question', 'HomeController@successQuestion');
 
 //misc info routes
 Route::get('/Pagec/view/name/erect-disfunction', 'HomeController@erectDisfunction');
@@ -63,10 +67,15 @@ Route::get('/disease-wooman', 'HomeController@diseaseWooman');
 Route::get('/disease-kidneys', 'HomeController@diseaseKidneys');
 
 //users cabinet
-Route::get('/cabinet', 'PatientsController@index');
+Route::get('/cabinet', 'PatientsController@cabinet');
 Route::get('/cabinet-question', 'PatientsController@question');
 Route::get('/cabinet-enroll', 'PatientsController@enroll');
 Route::get('/cabinet-review', 'PatientsController@review');
+Route::post('/cabinet-add-question', 'PatientsController@addQuestion');
+Route::post('/cabinet-add-review', 'PatientsController@addReview');
+Route::post('/cabinet-add-enroll', 'PatientsController@addEnroll');
+Route::get('/cabinet/{id}', 'PatientsController@visit');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

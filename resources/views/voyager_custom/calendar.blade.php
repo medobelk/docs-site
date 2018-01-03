@@ -3,7 +3,6 @@
 <script>
     $(document).ready(function () {
     	var events = {!! $calendarData !!};
-    	console.log(events);
 		$('#calendar').fullCalendar({
 			height: 450,
 			locale: 'ru',

@@ -181,7 +181,12 @@ class HomeController extends Controller
 
         //Mail::to( User::where('role_id', 3)->get() )->send( new EnrollRegistered( $userRequest ) );
 
-        return back()->with('thanks_block', 'enrollTrue');
+        return redirect('success-enroll');
+    }
+
+    public function successEnroll()
+    {
+        return view('enroll-success');
     }
 
     public function createQuestion(Request $request)
@@ -208,7 +213,12 @@ class HomeController extends Controller
         $subscription->subscribe = $request->question_subscription === 'on' ? 1 : 0;
         $subscription->save();
 
-        return back()->with('thanks_block', 'questionTrue');
+        return redirect('success-question');
+    }
+
+    public function successQuestion()
+    {
+        return view('question-success');
     }
 
     public function undefinderRouter($undfPath)

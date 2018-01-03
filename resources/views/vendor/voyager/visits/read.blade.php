@@ -121,18 +121,14 @@
                     @endforeach
 
                     <div class="panel-heading" style="border-bottom: 0;">
-                        <h3 class="panel-title"><span>Analyzes</span> <a href="{{ url('admin/analyzes/create') }}"><span class="icon voyager-plus" style="color: #2ecc71;"></span></a> </h3>
-
+                        <h3 class="panel-title">
+                            <span>Analyzes</span> 
+                        </h3>
                     </div>
 
                     <div class="panel-body" style="padding-top: 0px;">
-                        <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
-                            @foreach($analyzes as $analyze)
-                                <a href="{{ $analyze->path }}" style="margin-right: 15px;"><span class="icon voyager-file-text" style="padding-right: 5px; "></span>{{ $analyze->name }}</a>
-                            @endforeach
-                        </div>
+                        @include('voyager_custom.analyzes-partial')
                     </div>
-
                 </div>
             </div>
         </div>

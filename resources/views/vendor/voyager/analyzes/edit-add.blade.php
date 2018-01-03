@@ -2,6 +2,7 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 @stop
 
 @section('page_title', __('voyager.generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->display_name_singular)
@@ -65,7 +66,7 @@
                                         @include('voyager::multilingual.input-hidden-bread-edit-add')
                                         @if($row->type == 'relationship')
                                             @include('voyager::formfields.relationship')
-                                        @else
+                                        @else   
                                             {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
                                         @endif
 
@@ -123,6 +124,7 @@
 @stop
 
 @section('javascript')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script>
         var params = {}
         var $image
@@ -180,8 +182,12 @@
             });
             $('[data-toggle="tooltip"]').tooltip();
 
+            //CUStoM SHET
             $("label:contains('name')").text('Название');
             $("label:contains('path')").text('Путь к Файлу');
+
+            
+            console.log( $("select[name=user_id]").parent().find('span.select2-container').find('span.select2-selection__rendered').attr('title') );
         });
     </script>
 @stop

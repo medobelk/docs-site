@@ -23,6 +23,8 @@
       @include('patient_cabinet.footer')
     </div>
 
-	@include('layouts.scripts')
+  	@include('layouts.scripts')
+    @include('layouts.form-errors-script')
+    @include('layouts.enroll-dates-handler')
   </body>
 </html>

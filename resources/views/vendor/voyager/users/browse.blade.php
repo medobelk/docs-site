@@ -279,6 +279,7 @@
         });
 
         $("th:contains('name')").text('Имя');
+        $("th:contains('Birth Date')").text('Дата Рождения');
         $("th:contains('phone')").text('Номер');
         $("th:contains('Visit Date')").text('Дата Визита');
         $("th:contains('Control Visit')").text('Контрольный Визит');

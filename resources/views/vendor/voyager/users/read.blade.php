@@ -124,10 +124,10 @@
                     <div id="accordion" role="tablist">
                         @if( isset($visits) )
                         @foreach( $visits as $key => $visit )
-                            
+                            <?php $analyzes = $visit->analyzes; ?>
                             <div class="card">
                                 <a data-toggle="collapse" href="#collapse{{ $visit->id }}" aria-expanded="false" aria-controls="collapse{{ $visit->id }}">
-                                    <div class="card-header" style="background-color: #88D8FE;" role="tab" id="heading{{ $visit->id }}">
+                                    <div class="card-header" role="tab" style="background-color: #AEE4FF;" id="heading{{ $visit->id }}">
                                         <h5 class="mb-0 panel-title">
                                               Visit : {{ $visit->visit_date }}
                                               <span class="icon voyager-double-down"></span>
@@ -171,22 +171,16 @@
                                             <p>{{ $visit->diagnosis }}</p>
                                         </div>
                                         
-                                        <div class="analyzes-wrapper" style="display: flex; justify-content: flex-start; align-items: center;">
-                                            <div class="form-group">
-                                                <div class="panel-heading">
-                                                    <h3 class="panel-title">Анализы</h3>
-                                                </div>
-                                                <div class="panel-body">
-                                                    <div style="display: flex; flex-direction: row; justify-content: flex-start; align-items: center;">
-                                                        @foreach($visit->analyzes as $analyze)
-                                                            <a href="{{ $analyze->path }}" style="margin-right: 15px;"><span class="icon voyager-file-text" style="padding-right: 5px; "></span>{{ $analyze->name }}</a>
-                                                        @endforeach
-                                                    </div>
-                                                </div>
+                                        <div class="panel-body">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Анализы</h3>
                                             </div>
+                                            @include('voyager_custom.analyzes-partial')
                                         </div>
                                         <div>
-                                            <a class="btn btn-info" href="{{ 'http://doctor-site.dev/admin/visits/'.$visit->id.'/edit' }}"><span class="glyphicon gliphicon-pencil" style="font-style: 'Glyphicons Halflings';">Edit</span></a>
+                                            <a class="btn btn-info" href="{{ 'http://doctor-site.dev/admin/visits/'.$visit->id.'/edit' }}">
+                                                <span>Редактировать Посещение</span>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -208,6 +202,7 @@
             $("h3:contains('password')").text('Пароль');
             $("h3:contains('email')").text('Почта');
             $("h3:contains('phone')").text('Номер');
+            $("h3:contains('Birth Date')").text('Дата Рождения');
             $("h3:contains('Visit Date')").text('Дата Визита');
             $("h3:contains('Control Visit')").text('Котрольный Визит');
             $("h3:contains('created_at')").text('Дата Создания');

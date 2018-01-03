@@ -5,12 +5,12 @@
           <div class="mobile-menu__links hide">
               <div class="flex-block">
                   <div class="links-block">
-                      <a class="header-nav__link mobile-menu__link" href="medical-history.html">история болезни</a>
-                      <a class="header-nav__link mobile-menu__link" href="add-question.html">задать вопрос</a>
-                      <a class="header-nav__link mobile-menu__link" href="visite-create.html">записать на приём</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/cabinet') }}">история болезни</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/cabinet-question') }}">задать вопрос</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/cabinet-enroll') }}">записать на приём</a>
                       <a class="header-nav__link mobile-menu__link control-buttons__email-change" href="#">изменить почту</a>
                       <a class="header-nav__link mobile-menu__link control-buttons__pass-change" href="#">изменить пароль</a>
-                      <a class="header-nav__link mobile-menu__link control-buttons__reviews-add" href="#">оставить отзыв</a>
+                      <a class="header-nav__link mobile-menu__link control-buttons__reviews-add" href="{{ url('/cabinet-review') }}">оставить отзыв</a>
                   </div>
                   <div class="header__private-cabinet private-visible">
                       @if( Auth::guest() )
@@ -38,9 +38,9 @@
     </div>
     <div class="header-patient__nav">
       <nav class="header-nav">
-          <a class="header-nav__link" href="medical-history.html">история болезни</a>
-          <a class="header-nav__link" href="add-question.html">задать вопрос</a>
-          <a class="header-nav__link" href="visite-create.html">записать на приём</a>
+          <a class="header-nav__link" href="{{ url('/cabinet') }}">история болезни</a>
+          <a class="header-nav__link" href="{{ url('/cabinet-question') }}">задать вопрос</a>
+          <a class="header-nav__link" href="{{ url('/cabinet-enroll') }}">записать на приём</a>
       </nav>
     </div>
     <div class="header__private-cabinet">
