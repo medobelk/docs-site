@@ -8,7 +8,7 @@
   <div class="control-buttons">
     <a class="control-buttons__email-change" href="#">изменить почту</a>
     <a class="control-buttons__pass-change" href="#">изменить пароль</a>
-    <a class="control-buttons__reviews-add" href="{{ asset('/cabinet-review') }}">оставить отзыв</a>
+    <a class="control-buttons__reviews-add" href="{{ url('/cabinet/review') }}">оставить отзыв</a>
     <p class="control-buttons__anonim">/aнонимно</p>
   </div>
 </section>

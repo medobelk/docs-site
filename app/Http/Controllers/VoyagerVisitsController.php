@@ -14,6 +14,7 @@ use TCG\Voyager\Events\BreadDataDeleted;
 use TCG\Voyager\Events\BreadDataUpdated;
 use TCG\Voyager\Events\BreadImagesDeleted;
 use TCG\Voyager\Facades\Voyager;
+use App\Visit;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
 use App\Analyze;
@@ -582,8 +583,8 @@ class VoyagerVisitsController extends Controller
 
     public function show(Request $request, $id)
     {	
-        // $visits = Visit::where('id', $id)->with('analyzes')->get();
-    	$analyzes = Analyze::where('visit_id', $id)->get();
+        $visit = Visit::where('id', $id)->with('analyzes')->first();
+    	// $analyzes = Analyze::where('visit_id', $id)->get();
     	
         $slug = $this->getSlug($request);
 
@@ -619,7 +620,7 @@ class VoyagerVisitsController extends Controller
             $view = "voyager::$slug.read";
         }
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'analyzes'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'visit'));
     }
 
     //***************************************
@@ -699,7 +700,7 @@ class VoyagerVisitsController extends Controller
             $this->insertUpdateData($request, $slug, $dataType->editRows, $data);
 
             event(new BreadDataUpdated($dataType, $data));
-
+            //Mail::to( $mailTo )->send( new VisitRegistered( $visit ) );
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([
@@ -782,7 +783,7 @@ class VoyagerVisitsController extends Controller
             $data = $this->insertUpdateData($request, $slug, $dataType->addRows, new $dataType->model_name());
 
             event(new BreadDataAdded($dataType, $data));
-
+            //Mail::to( $mailTo )->send( new VisitRegistered( $visit ) );
             return redirect()
                 ->route("voyager.{$dataType->slug}.index")
                 ->with([

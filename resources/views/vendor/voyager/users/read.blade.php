@@ -124,7 +124,6 @@
                     <div id="accordion" role="tablist">
                         @if( isset($visits) )
                         @foreach( $visits as $key => $visit )
-                            <?php $analyzes = $visit->analyzes; ?>
                             <div class="card">
                                 <a data-toggle="collapse" href="#collapse{{ $visit->id }}" aria-expanded="false" aria-controls="collapse{{ $visit->id }}">
                                     <div class="card-header" role="tab" style="background-color: #AEE4FF;" id="heading{{ $visit->id }}">

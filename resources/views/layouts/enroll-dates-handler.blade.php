@@ -12,7 +12,7 @@
  //    });
  	var allowTimes = ['9', '10','11','12','13','14','15','16','17','18'];
  	$.datetimepicker.setLocale('ru');
-	$('#datetimepicker').datetimepicker({
+	$('.datetimepicker').datetimepicker({
 		minDate:'+1970/01/02',
 		value:'',
 		timepickerScrollbar: false,

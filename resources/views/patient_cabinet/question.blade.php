@@ -4,7 +4,7 @@
 <section class="main-content qusetion-main">
   <div class="main-content__container question-continer">
     <div class="main-part">
-      <form class="adding-form" action="{{ url('/cabinet-add-question') }}" method="POST">
+      <form class="adding-form" action="{{ url('/cabinet/add-question') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-field">
           <p class="form-field__name">Суть проблемы

@@ -3,7 +3,7 @@
 @section('content')
 <section class="main-content review-main">
   <div class="main-content__container patien-reviews-continer">
-    <form class="main-content__adding-form" action="{{ url('/cabinet-add-review') }}" method="POST">
+    <form class="main-content__adding-form" action="{{ url('/cabinet/add-review') }}" method="POST">
       {{ csrf_field() }}
       <div class="form-field">
         <p class="form-field__name">Имя

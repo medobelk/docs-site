@@ -67,17 +67,41 @@ Route::get('/disease-wooman', 'HomeController@diseaseWooman');
 Route::get('/disease-kidneys', 'HomeController@diseaseKidneys');
 
 //users cabinet
-Route::get('/cabinet', 'PatientsController@cabinet');
-Route::get('/cabinet-question', 'PatientsController@question');
-Route::get('/cabinet-enroll', 'PatientsController@enroll');
-Route::get('/cabinet-review', 'PatientsController@review');
-Route::post('/cabinet-add-question', 'PatientsController@addQuestion');
-Route::post('/cabinet-add-review', 'PatientsController@addReview');
-Route::post('/cabinet-add-enroll', 'PatientsController@addEnroll');
-Route::get('/cabinet/{id}', 'PatientsController@visit');
+Route::prefix('cabinet')->middleware(['isUser'])->group(function () {
+	Route::get('/', 'CabinetController@cabinet');
+	Route::get('/question', 'CabinetController@question');
+	Route::get('/enroll', 'CabinetController@enroll');
+	Route::get('/review', 'CabinetController@review');
+	Route::post('/add-question', 'CabinetController@addQuestion');
+	Route::post('/add-review', 'CabinetController@addReview');
+	Route::post('/add-enroll', 'CabinetController@addEnroll');
+	Route::get('/{id}', 'CabinetController@visit');
+});
+
+Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
+	Route::get('/', 'CabinetAdminController@patients');
+
+	Route::get('/events', 'CabinetAdminController@events');
+	Route::post('/events', 'CabinetAdminController@editAddEvent');
+	Route::get('/events/{id}', 'CabinetAdminController@events');
+	Route::post('/events/{id}', 'CabinetAdminController@editAddEvent');
+
+	Route::get('/calendar', 'CabinetAdminController@calendar');
+
+	Route::get('/patients', 'CabinetAdminController@patients');
+	Route::post('/patients', 'CabinetAdminController@editAddPatients');
+	Route::get('/patients/{id}', 'CabinetAdminController@patients');
+	Route::post('/patients/{id}', 'CabinetAdminController@editAddPatients');
+
+	Route::get('/review', 'CabinetController@review');
+	Route::post('/add-question', 'CabinetController@addQuestion');
+	Route::post('/add-review', 'CabinetController@addReview');
+	Route::post('/add-enroll', 'CabinetController@addEnroll');
+	Route::get('/{id}', 'CabinetController@visit');
+});
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'voyager-admin'], function () {
     Voyager::routes();
 });
 

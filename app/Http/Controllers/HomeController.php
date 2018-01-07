@@ -159,7 +159,7 @@ class HomeController extends Controller
                 'required',
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
-            'patient_visit_date' => 'required',
+            //'patient_visit_date' => 'required',
             'patient_email' => 'required|email',
         ]);
 
@@ -179,7 +179,8 @@ class HomeController extends Controller
         $userRequest->complaints = $request->patient_complaints;
         $userRequest->save();
 
-        //Mail::to( User::where('role_id', 3)->get() )->send( new EnrollRegistered( $userRequest ) );
+        // Mail::to( 'urologinod@gmail.com' )->send( new EnrollRegistered( $userRequest ) );
+        Mail::to( env('MAIL_USERNAME') )->send( new EnrollRegistered( $userRequest ) );
 
         return redirect('success-enroll');
     }

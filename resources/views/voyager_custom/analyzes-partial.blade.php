@@ -1,7 +1,6 @@
 <div id="accordion" role="tablist">
 
-@foreach($analyzes as $analyze)
-  <!-- <a href="{{ url('storage/'.json_decode($analyze->path)[0]->download_link) }}" download="{{ json_decode($analyze->path)[0]->original_name }}" style="margin-right: 15px;"><span class="icon voyager-file-text" style="padding-right: 5px; "></span>{{ json_decode($analyze->path)[0]->original_name }}</a> -->
+@foreach($visit->analyzes as $analyze)
   <div class="card">
     <a data-toggle="collapse" href="#analyze-collapse{{ $analyze->id }}" aria-expanded="false" aria-controls="analyze-collapse{{ $analyze->id }}">
       <div class="card-header" role="tab" style="background-color: #AEE4FF;" id="heading{{ $analyze->id }}">
@@ -28,8 +27,8 @@
           <label for="file">Новый Файл</label>
           <input type="file" name="file">
           <input type="hidden" name="id" value="{{ $analyze->id }}">
-          <input type="hidden" value="{{ $analyze->visit->id }}" name="visit">
-          <input type="hidden" value="{{ $analyze->visit->user->id }}" name="user">
+          <input type="hidden" value="{{ $visit->id }}" name="visit">
+          <input type="hidden" value="{{ $visit->user->id }}" name="user">
           <input class="btn btn-primary save" type="submit" name="" title="Не более одного изменения за раз" value="Обновить">
         </form>
         <form action="{{ url('admin-cus/analyze-delete/'.$analyze->id) }}" method="POST" class="form-group" enctype="multipart/form-data">
@@ -40,8 +39,8 @@
       </div>
     </div>
   </div>
-  <?php $visit = $analyze->visit ?>
 @endforeach
+
   <div class="card">
     <a data-toggle="collapse" href="#new-analyze-{{$visit->id}}" aria-expanded="false" aria-controls="new-analyze-{{$visit->id}}">
       <div class="card-header" role="tab" style="background-color: #90f0c5;" id="heading-new-analyze">
@@ -65,7 +64,7 @@
           <label for="file">Путь</label>
           <input type="file" name="file" >
           <input type="hidden" value="{{ $visit->id }}" name="visit">
-          <input type="hidden" value="{{ $visit->user->id }}" name="user">          
+          <input type="hidden" value="{{ $visit->user['id'] }}" name="user">          
           <input class="btn btn-success btn-add-new" type="submit" name="" title="Не более одного изменения за раз" value="Добавить">
         </form>
 

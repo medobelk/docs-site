@@ -4,7 +4,7 @@
 <section class="main-content enroll-main">
   <div class="main-content__container enroll-container">
     <div class="main-part">
-      <form class="adding-form" action="{{ url('/cabinet-add-enroll') }}" method="POST">
+      <form class="adding-form" action="{{ url('/cabinet/add-enroll') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-field">
           <p class="form-field__name">Имя</p>
