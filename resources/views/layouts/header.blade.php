@@ -28,16 +28,17 @@
     <div class="header__telephones">
       <a class="header-telephone" href="##">
         <i class="header-telephone__icon fa fa-phone"></i>
-        <a href="tel:+380674899134" class="header-telephone__telephone-link first">+38(067)
+        <a href="tel:+380674899134" onclick="goog_report_conversion ('+380674899134')" class="header-telephone__telephone-link first">+38(067)
           <SPAN>489 91 34</SPAN>
         </a>
-        <a href="tel:+380487043758" class="header-telephone__telephone-link second">+38(048)
+        <a href="tel:+380487043758" onclick="goog_report_conversion ('+380487043758')" class="header-telephone__telephone-link second">+38(048)
           <SPAN>704 37 58</SPAN>
         </a>
       </a>
     </div>
     <div class="header__adress">
-      <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-header.png') }}" alt="" role="presentation"/><span class="header-adress__text">Семинарская 7, каб. 21</span>
+      <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-header.png') }}" alt="" role="presentation"/>
+        <span class="header-adress__text">Семинарская 7, каб. 21</span>
       </div>
     </div>
     <div class="header__nav">

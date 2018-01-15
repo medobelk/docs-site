@@ -71,6 +71,8 @@ class ViewComposerServiceProvider extends ServiceProvider
                     array_push( $availableDateHours[ date( "Y-n-j", strtotime($value['visit_date']) ) ], date( "H:i:s", strtotime( $value['visit_date'] ) ) );
                 }
             }
+            session()->put('captcha_fail', null);
+            $captchaFail = null;
 
             $view->with( 'availableDatesHours', collect( array_values([$availableDateHours]) ) );
 

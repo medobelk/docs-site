@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('title')
+  <title>Врач-уролог Брезицкий Юрий Иосифович</title>
+@endsection
+
 @section('content')
 	<section class="all-questions">
         <div class="container">

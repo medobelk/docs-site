@@ -52,9 +52,9 @@ Route::get('/Pagec/view/name/pielonefrit', 'HomeController@pielonefrit');
 Route::get('/Pagec/view/name/prostatit', 'HomeController@prostatit');
 Route::get('/Pagec/view/name/uretrit', 'HomeController@uretrit');
 Route::get('/Pagec/view/name/zistit', 'HomeController@zistit');
-Route::get('/Pagec/view/name/obrez', 'HomeController@obrez');
-Route::get('/Pagec/view/name/sertificates', 'HomeController@setificates');
-Route::get('/Pagec/view/name/sertificate', 'HomeController@setificate');
+Route::get('/Pagec/view/name/obrezanie', 'HomeController@obrez');
+Route::get('/Pagec/view/name/sertificates', 'HomeController@sertificates');
+Route::get('/Pagec/view/name/sertificate/{id}', 'HomeController@sertificate');
 
 Route::get('/reviews', 'HomeController@reviews');
 Route::get('/Pagec/view/name/about', 'HomeController@about');
@@ -79,22 +79,34 @@ Route::prefix('cabinet')->middleware(['isUser'])->group(function () {
 });
 
 Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
-	Route::get('/', 'CabinetAdminController@patients');
+	Route::get('/', 'CabinetAdminController@enroll');
+
+	Route::get('/test', function ()
+	{
+		return view('admin_cabinet.bulma');
+	});
+
+	Route::get('/search', 'CabinetAdminController@search');
 
 	Route::get('/events', 'CabinetAdminController@events');
 	Route::post('/events', 'CabinetAdminController@editAddEvent');
 	Route::get('/events/{id}', 'CabinetAdminController@events');
 	Route::post('/events/{id}', 'CabinetAdminController@editAddEvent');
 
-	Route::get('/calendar', 'CabinetAdminController@calendar');
+	Route::get('/oauth', 'CalendarController@oauth');
+	Route::get('/calendar', 'CalendarController@calendar');
+	// Route::get('/calendar', 'CabinetAdminController@calendar');
 
 	Route::get('/patients', 'CabinetAdminController@patients');
-	Route::post('/patients', 'CabinetAdminController@editAddPatients');
-	Route::get('/patients/{id}', 'CabinetAdminController@patients');
-	Route::post('/patients/{id}', 'CabinetAdminController@editAddPatients');
+	Route::post('/patient', 'CabinetAdminController@editAddPatients');
+	Route::get('/patient/{id}', 'CabinetAdminController@enroll');
+	Route::post('/patient/{id}', 'CabinetAdminController@editAddPatients');
 
-	Route::get('/review', 'CabinetController@review');
-	Route::post('/add-question', 'CabinetController@addQuestion');
+	Route::get('/questions', 'CabinetAdminController@questions');
+	Route::get('/question/{id}', 'CabinetAdminController@showQuestion');
+	Route::post('/question/{id}', 'CabinetAdminController@editQuestion');
+	Route::get('/delete-question/{id}', 'CabinetAdminController@deleteQuestion');
+
 	Route::post('/add-review', 'CabinetController@addReview');
 	Route::post('/add-enroll', 'CabinetController@addEnroll');
 	Route::get('/{id}', 'CabinetController@visit');

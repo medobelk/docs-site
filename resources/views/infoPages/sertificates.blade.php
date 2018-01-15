@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+  <title>Врач-уролог Брезицкий Юрий Иосифович</title>
+@endsection
+
 @section('content')
   <section class="about-page">
     <div class="container">
@@ -20,18 +24,12 @@
                     </h4>
                     <div class="serfs">
                       <ol>
-                        <a href="{{ url('/') }}">
-                          <SPAN>1</SPAN>
-                          <LI> Свидетельство про аттестацию в 2015 году по специальности «урология», высшая категория</LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>2</SPAN>
-                          <LI>2 Сертификат врача-специалиста, выдан МОЗ Украины</LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>3</SPAN>
-                          <LI>Лицензия на медицинскую практику</LI>
-                        </A>
+                        @foreach($licenses as $key => $license)
+                        <a href="{{ url('/Pagec/view/name/sertificate/'.$license->id) }}">
+                          <span>{{ ++$key }} </span>
+                          <li>{{ $license->name }}</li>
+                        </a>
+                        @endforeach
                       </ol>
                     </div>
                   </div>
@@ -40,48 +38,14 @@
                     </h4>
                     <div class="serfs">
                       <ol>
-                        <a href="{{ url('/') }}">
-                          <SPAN>1</SPAN>
-                          <LI> Сертификат о прохождении урологической конференции в Харькове
-                            <SPAN>2017г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>2</SPAN>
-                          <LI>Участие в работе научно-практической конференции в  Киеве,
-                            <SPAN>2014г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>3</SPAN>
-                          <LI>Сертификат по подтверждению квалификации по ИППП ,
-                            <SPAN>2013г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>4</SPAN>
-                          <LI>Сертификат участника юбилейной научно-практической конференции, ОНМУ МОЗ Украины,
-                            <SPAN>2013г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>5</SPAN>
-                          <LI>Сертификат участника урологической научно-практической конференции в Киеве,
-                            <SPAN>2012г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>6</SPAN>
-                          <LI>Cертификат участника Регионального конгресса «Людина та ліки-Україна»,
-                            <SPAN>2011г</SPAN>
-                          </LI>
-                        </A>
-                        <a href="{{ url('/') }}">
-                          <SPAN>7</SPAN>
-                          <LI>Сертификат о прохождении курса ESU, European school of Urology,  Bladder cancer,
-                            <SPAN>2008г</SPAN>
-                          </LI>
-                        </A>
+                        @foreach($conferences as $key => $conference)
+                        <a href="{{ url('/Pagec/view/name/sertificate/'.$conference->id) }}">
+                          <span>{{ ++$key }} </span>
+                          <li> 
+                            <li>{{ $conference->name }}</li>
+                          </li>
+                        </a>
+                        @endforeach
                       </ol>
                     </div>
                   </div>

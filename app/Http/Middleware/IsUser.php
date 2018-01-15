@@ -15,7 +15,11 @@ class IsUser
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   
+        if( !Auth::user() ){
+            return redirect('login');
+        }
+        
         if( Auth::user()->role()->first()->name !== 'user' ){
             return redirect('admin');
         }

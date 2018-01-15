@@ -1,5 +1,9 @@
 @extends('layouts.form-master')
 
+@section('title')
+  <title>Врач-уролог Брезицкий Юрий Иосифович</title>
+@endsection
+
 @section('content')
 
   <section class="main-content">

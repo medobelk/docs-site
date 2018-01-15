@@ -3922,7 +3922,7 @@ footer {
   .sidebar .control-buttons {
     margin-top: 35px; }
 
-.sidebar {
+.sidebar { z
   box-sizing: border-box;
   width: 25%;
   float: left;

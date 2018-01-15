@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('title')
+  <title>Врач-уролог Брезицкий Юрий Иосифович</title>
+@endsection
+
 @section('content')
 	<section class="all-questions">
         <div class="container">
@@ -15,7 +20,7 @@
                         
                         @foreach( $questionsLeftPart as $key => $question)
                           <div class="review"><span class="review__name" href=''>{{ $question["name"] }}</span>
-                            <span class="review__date">{{ $question["created_at"] }}</span>
+                            <span class="review__date">{{ date('d.m.Y', strtotime($question["created_at"])) }}</span>
                             <p class="review__text">
                               {{ $question["complaints"] }}
                             </p>
@@ -35,7 +40,7 @@
 
                         @foreach( $questionsMiddlePart as $key => $question)
                           <div class="review"><span class="review__name" href=''>{{ $question["name"] }}</span>
-                            <span class="review__date">{{ $question["created_at"] }}</span>
+                            <span class="review__date">{{ date('d.m.Y', strtotime($question["created_at"])) }}</span>
                             <p class="review__text">
                               {{ $question["complaints"] }}
                             </p>

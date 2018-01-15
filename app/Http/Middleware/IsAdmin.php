@@ -15,7 +15,10 @@ class IsAdmin
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   
+        if( !Auth::user() ){
+            return redirect('login');
+        }
         if( Auth::user()->role()->first()->name !== 'doctor' ){
             return redirect('cabinet');
         }

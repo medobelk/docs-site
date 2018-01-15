@@ -25,19 +25,74 @@ class CabinetAdminController extends Controller
     	return view('admin_cabinet.cabinet');
     }
 
-    public function patients($id = null)
+    public function patients()
+    {
+        $users = User::all();
+
+        return view('admin_cabinet.patients')->with('users', $users);
+    }
+
+    public function enroll($id = null)
     {	
     	$users = User::where('role_id', 2)->get();
-    	$user = collect(['id' => 0, 'name' => '', 'email' => '', 'phone' => '', 'birth_date' => '', 'password' => '']);
+    	$user = collect(['id' => 0, 'name' => '', 'email' => '', 'phone' => '', 'birth_date' => '', 'password' => 'new']);
     	if( $id !== null ){
-    		$user = User::where('id', $id)->first()->toArray();
+    		$user = User::where('id', $id)->first();
     	}
     	return view('admin_cabinet.cabinet')->with(['users' => $users, 'user' => $user]);
     }
 
+    public function questions()
+    {   
+        $questions = Question::orderBy('answer', 'asc')->get();
+        $users = User::where('role_id', 2)->get();
+        return view('admin_cabinet.questions')->with(['users' => $users, 'questions' => $questions]);
+    }
+
+    public function showQuestion($id)
+    {
+        $question = Question::where('id', $id)->first();
+        $users = User::where('role_id', 2)->get();
+        return view('admin_cabinet.answer-question')->with(['users' => $users, 'question' => $question]);
+    }
+
+    public function editQuestion(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'complaints' => 'required|min:30',
+            'answer' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()
+                ->withInput()
+                ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+        }
+
+        $question = Question::where('id', $id)->first();
+        $question->complaints = $request->complaints;
+        $question->answer = $request->answer;
+        $question->save();
+
+        return redirect( action('CabinetAdminController@questions') );
+    }
+
+    public function deleteQuestion($id)
+    {
+        Question::where('id', $id)->delete();
+        return back();
+    }
+
+    public function reviews()
+    {
+        $questions = Question::orderBy('answer', 'asc')->get();
+        $users = User::where('role_id', 2)->get();
+        return view('admin_cabinet.questions')->with(['users' => $users, 'questions' => $questions]);
+    }
+
     public function editAddPatients(Request $request, $id = null)
     {	
-    	$passwordRule = $id !== null ? 'required' : '';
+    	$passwordRule = $id !== null ? '' : 'required';
 
     	$validator = Validator::make($request->all(), [
             'name' => 'required|min:15',
@@ -66,15 +121,15 @@ class CabinetAdminController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        if( strlen( $passwordRule ) > 0 ){
-        	$user->password = $request->password; //Hash::make($request->password);
+        if( strlen( $request->password ) ){
+        	$user->password = Hash::make($request->password);
         }
         $user->birth_date = $request->birth_date;
         $user->save();
 
         //mail
 
-        return redirect("admin/patients/$user->id");
+        return redirect("admin/patient/$user->id");
 
     }
 
@@ -121,8 +176,20 @@ class CabinetAdminController extends Controller
         return redirect("admin/events/$event->id");
     }
 
+    public function search(Request $request)
+    {   
+        if( strlen($request->searchString) > 0){
+            $result = User::where('name', 'like', "%$request->searchString%")->get(['name', 'birth_date', 'id']);
+            return response()->json($result);
+        }else{
+            $result = User::where('role_id', 2)->get(['name', 'birth_date', 'id']);
+            return response()->json($result);
+        }
+        return response()->json('ebat');
+    }
+
     public function calendar()
-    {
+    {   
     	return view('admin_cabinet.calendar');
     }
 }

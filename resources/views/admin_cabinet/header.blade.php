@@ -5,11 +5,12 @@
           <div class="mobile-menu__links hide">
               <div class="flex-block">
                   <div class="links-block">
-                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/') }}">Вопросы</a>
-                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/question') }}">Прием</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/') }}">Записать</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/questions') }}">Вопросы</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/reviews') }}">Отзывы</a>
+                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/calendar') }}">Прием</a>
                       <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/enroll') }}">События</a>
                       <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/patients') }}">Пациенты</a>
-                      <a class="header-nav__link mobile-menu__link" href="{{ url('/admin/calendar') }}">Календарь</a>
                   </div>
                   <div class="header__private-cabinet private-visible">
                       @if( Auth::guest() )
@@ -31,17 +32,18 @@
       </div>
 
     <div class="header__logo">
-      <a class="header-logo" href="{{ url('/') }}">
+      <a class="header-logo" href="{{ url('/admin/') }}">
         <span class="first-logo-part">doc<span class="inner-part-logo">Urolog</span></span>
       </a>
     </div>
     <div class="header-patient__nav">
       <nav class="header-nav">
-          <a class="header-nav__link" href="{{ url('/admin/') }}">Вопросы</a>
-          <a class="header-nav__link" href="{{ url('/admin/question') }}">Прием</a>
+          <a class="header-nav__link" href="{{ url('/admin/') }}">Записать</a>
+          <a class="header-nav__link" href="{{ url('/admin/questions') }}">Вопросы</a>
+          <a class="header-nav__link" href="{{ url('/admin/reviews') }}">Отзывы</a>
+          <a class="header-nav__link" href="{{ url('/admin/calendar') }}">Прием</a>
           <a class="header-nav__link" href="{{ url('/admin/events') }}">События</a>
           <a class="header-nav__link" href="{{ url('/admin/patients') }}">Пациенты</a>
-          <a class="header-nav__link" href="{{ url('/admin/calendar') }}">Календарь</a>
       </nav>
     </div>
     <div class="header__private-cabinet">

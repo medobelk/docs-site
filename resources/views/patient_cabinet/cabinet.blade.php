@@ -4,6 +4,7 @@
 <section class="main-content">
   <div class="main-content__container">
     <div class="history-body">
+      @if( isset($visit) )
       <div class="history-field first">
         <div class="history-field__name">Ф.И.О
         </div>
@@ -52,6 +53,7 @@
         <div class="history-field__name">Диагноз</div>
         <div class="history-field__value">{{ $visit->diagnosis }}</div>
       </div>
+    @endif
     </div>
 
     @include('patient_cabinet.sidebar')

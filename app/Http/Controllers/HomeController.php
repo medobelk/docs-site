@@ -11,6 +11,7 @@ use App\AnonimRequest;
 use App\Question;
 use App\Answer;
 use App\User;
+use App\Sertificate;
 use App\Mail\EnrollRegistered;
 use Illuminate\Support\Facades\Mail;
 
@@ -62,14 +63,17 @@ class HomeController extends Controller
         return view('infoPages.obrezanie');
     }
 
-    public function setificates()
+    public function sertificates()
     {
-        return view('infoPages.sertificates');
+        $licenses = Sertificate::where('type', 'license')->get();
+        $conferences = Sertificate::where('type', 'conference')->get();
+        return view('infoPages.sertificates')->with(['licenses' => $licenses, 'conferences' => $conferences]);
     }
 
-    public function setificate()
-    {
-        return view('infoPages.sertificate');
+    public function sertificate($id)
+    {   
+        $sertificate = Sertificate::where('id', $id)->first();
+        return view('infoPages.sertificate')->with('sertificate', $sertificate);
     }
 
     public function reviews()
@@ -144,43 +148,43 @@ class HomeController extends Controller
 
     public function enroll(Request $request)
     {   
-        // $validator = $request->validate([
-        //     'patient_name' => 'required|min:15',
-        //     'patient_phone' => [
-        //         'required',
-        //         'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
-        //     ],
-        //     'patient_email' => 'required|email',
-        // ]);
-
         $validator = Validator::make($request->all(), [
             'patient_name' => 'required|min:15',
             'patient_phone' => [
                 'required',
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
-            //'patient_visit_date' => 'required',
             'patient_email' => 'required|email',
+            'g-recaptcha-response' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        $client = new \GuzzleHttp\Client();
+        $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]]);
+
+        if ($validator->fails() || count( json_decode($captchaResponse)->{'error-codes'} ) > 0) {
+            $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
+            array_push($errors, ['g-recaptcha-response' => 1]);
             return back()
                 ->withInput()
-                ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+                ->with('form_errors', $errors);
         }
-        $validator->errors()->keys();
 
-        $userRequest = new AnonimRequest();
+        function generatePassword($length = 8) {
+            $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            $count = mb_strlen($chars);
 
-        $userRequest->name = $request->patient_name;
-        $userRequest->phone = $request->patient_phone;
-        $userRequest->email = $request->patient_email;
-        //$userRequest->date = $request->patient_visit_date . ' ' . $request->patient_visit_time;
-        $userRequest->complaints = $request->patient_complaints;
-        $userRequest->save();
+            for ($i = 0, $result = ''; $i < $length; $i++) {
+                $index = rand(0, $count - 1);
+                $result .= mb_substr($chars, $index, 1);
+            }
+
+            return $result;
+        }
+
+        // $user
 
         // Mail::to( 'urologinod@gmail.com' )->send( new EnrollRegistered( $userRequest ) );
-        Mail::to( env('MAIL_USERNAME') )->send( new EnrollRegistered( $userRequest ) );
+        // Mail::to( env('MAIL_USERNAME') )->send( new EnrollRegistered( $userRequest ) );
 
         return redirect('success-enroll');
     }
