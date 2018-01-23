@@ -1,4 +1,4 @@
-@extends('layouts.master')
+Р@extends('layouts.master')
 
 @section('title')
   <title>Врач-уролог Брезицкий Юрий Иосифович</title>

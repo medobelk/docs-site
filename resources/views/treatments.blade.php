@@ -55,7 +55,7 @@
               </div>
               <div class="main-info__right-part">
                 
-                @include('layouts.question-form')
+                @include('layouts.enroll-form')
 
               </div>
             </div>
