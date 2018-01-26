@@ -1,32 +1,39 @@
 @extends('admin_cabinet.master')
 
 @section('content')
-<section class="main-content qusetion-main">
-  <div class="main-content__container question-continer">
-    <div class="main-part">
-      <div class="last-questions">
-        @foreach($questions as $question)
-          <div class="question" style="overflow-wrap: break-word;">
-            <p class="question__date">
-              <a style="font-weight: bold; @if( is_null($question->answer) ) color: #e00 @endif" href="{{ url('/admin/patient/'.$question->user['id']) }}">{{ $question->user['name'] }}</a>
-              {{ date('d.m.Y', strtotime($question->created_at) ) }}
-            </p>
-            <p class="question__text">
-              {{ $question->complaints }}
-            </p>
-            @if( is_null( $question->answer ) )
-              <a class="question__answer-btn" href='{{ url("/admin/question/$question->id") }}'>Ответить</a>
-            @else
-              <a class="question__answer-btn" href='{{ url("/admin/question/$question->id") }}'>Редактировать</a>
-            @endif
-              <a class="question__answer-btn" href='{{ url("/admin/delete-question/$question->id") }}'>Удалить</a>
-          </div>
-        @endforeach
+<section class="section content-section">
+  <div class="container">
+    <div class="block" >
+      <div class="columns">
+        <div class="column is-1"></div>
+        <div class="column is-6">
+          @foreach($questions as $question)
+            <div class="visit-info-block">
+              <p class="info-block-title has-text-weight-semibold">
+                <a class="patient-link" style="@if( is_null($question->answer) || strlen($question->answer) === 0 ) color: #e00 @endif" href="{{ url('/admin/patient/'.$question->user['id']) }}">
+                  {{ $question->user['name'] }}
+                </a>
+                {{ date('d.m.Y', strtotime($question->created_at) ) }}
+              </p>
+              <p>{{ $question->complaints }}</p>
+              <div class="is-clearfix rd-links">
+                @if( is_null( $question->answer ) || strlen($question->answer) === 0 )
+                  <a class="is-pulled-left" href='{{ url("/admin/question/$question->id") }}'>Ответить</a>
+                @else
+                  <a class="is-pulled-left" href='{{ url("/admin/question/$question->id") }}'>Редактировать</a>
+                @endif
+                  <a class="is-pulled-right" href='{{ url("/admin/delete-question/$question->id") }}'>Удалить</a>
+              </div>
+            </div>
+
+          @endforeach
+        </div>
+
+        @include('admin_cabinet.patients-sidebar')
+
       </div>
     </div>
-
-    @include('admin_cabinet.patients-sidebar')
-
+    <!-- <div class="sidebar"></div> -->
   </div>
 </section>
 @endsection

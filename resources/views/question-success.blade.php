@@ -18,7 +18,7 @@
           <div class="main-info__middle-part">
             <div class="error-text thanks-section">
               <p class="error-text__text"> Я отвечу вам как только смогу.</p>
-              <p class="error-text__text"> Вам на почту прийдет ответ со ссылкой на почту, так же он станет доступен на странице с вопросами.</p>
+              <p class="error-text__text"> Вам на почту прийдет ответ со ссылкой на ответ, так же он станет доступен на странице с вопросами.</p>
               <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
             </div>
           </div>

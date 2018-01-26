@@ -78,8 +78,7 @@ Route::prefix('cabinet')->middleware(['isUser'])->group(function () {
 	Route::get('/{id}', 'CabinetController@visit');
 });
 
-Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
-	Route::get('/', 'CabinetAdminController@enroll');
+Route::prefix('admin')->middleware(['isAdmin'])->group(function () {	
 
 	Route::get('/test', function ()
 	{
@@ -93,23 +92,37 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
 	Route::get('/events/{id}', 'CabinetAdminController@events');
 	Route::post('/events/{id}', 'CabinetAdminController@editAddEvent');
 
-	Route::get('/oauth', 'CalendarController@oauth');
-	Route::get('/calendar', 'CalendarController@calendar');
+	Route::get('/calendar', 'CabinetAdminController@calendar');
+
+	// Route::get('/oauth', 'CalendarController@oauth');
+	// Route::get('/calendar', 'CalendarController@calendar');
 	// Route::get('/calendar', 'CabinetAdminController@calendar');
 
-	Route::get('/patients', 'CabinetAdminController@patients');
-	Route::post('/patient', 'CabinetAdminController@editAddPatients');
-	Route::get('/patient/{id}', 'CabinetAdminController@enroll');
-	Route::post('/patient/{id}', 'CabinetAdminController@editAddPatients');
+	Route::get('/', 'CabinetAdminController@createPatient');
+	// Route::get('/patient', 'CabinetAdminController@createPatient');
+	Route::post('/patient', 'CabinetAdminController@storePatient'); 
+	Route::get('/patients', 'CabinetAdminController@allPatients');
+	Route::get('/patient/{id}', 'CabinetAdminController@showPatient'); //showing Visits too
+	Route::get('/patient-edit/{id}', 'CabinetAdminController@editPatient');
+	Route::patch('/patient/{id}', 'CabinetAdminController@updatePatient');
+	Route::delete('/patient/{id}', 'CabinetAdminController@deletePatient');
+
+	Route::get('/visit/{userId}', 'CabinetAdminController@createVisit');
+	Route::post('/visit/{userId}', 'CabinetAdminController@storeVisit');
+	Route::get('/visit-edit/{id}', 'CabinetAdminController@editVisit');
+	Route::patch('/visit/{id}', 'CabinetAdminController@updateVisit');
+	Route::delete('/visit/{id}', 'CabinetAdminController@deleteVisit');
 
 	Route::get('/questions', 'CabinetAdminController@questions');
 	Route::get('/question/{id}', 'CabinetAdminController@showQuestion');
 	Route::post('/question/{id}', 'CabinetAdminController@editQuestion');
 	Route::get('/delete-question/{id}', 'CabinetAdminController@deleteQuestion');
 
-	Route::post('/add-review', 'CabinetController@addReview');
-	Route::post('/add-enroll', 'CabinetController@addEnroll');
-	Route::get('/{id}', 'CabinetController@visit');
+	Route::get('/reviews', 'CabinetAdminController@reviews');
+	Route::get('/review-edit/{id}', 'CabinetAdminController@editReview');
+	Route::post('/review/{id}', 'CabinetAdminController@updateReview');
+	Route::put('/review/{id}', 'CabinetAdminController@reviewStatus');
+	Route::delete('/review/{id}', 'CabinetAdminController@deleteReview');
 });
 
 

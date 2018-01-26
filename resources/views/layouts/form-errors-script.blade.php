@@ -4,7 +4,7 @@
     if( form_errors ){
       $.each(form_errors, function (field_name, field_error) {
       	if( field_name === 'g-recaptcha-response' ){
-      		$('<p class="form-body__text" style="color:red">Ошибка Captcha заполните снова</p>').insertBefore($('form .form-body__text'));
+      		$('<p class="form-body__text" style="color:red">Ошибка Captcha отправте снова</p>').insertAfter($('form .g-recaptcha'));
       	}
         $('input[name='+field_name+']').css('border', '1px solid red');
         $('textarea[name='+ field_name +']').css('border', '1px solid red');

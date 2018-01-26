@@ -16,7 +16,7 @@
   <script>
       $(document).ready(function () {
         var events = {!! $calendarData !!};
-        console.log(events);
+
         $('#calendar').fullCalendar({
           height: 600,
           locale: 'ru',
@@ -26,7 +26,7 @@
             center: 'title',
             right:  'month agendaWeek agendaDay '
           },
-          events: events
+          // events: events
         });
       });
   </script>

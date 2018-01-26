@@ -45,7 +45,7 @@
   @include('layouts.google-analytics')
   @include('layouts.form-errors-script')
   @include('layouts.create-question-enroll-form-success')
-  @include('layouts.enroll-dates-handler')
+  {{-- @include('layouts.enroll-dates-handler') --}}
   @yield('page-scripts')
 
   </body>

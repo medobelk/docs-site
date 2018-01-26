@@ -7,6 +7,7 @@ use App\Event;
 use App\Visit;
 use App\AnonimRequest;
 use App\Review;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -22,6 +23,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         $this->composeEnrollForm();
         $this->composeCalendar();
         $this->composeFooterReviews();
+        $this->composeAdminSidebar();
     }
 
     /**
@@ -39,6 +41,14 @@ class ViewComposerServiceProvider extends ServiceProvider
         view()->composer('layouts.sidebar', function ($view)
         {
             $view->with('events', Event::orderBy('id', 'desc')->take(5)->get());
+        });
+    }
+
+    public function composeAdminSidebar()
+    {
+        view()->composer('admin_cabinet.patients-sidebar', function ($view)
+        {
+            $view->with('sidebarUsers', User::where('role_id', 2)->get());
         });
     }
 

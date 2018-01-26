@@ -37,6 +37,53 @@
       color: white;
       border-bottom: none;
     }
+  
+    .sidebar a{
+      text-decoration: none;
+      color: #7b89b2;
+    }
+
+    .sidebar a:hover, .rd-links a:hover{
+      color: #363636;
+    }
+
+    .info-block, .visit-info-block{
+      margin-bottom: 15px;
+    }
+
+    .info-block-title{
+      margin-bottom: 5px;
+    }
+    
+    .rd-links a{
+      text-decoration: underline;
+      color: #7b89b2;
+    }
+
+    footer a, footer a:hover{
+      color: #6FBCD2;
+      text-decoration: underline;
+    }
+
+    .visits{
+      margin-top: 20px;
+    }
+
+    .search-field{
+      border: none;
+      width: 100%;
+      height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .visite{
+      margin-top: 20px;
+    }
+
+    .footer-ico{
+      width: 8%;
+    }
+
     section.section{
       background-color: #E4E4E4;
     }
@@ -59,9 +106,13 @@
             <a href="">Прием</a>
             <a href="">События</a>
             <a href="">Пациенты</a>
-            <form>
-              <a href="" class="logout" style="margin-left: 20px;">Выход</a>
+            
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout" style="margin-left: 20px;">Выход</a>
+            
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              {{ csrf_field() }}
             </form>
+            
           </div>
         </div>
       </div>
@@ -72,26 +123,51 @@
           <div class="columns" style="justify-content: center;">
             <div class="column is-2"></div>
             <div class="column is-4">
-              <div>
-                <p>Ф.И.О.</p>
-                <p>Калина Килина Калина</p>
+              <div class="info-block">
+                <p class="info-block-title">Ф.И.О.</p>
+                <p class="is-italic has-text-weight-bold">Калина Килина Калина</p>
               </div>
-              <div>
-                <p>Электронный Адрес</p>
-                <p>addressEmail@email.inweb</p>
+              <div class="info-block">
+                <p class="info-block-title">Электронный Адрес</p>
+                <p class="is-italic">addressEmail@email.inweb</p>
               </div>
-              <div>
-                <p>Дата Рождения</p>
-                <p>12.12.2012</p>
+              <div class="info-block">
+                <p class="info-block-title">Номер</p>
+                <p class="is-italic">0962222222</p>
               </div>
-              <div>
-                <p>Жалобы</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed fuga consequatur eveniet suscipit explicabo unde debitis. Amet accusamus, quod incidunt doloremque aspernatur laborum aut magni harum odit optio enim explicabo quibusdam repellendus in, unde voluptatum dolor assumenda impedit voluptatem quis non rerum similique sed minus. Nisi ex dolorum et natus temporibus eos velit accusantium eveniet, ea voluptas nesciunt, exercitationem nam, aliquid quod earum reiciendis quasi sequi incidunt odio totam. Vel praesentium consequuntur aut quo facilis, laborum magnam soluta. Unde molestias officia excepturi ipsa incidunt magni necessitatibus, enim, mollitia quos voluptatum autem iure, eveniet dolor ut eligendi hic repellendus. Rem nemo eum provident sunt odit consequatur at repudiandae, est ex ab aut, molestias fugit quod dicta molestiae assumenda fuga. Ullam, iste.</p>
+              <div class="info-block">
+                <p class="info-block-title">Дата Рождения</p>
+                <p class="is-italic has-text-weight-bold">12.12.2012</p>
               </div>
-              <a href="">Редактировать</a>
+              <div class="is-clearfix rd-links">
+                <a href="" class="is-pulled-left">Редактировать</a>  
+                <a href="" class="is-pulled-right">Удалить</a>
+              </div>
+              <div class="visits">
+                <h4 class="has-text-centered is-size-3 ">Визиты</h4>
+                <div class="visite">
+                  <div class="visit-info-block">
+                    <p class="is-italic has-text-weight-bold info-block-title">Дата Визита</p>
+                    <p>12.12.12</p>
+                  </div>
+                  <div class="visit-info-block">
+                    <p class="info-block-title has-text-weight-semibold">Жалобы</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed fuga consequatur eveniet suscipit explicabo unde debitis. Amet accusamus, quod incidunt doloremque aspernatur laborum aut magni harum odit optio enim explicabo quibusdam repellendus in, unde voluptatum dolor assumenda impedit voluptatem quis non rerum similique sed minus. Nisi ex dolorum et natus temporibus eos velit accusantium eveniet, ea voluptas nesciunt, exercitationem nam, aliquid quod earum reiciendis quasi sequi incidunt odio totam. Vel praesentium consequuntur aut quo facilis, laborum magnam soluta. Unde molestias officia excepturi ipsa incidunt magni necessitatibus, enim, mollitia quos voluptatum autem iure, eveniet dolor ut eligendi hic repellendus. Rem nemo eum provident sunt odit consequatur at repudiandae, est ex ab aut, molestias fugit quod dicta molestiae assumenda fuga. Ullam, iste.</p>
+                  </div>
+                  <div class="visit-info-block">
+                    <p class="info-block-title has-text-weight-semibold">Диагноз</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed fuga consequatur eveniet suscipit explicabo unde debitis. Amet accusamus, quod incidunt doloremque aspernatur laborum aut magni harum odit optio enim explicabo quibusdam repellendus in, unde voluptatum dolor assumenda impedit voluptatem quis non rerum similique sed minus. Nisi ex dolorum et natus temporibus eos velit accusantium eveniet, ea voluptas nesciunt, exercitationem nam, aliquid quod earum reiciendis quasi sequi incidunt odio totam. Vel praesentium consequuntur aut quo facilis, laborum magnam soluta. Unde molestias officia excepturi ipsa incidunt magni necessitatibus, enim, mollitia quos voluptatum autem iure, eveniet dolor ut eligendi hic repellendus. Rem nemo eum provident sunt odit consequatur at repudiandae, est ex ab aut, molestias fugit quod dicta molestiae assumenda fuga. Ullam, iste.</p>
+                  </div>
+                  <div class="is-clearfix rd-links">
+                    <a href="" class="is-pulled-left">Редактировать</a>  
+                    <a href="" class="is-pulled-right">Удалить</a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="column is-2 has-text-left">
-              <input type="text" name="">
+
+            <div class="sidebar column is-2 has-text-left">
+              <input type="text" class="search-field" name="">
               <a>Lorem ipsum dolor sit amet.</a>
               <a>Lorem ipsum dolor sit amet.</a>
               <a>Lorem ipsum dolor sit amet.</a>
@@ -106,7 +182,7 @@
     <footer class="section">
       <div class="container is-clearfix" style="width: 50%; color: white;">
         <span class="is-pulled-left">2017 © docurolog</span>
-        <span class="is-pulled-right">дизайн и поддержка сайтаKatrin Briz</span>
+        <span class="is-pulled-right">дизайн и поддержка сайта <img class="footer-ico" src="{{asset('img/foot-ico.png')}}"> <a>Katrin Briz</a></span>
       </div>
     </footer>
   </body>

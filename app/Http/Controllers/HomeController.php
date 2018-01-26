@@ -84,7 +84,7 @@ class HomeController extends Controller
 
     public function questions()
     {
-        $questions = Question::all()->toArray();
+        $questions = Question::whereRaw('LENGTH(answer) > 0')->get()->toArray();
 
         $questionsLeftPart = array_slice($questions, 0, count($questions) / 2);
         $questionsMiddlePart = array_slice($questions, count($questions) / 2);
@@ -155,19 +155,40 @@ class HomeController extends Controller
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
             'patient_email' => 'required|email',
-            'g-recaptcha-response' => 'required'
+            // 'g-recaptcha-response' => 'required'
         ]);
 
-        $client = new \GuzzleHttp\Client();
-        $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]]);
-
-        if ($validator->fails() || count( json_decode($captchaResponse)->{'error-codes'} ) > 0) {
+        if ($validator->fails()) {
             $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
-            array_push($errors, ['g-recaptcha-response' => 1]);
             return back()
                 ->withInput()
                 ->with('form_errors', $errors);
         }
+
+        $enroll = new AnonimRequest();
+        $enroll->name = $request->patient_name;
+        $enroll->phone = $request->patient_phone;
+        $enroll->email = $request->patient_email;
+        $enroll->complaints = $request->patient_complaints;
+        $enroll->status = 'fresh';
+        $enroll->save();
+
+        $user = new User();
+        $user->role_id = 2;
+        $user->name = $request->patient_name;
+        $user->phone = $request->patient_phone;
+        $user->email = $request->patient_email;
+        $user->save();
+        // $client = new \GuzzleHttp\Client();
+        // $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]]);          
+
+        // if ($validator->fails() || count( json_decode($captchaResponse->{'error-codes'} )) > 0) {
+        //     $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
+        //     array_push($errors, ['g-recaptcha-response' => 1]);
+        //     return back()
+        //         ->withInput()
+        //         ->with('form_errors', $errors);
+        // }
 
         function generatePassword($length = 8) {
             $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -180,6 +201,34 @@ class HomeController extends Controller
 
             return $result;
         }
+        // несколько получателей
+        $to = 'urologinod@gmail.com'; // обратите внимание на запятую 
+        // тема письма
+        $subject = 'Новый Пользователь';
+        // текст письма
+        $message = "
+            <html>
+                <head>
+                    <title>Новый Пользователь</title>
+                </head>
+                <body>
+                    <h1>Новая Запись</h1>
+                    <p><b>{$enroll->name}</b> создал новую заявку на Вашем сайте в ".date('d.m.Y', strtotime($enroll->created_at))."</p>
+                    <h4>Данные</h4>
+                    <p>Номер: {$enroll->phone}</p>
+                    <p>Почта: {$enroll->email}</p>
+                    <p>Жалобы:</p>
+                    <span>{$enroll->complaints}</span>
+                </body>
+            </html>
+        ";
+
+        // Для отправки HTML-письма должен быть установлен заголовок Content-type
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
+
+        // Отправляем
+        mail($to, $subject, $message, $headers);
 
         // $user
 
@@ -196,27 +245,42 @@ class HomeController extends Controller
 
     public function createQuestion(Request $request)
     {   
-    
         $validator = Validator::make($request->all(), [
             // 'question_name' => 'required|min:15',
             'question_email' => 'required|email',
-            'question_complaints' => 'required|min:30'
+            'question_complaints' => 'required|min:30',
+            'g-recaptcha-response' => 'required'
         ]);
 
-        if ($validator->fails()) {
-            return back()
-                        ->withInput()
-                        ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
-        }
+        // if ($validator->fails()) {
+        //     return back()
+        //                 ->withInput()
+        //                 ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
+        // }
         //$validator->errors()->keys();
 
-        $subscription = new Question();
+        $client = new \GuzzleHttp\Client();
+        $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]])->getBody()->getContents();
 
-        $subscription->name = strlen($request->question_name) > 0 ? $request->question_name: 'Аноним';
-        $subscription->email = $request->question_email;
-        $subscription->complaints = $request->question_complaints;
-        $subscription->subscribe = $request->question_subscription === 'on' ? 1 : 0;
-        $subscription->save();
+        if ($validator->fails() || json_decode($captchaResponse)->{'success'} === false) {
+            if(property_exists($captchaResponse, 'error-codes')){
+                if( count(json_decode($captchaResponse)->{'error-codes'}) > 0 ){
+                    array_push($errors, ['g-recaptcha-response' => 1]);
+                }
+            }
+            $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
+            return back()
+                ->withInput()
+                ->with('form_errors', $errors);
+        }
+
+        $question = new Question();
+
+        $question->name = strlen($request->question_name) > 0 ? $request->question_name: 'Аноним';
+        $question->email = $request->question_email;
+        $question->complaints = $request->question_complaints;
+        $question->subscribe = $request->question_subscription === 'on' ? 1 : 0;
+        $question->save();
 
         return redirect('success-question');
     }

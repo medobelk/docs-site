@@ -1,10 +1,6 @@
-<footer class="foot-patient">
-	<div class="footer-patient-body">
-		<div class="footer-item">
-			<p class="footer-item__info-one">2017 &copy; docurolog
-			</p>
-			<p class="footer-item__info-two">дизайн и поддержка сайта<img class="foot-ico" src="{{ asset('img/foot-ico.png') }}"/><a class="author-link" href="#">Katrin Briz</a>
-			</p>
-		</div>
-	</div>
+<footer class="section">
+  <div class="container is-clearfix" style="width: 50%; color: white;">
+    <span class="is-pulled-left">2017 © docurolog</span>
+    <span class="is-pulled-right">дизайн и поддержка сайта <img class="footer-ico" src="{{asset('img/foot-ico.png')}}"> <a>Katrin Briz</a></span>
+  </div>
 </footer>
