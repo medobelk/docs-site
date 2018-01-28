@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="{{ asset('css/compiled.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.css">
 
   </head>
   <body class="page">

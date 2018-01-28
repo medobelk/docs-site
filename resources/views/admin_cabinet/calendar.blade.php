@@ -1,11 +1,15 @@
 @extends('admin_cabinet.master')
 
 @section('content')
-<section class="main-content review-main">
-  <div class="main-content__container patien-reviews-continer">
-    
-    <div id="calendar" style="background-color: white;"></div>
-    
+<section class="section content-section">
+  <div class="container">
+    <div class="block" >
+      <div class="columns" style="justify-content: center;">
+        <div class="column is-8">
+          <div id="calendar" style=""></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 @endsection
@@ -16,7 +20,7 @@
   <script>
       $(document).ready(function () {
         var events = {!! $calendarData !!};
-
+        var adminUrl = "{{ url('admin') }}";
         $('#calendar').fullCalendar({
           height: 600,
           locale: 'ru',
@@ -26,7 +30,17 @@
             center: 'title',
             right:  'month agendaWeek agendaDay '
           },
-          // events: events
+          buttonText: {
+            today:    'Сегодня',
+            month:    'Месяц',
+            week:     'Неделя',
+            day:      'День',
+          },
+          eventClick: function(calEvent, jsEvent, view) {
+            // console.log(adminUrl+'/'+calEvent.type+'/'+calEvent.id);
+            window.location.href = adminUrl+'/'+calEvent.link;
+          },
+          events: events
         });
       });
   </script>

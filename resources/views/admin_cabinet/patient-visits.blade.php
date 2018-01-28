@@ -46,19 +46,40 @@
                         <p>{{ $visit->diagnosis }}</p>
                       </div>
                       <div class="visit-info-block">
-                        <p class="info-block-title has-text-weight-semibold">Жалобы</p>
+                        <p class="info-block-title has-text-weight-semibold">Лечение</p>
                         <p>{{ $visit->treatment }}</p>
                       </div>
                       <div class="visit-info-block">
-                        <p class="info-block-title has-text-weight-semibold">Жалобы</p>
+                        <p class="info-block-title has-text-weight-semibold">Рекомендации</p>
                         <p>{{ $visit->recomendations }}</p>
                       </div>
+
+                      <div>
+                        <p class="info-block-title has-text-weight-semibold">Анализы</p>
+                        <div class="is-flex analyzes">
+                          @foreach( $visit->analyzes as $analyze )
+                            <div class="analyze">
+                              <div class="analyze-info-wrapper">
+                                <a download="{{ $analyze->name }}" href="{{ asset("/storage$analyze->path") }}">
+                                  <span class="icon is-large">
+                                    <i class="fa fa-3x fa-file-text-o" aria-hidden="true"></i>
+                                  </span>
+                                  <p class="analyze-name">
+                                    {{ $analyze->name }}
+                                  </p>
+                                </a>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
+                      </div>
+
                       <div class="is-clearfix rd-links">
                         <a href="{{ url("/admin/visit-edit/$visit->id") }}" class="is-pulled-left">Редактировать</a>  
                         <form action="{{ url("/admin/visit/$visit->id") }}" method="POST">
                           {{ csrf_field() }}
                           {{ method_field('DELETE') }}
-                          <input value="Удалить" type="submit" class="delete-link is-pulled-right" />
+                          <input value="Удалить" type="submit" class="input-as-link is-pulled-right" />
                         </form>
                       </div>
                     </div>

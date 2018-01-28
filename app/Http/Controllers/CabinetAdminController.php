@@ -10,9 +10,12 @@ use App\AnonimRequest;
 use App\Question;
 use App\Review;
 use App\Event;
+use App\Analyze;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class CabinetAdminController extends Controller
 {   
@@ -87,7 +90,7 @@ class CabinetAdminController extends Controller
     public function showPatient($id)
     {	
     	$user = User::where('id', $id)->first();
-        $visits = Visit::where('user_id', $id)->get();
+        $visits = Visit::where('user_id', $id)->orderBy('visit_date', 'desc')->with('analyzes')->get();
     	return view('admin_cabinet.patient-visits')->with(['user' => $user, 'visits' => $visits]);
     }
 
@@ -142,11 +145,12 @@ class CabinetAdminController extends Controller
     }
 
     public function storeVisit(Request $request)
-    {
+    {   
+
         $validator = Validator::make($request->all(), [
             'treatment' => 'required',
             'complaints' => 'required',
-            'visit_date' => 'required',
+            'visit_date' => 'required|unique',
             'userId' => 'required'
         ]);
 
@@ -156,13 +160,29 @@ class CabinetAdminController extends Controller
                 ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
 
-        $visit = Visit::where('user_id', $request->userId)->first();
+        $visit = new Visit();
+        $visit->user_id = $request->userId;
         $visit->complaints = $request->complaints;
         $visit->treatment = $request->treatment;
         $visit->diagnosis = $request->diagnosis;
         $visit->recomendations = $request->recomendations;
         $visit->visit_date = $request->visit_date;
         $visit->save();
+
+        if($request->analyzes !== null){
+            foreach ($request->analyzes as $analyzeFile) {
+                $analyzeFile->store(
+                        'public/analyzes/'
+                );
+
+                $analyze = new Analyze();
+                $analyze->user_id = $request->userId;
+                $analyze->visit_id = $visit->id;
+                $analyze->name = $analyzeFile->getClientOriginalName();
+                $analyze->path = '/analyzes/'.$analyzeFile->hashName();
+                $analyze->save();
+            }
+        }
 
         return redirect("admin/patient/$visit->user_id");
     }
@@ -194,6 +214,41 @@ class CabinetAdminController extends Controller
         $visit->recomendations = $request->recomendations;
         $visit->visit_date = $request->visit_date;
         $visit->save();
+
+        $visitAnalyzes = Analyze::where('visit_id', $visit->id)->pluck('id');
+
+        foreach ($visitAnalyzes as $key => $analyzeId) {
+            if( !$request->has('analyze-exist-'.$analyzeId) ){
+                $analyzeToDelete = Analyze::where('id', $analyzeId)->first();
+                Storage::delete('public'.$analyzeToDelete->path);
+                $analyzeToDelete->delete();
+            }elseif( $request->input('analyze-exist-'.$analyzeId) === 'edit' ){
+                $analyzeToUpdate = Analyze::where('id', $analyzeId)->first();
+                Storage::delete('public'.$analyzeToUpdate->path);
+                $newAnalyzeFile = $request->file('analyze-exist-'.$analyzeId);
+                $newAnalyzeFile->store(
+                        'public/analyzes/'
+                );
+                $analyzeToUpdate->name = $newAnalyzeFile->getClientOriginalName();
+                $analyzeToUpdate->path = '/analyzes/'.$newAnalyzeFile->hashName();
+                $analyzeToUpdate->save();
+            }
+        }
+
+        if($request->analyzes !== null){
+            foreach ($request->analyzes as $analyzeFile) {
+                $analyzeFile->store(
+                        'public/analyzes/'
+                );
+
+                $analyze = new Analyze();
+                $analyze->user_id = $request->userId;
+                $analyze->visit_id = $visit->id;
+                $analyze->name = $analyzeFile->getClientOriginalName();
+                $analyze->path = '/analyzes/'.$analyzeFile->hashName();
+                $analyze->save();
+            }
+        }
 
         return redirect("admin/patient/$visit->user_id");
     }
@@ -341,8 +396,27 @@ class CabinetAdminController extends Controller
     {   
         $events = Event::all();
         $visits = Visit::all();
-        $calendarData = array_merge($events, $visits);
+        $calendarData = [];
 
-    	return view('admin_cabinet.calendar')->with('calendarData', $calendarData);
+        foreach ($events as $key => $event) {
+            array_push($calendarData, [
+                'title' => $event->name,
+                'start' => $event->event_date_start,
+                'end' => $event->event_date_end,
+                'color' => '#5b5b5b',
+                'link' => 'events/'.$event->id,
+            ]);
+        }
+
+        foreach ($visits as $key => $visit) {
+            array_push($calendarData, [
+                'title' => $visit->user['name'],
+                'start' => $visit->visit_date,
+                'color' => '#4eb35a',
+                'link' => 'visit-edit/'.$visit->id,
+            ]);
+        }
+
+    	return view('admin_cabinet.calendar')->with('calendarData', collect($calendarData));
     }
 }
