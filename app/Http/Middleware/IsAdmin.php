@@ -19,8 +19,9 @@ class IsAdmin
         if( !Auth::user() ){
             return redirect('login');
         }
-        if( Auth::user()->role()->first()->name !== 'doctor' ){
-            return redirect('cabinet');
+
+        if( Auth::user()->role()->first()->name !== 'doctor' && Auth::user()->role()->first()->name !== 'admin' ){
+            return redirect()->back();
         }
         return $next($request);
     }

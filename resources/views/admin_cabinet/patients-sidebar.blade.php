@@ -14,5 +14,5 @@
 				<a class="control-buttons__email-change" href="{{ url('/admin/patient/'.$user->id) }}">{{ $user->name }}</a>
 			</p>
 		@endforeach
-	<div id="users">
+	</div>
 </div>

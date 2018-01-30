@@ -9,6 +9,7 @@ use App\AnonimRequest;
 use App\Review;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         $this->composeCalendar();
         $this->composeFooterReviews();
         $this->composeAdminSidebar();
+        $this->composePatientSidebar();
     }
 
     /**
@@ -37,10 +39,10 @@ class ViewComposerServiceProvider extends ServiceProvider
     }
 
     public function composeSidebar()
-    {
+    {   
         view()->composer('layouts.sidebar', function ($view)
         {
-            $view->with('events', Event::orderBy('id', 'desc')->take(5)->get());
+            $view->with('events', Event::where('type', 'published')->orderBy('id', 'desc')->take(5)->get());
         });
     }
 
@@ -52,37 +54,112 @@ class ViewComposerServiceProvider extends ServiceProvider
         });
     }
 
+    public function composePatientSidebar()
+    {
+        view()->composer('patient_cabinet.sidebar', function ($view)
+        {
+            $view->with( 'sidebarVisits', Visit::where('user_id', Auth::user()->id)->orderBy('visit_date', 'desc')->get() );
+        });
+    }
+
     public function composeEnrollForm()
     {   
         view()->composer('layouts.enroll-dates-handler', function ($view)
         {
             $availableHours = [
-                    "10:00:00",
-                    "11:00:00",
-                    "12:00:00",
-                    "13:00:00",
-                    "14:00:00",
-                    "15:00:00",
-                    "16:00:00",
-                    "17:00:00",
-                    "18:00:00",
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
             ];
 
             $availableDateHours = [];
 
-            $visitsRegistered = Visit::whereDate('visit_date', '>', date('Y-m-d'))->get(['visit_date'])->toArray();
+            $visits = Visit::whereDate('visit_date', '>', date('Y-m-d'))->get(['visit_date AS date'])->toArray();
+            $events = Event::whereDate('event_date_start', '>', date('Y-m-d'))->get(['event_date_start AS date', 'event_date_end AS date_end'])->toArray();
+            $busy = array_merge($visits, $events);
 
-            foreach ($visitsRegistered as $value) {
+            foreach ($busy as $value) {
+                if( array_key_exists( 'date_end', $value) ){
+                    $start = new DateTime($value['date']);
+                    $end = new DateTime($value['date_end']);
+                    $diff = $end->diff($start);
 
-                if( array_key_exists( date( "Y-n-j", strtotime($value['visit_date']) ), $availableDateHours) ){
-                    array_push( $availableDateHours[ date( "Y-n-j", strtotime($value['visit_date']) ) ], date( "H:i:s", strtotime( $value['visit_date'] ) ) );
+                    $startUnix = strtotime($value['date']); 
+                    $endUnix = strtotime($value['date_end']);
+
+                    if( $diff->days > 0 ){
+                        if( array_key_exists( $start->format("Y-n-j"), $availableDateHours) ){
+                            foreach( $availableHours as $defaultHour ){
+                                if( $start->format("G") <= $defaultHour ){
+                                    array_push( $availableDateHours[ $start->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }else{
+                            $availableDateHours[ $start->format("Y-n-j") ] = [];
+                            foreach( $availableHours as $defaultHour ){
+                                if( $start->format("G") <= $defaultHour ){
+                                    array_push( $availableDateHours[ $start->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }
+                        if( array_key_exists( $end->format("Y-n-j"), $availableDateHours) ){
+                            foreach( $availableHours as $defaultHour ){
+                                if( $end->format("G") >= $defaultHour && $end->format("G") > $defaultHour ){
+                                    array_push( $availableDateHours[ $end->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }else{
+                            $availableDateHours[ $end->format("Y-n-j") ] = [];
+                            foreach( $availableHours as $defaultHour ){
+                                if( $end->format("G") >= $defaultHour && $end->format("G") > $defaultHour ){
+                                    array_push( $availableDateHours[ $end->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }
+                        for ($dayBetween = $startUnix; $dayBetween <= $endUnix; $dayBetween += 86400) {  
+                            if( date("Y-m-d", $dayBetween) !== $start->format('Y-m-d') && date("Y-m-d", $dayBetween) !== $end->format('Y-m-d') ){
+                                foreach( $availableHours as $defaultHour ){
+                                    if( array_key_exists( date( "Y-n-j", $dayBetween), $availableDateHours) ){
+                                        array_push( $availableDateHours[ date( "Y-n-j", $dayBetween ) ], $defaultHour.":00:00" );
+                                    }else{
+                                        $availableDateHours[ date( "Y-n-j", $dayBetween ) ] = [];
+                                        array_push( $availableDateHours[ date( "Y-n-j", $dayBetween ) ], $defaultHour.":00:00" );
+                                    }
+                                }
+                            }  
+                        } 
+                    }else{
+                        if( array_key_exists( $start->format("Y-n-j"), $availableDateHours) ){
+                            foreach( $availableHours as $defaultHour ){
+                                if( $start->format("G") <= $defaultHour && $end->format("G") > $defaultHour ){
+                                    array_push( $availableDateHours[ $start->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }else{
+                            $availableDateHours[ $start->format("Y-n-j") ] = [];
+                            foreach( $availableHours as $defaultHour ){
+                                if( $start->format("G") <= $defaultHour && $end->format("G") > $defaultHour ){
+                                    array_push( $availableDateHours[ $start->format("Y-n-j") ],  $defaultHour.":00:00" );
+                                }
+                            }
+                        }
+                    }
                 }else{
-                    $availableDateHours[ date( "Y-n-j", strtotime($value['visit_date']) ) ] = [];
-                    array_push( $availableDateHours[ date( "Y-n-j", strtotime($value['visit_date']) ) ], date( "H:i:s", strtotime( $value['visit_date'] ) ) );
+                    if( array_key_exists( date( "Y-n-j", strtotime($value['date']) ), $availableDateHours) ){
+                        array_push( $availableDateHours[ date( "Y-n-j", strtotime($value['date']) ) ], date( "H:i:s", strtotime( $value['date'] ) ) );
+                    }else{
+                        $availableDateHours[ date( "Y-n-j", strtotime($value['date']) ) ] = [];
+                        array_push( $availableDateHours[ date( "Y-n-j", strtotime($value['date']) ) ], date( "H:i:s", strtotime( $value['date'] ) ) );
+                    }
                 }
             }
-            session()->put('captcha_fail', null);
-            $captchaFail = null;
 
             $view->with( 'availableDatesHours', collect( array_values([$availableDateHours]) ) );
 

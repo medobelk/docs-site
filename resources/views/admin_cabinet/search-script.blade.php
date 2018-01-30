@@ -12,6 +12,7 @@ $(document).ready(function () {
               currentSearchRequest.abort();
           }
           $('.search-field-ico').remove();
+          $('.fa-spin').remove();
           $('span.icon').append('<i class="fa fa-spinner fa-spin fa-lg fa-fw"></i>');
       },
       success: function(users){

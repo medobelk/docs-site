@@ -75,6 +75,7 @@ class CabinetController extends Controller
     public function addReview(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'name' => 'required',
             'review' => 'required|min:30'
         ]);
 
@@ -89,7 +90,7 @@ class CabinetController extends Controller
         $review = new Review();
         $review->user_id = $user->id;
         $review->status = "PENDING";
-        $review->authority = "ANONIM";
+        $review->authority = $request->name === 'anonim' ? "ANONIM" : "USER";
         $review->body = $request->review;
         $review->save();
 

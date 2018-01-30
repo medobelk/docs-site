@@ -54,7 +54,8 @@
                         <p>{{ $visit->recomendations }}</p>
                       </div>
 
-                      <div>
+                      <div class="visit-info-block">
+                        <img src="">
                         <p class="info-block-title has-text-weight-semibold">Анализы</p>
                         <div class="is-flex analyzes">
                           @foreach( $visit->analyzes as $analyze )

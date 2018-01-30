@@ -18,8 +18,8 @@
           </div>
           <div class="main-info__middle-part">
             <div class="error-text thanks-section">
-              <p class="error-text__text"> Вы записаны на прием</p>
-              <p class="error-text__text"> Если у вас есть предыдущие анализы или заключения по возникшей проблеме, возьмите их с собой.</p>
+              <p class="error-text__text"> Заявка на прием создана</p>
+              <p class="error-text__text"> В ближайшее время я свяжусь с вами, чтобы уточнить дату и время. Если у вас есть предыдущие анализы или заключения по возникшей проблеме, возьмите их с собой.</p>
               <a class="error-text__text link" href="{{ url('/') }}"> Вернуться на главную</a>
             </div>
           </div>

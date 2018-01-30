@@ -1,4 +1,3 @@
-
 <script src="{{ asset('js/compiled.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
 <script src="{{ asset('js/jquery.elevatezoom.js') }}"></script>

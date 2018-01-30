@@ -2,7 +2,7 @@
   <div class="newses">
     @foreach($events as $event)
       <div class="news">
-        <p class="news__date">{{ $event->event_date }}</p>
+        <p class="news__date">{{ $event->event_date_start }}</p>
         <a class="news__name" href="">{{ $event->name }}</a>
         <p class="news__text">{{ $event->body }}</p>
       </div>

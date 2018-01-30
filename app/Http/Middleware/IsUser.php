@@ -19,9 +19,8 @@ class IsUser
         if( !Auth::user() ){
             return redirect('login');
         }
-        
         if( Auth::user()->role()->first()->name !== 'user' ){
-            return redirect('admin');
+            return redirect()->back();
         }
         return $next($request);
     }

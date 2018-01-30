@@ -32,6 +32,11 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(Visit::class);
     }
 
+    public function anonimrequests()
+    {
+        return $this->hasMany(AnonimRequest::class);
+    }
+
     public function analyzes()
     {
         return $this->hasMany(Analyze::class);

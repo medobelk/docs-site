@@ -14,6 +14,7 @@ use App\User;
 use App\Sertificate;
 use App\Mail\EnrollRegistered;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -165,31 +166,6 @@ class HomeController extends Controller
                 ->with('form_errors', $errors);
         }
 
-        $enroll = new AnonimRequest();
-        $enroll->name = $request->patient_name;
-        $enroll->phone = $request->patient_phone;
-        $enroll->email = $request->patient_email;
-        $enroll->complaints = $request->patient_complaints;
-        $enroll->status = 'fresh';
-        $enroll->save();
-
-        $user = new User();
-        $user->role_id = 2;
-        $user->name = $request->patient_name;
-        $user->phone = $request->patient_phone;
-        $user->email = $request->patient_email;
-        $user->save();
-        // $client = new \GuzzleHttp\Client();
-        // $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]]);          
-
-        // if ($validator->fails() || count( json_decode($captchaResponse->{'error-codes'} )) > 0) {
-        //     $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
-        //     array_push($errors, ['g-recaptcha-response' => 1]);
-        //     return back()
-        //         ->withInput()
-        //         ->with('form_errors', $errors);
-        // }
-
         function generatePassword($length = 8) {
             $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             $count = mb_strlen($chars);
@@ -201,8 +177,62 @@ class HomeController extends Controller
 
             return $result;
         }
+
+        $password = generatePassword();
+
+        if( User::where('email', $request->patient_email)->first() !== null ){
+            $user = User::where('email', $request->patient_email)->first();
+            $user->phone = $request->patient_phone;
+            $user->save();
+        }else{
+            $user = new User();
+            $user->role_id = 2;
+            $user->name = $request->patient_name;
+            $user->phone = $request->patient_phone;
+            $user->email = $request->patient_email;
+            $user->password = Hash::make($password);
+            $user->save();
+        }
+
+        $enroll = new AnonimRequest();
+        $enroll->user_id = $user->id;
+        $enroll->date = $request->patient_visit_date !== null ? $request->patient_visit_date : new DateTime('tomorrow');
+        $enroll->complaints = $request->patient_complaints;
+        $enroll->status = 'fresh';
+        $enroll->save();
+        // $client = new \GuzzleHttp\Client();
+        // $captchaResponse = $client->post('https://www.google.com/recaptcha/api/siteverify', ['form_params' => ['response' => $request['g-recaptcha-response'], 'secret' => '6Lfin0AUAAAAABZq8esE4CAcUIlJsnnaJERW0R5L' ]]);          
+
+        // if ($validator->fails() || count( json_decode($captchaResponse->{'error-codes'} )) > 0) {
+        //     $errors = array_combine($validator->errors()->keys(), $validator->errors()->all());
+        //     array_push($errors, ['g-recaptcha-response' => 1]);
+        //     return back()
+        //         ->withInput()
+        //         ->with('form_errors', $errors);
+        // }
+
+        $to = $user->email;
+        $subject = 'Регистрация';
+        $message = "
+            <html>
+                <head>
+                    <title>Регистрация</title>
+                </head>
+                <body>
+                    <p>Здравствуйте {$user->name}. Вы были автоматически зарегистрированы на сайте <a href='http://docurolog.od.ua/'>docurolog.od.ua</p>
+                    <p>Можете ознакомиться со своей историей болезни.</p>
+                    <h4>Данные:</h4>
+                    <p>Логин - {$user->email}</p>
+                    <p>Пароль - {$password}</p>
+                </body>
+            </html>
+        ";
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
+        // mail($to, $subject, $message, $headers);
+
         // несколько получателей
-        $to = 'urologinod@gmail.com'; // обратите внимание на запятую 
+        $to = env('SITE_EMAIL', 'cynerdemid@gmail.com'); // обратите внимание на запятую 
         // тема письма
         $subject = 'Новый Пользователь';
         // текст письма
@@ -213,10 +243,10 @@ class HomeController extends Controller
                 </head>
                 <body>
                     <h1>Новая Запись</h1>
-                    <p><b>{$enroll->name}</b> создал новую заявку на Вашем сайте в ".date('d.m.Y', strtotime($enroll->created_at))."</p>
+                    <p><b>{$user->name}</b> создал новую заявку на Вашем сайте в ".date('d.m.Y', strtotime($enroll->created_at))."</p>
                     <h4>Данные</h4>
-                    <p>Номер: {$enroll->phone}</p>
-                    <p>Почта: {$enroll->email}</p>
+                    <p>Номер: {$user->phone}</p>
+                    <p>Почта: {$user->email}</p>
                     <p>Жалобы:</p>
                     <span>{$enroll->complaints}</span>
                 </body>
@@ -229,8 +259,6 @@ class HomeController extends Controller
 
         // Отправляем
         mail($to, $subject, $message, $headers);
-
-        // $user
 
         // Mail::to( 'urologinod@gmail.com' )->send( new EnrollRegistered( $userRequest ) );
         // Mail::to( env('MAIL_USERNAME') )->send( new EnrollRegistered( $userRequest ) );

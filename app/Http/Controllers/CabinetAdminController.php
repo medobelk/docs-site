@@ -66,7 +66,7 @@ class CabinetAdminController extends Controller
                     <title>Регистрация</title>
                 </head>
                 <body>
-                    <p>Здравствуйте {$user->name}. Вы были автоматически зарегистрированы на сайте <a href='http://docurolog.od.ua/'>docurolog.od.ua</p>
+                    <p>Здравствуйте {$user->name}. Вы были зарегистрированы на сайте <a href='http://docurolog.od.ua/'>docurolog.od.ua</p>
                     <p>Можете ознакомиться со своей историей болезни.</p>
                     <h4>Данные:</h4>
                     <p>Логин - {$user->email}</p>
@@ -150,7 +150,7 @@ class CabinetAdminController extends Controller
         $validator = Validator::make($request->all(), [
             'treatment' => 'required',
             'complaints' => 'required',
-            'visit_date' => 'required|unique',
+            'visit_date' => 'required|unique:visits,visit_date',
             'userId' => 'required'
         ]);
 
@@ -220,11 +220,11 @@ class CabinetAdminController extends Controller
         foreach ($visitAnalyzes as $key => $analyzeId) {
             if( !$request->has('analyze-exist-'.$analyzeId) ){
                 $analyzeToDelete = Analyze::where('id', $analyzeId)->first();
-                Storage::delete('public'.$analyzeToDelete->path);
+                Storage::disk('local')->delete('public'.$analyzeToDelete->path);
                 $analyzeToDelete->delete();
             }elseif( $request->input('analyze-exist-'.$analyzeId) === 'edit' ){
                 $analyzeToUpdate = Analyze::where('id', $analyzeId)->first();
-                Storage::delete('public'.$analyzeToUpdate->path);
+                Storage::disk('local')->delete('public'.$analyzeToUpdate->path);
                 $newAnalyzeFile = $request->file('analyze-exist-'.$analyzeId);
                 $newAnalyzeFile->store(
                         'public/analyzes/'
@@ -340,7 +340,7 @@ class CabinetAdminController extends Controller
     public function events($id = null)
     {	
     	$events = Event::all();
-    	$event = collect(['id' => 0, 'name' => '', 'description' => '', 'body' => '', 'event_date_start' => '', 'event_date_end' => '']);
+    	$event = collect(['id' => 0, 'name' => '', 'description' => '', 'type' => 'hidden', 'body' => '', 'event_date_start' => '', 'event_date_end' => '']);
     	if( $id !== null ){
     		$event = Event::where('id', $id)->first()->toArray();
     	}
@@ -351,9 +351,10 @@ class CabinetAdminController extends Controller
     {
     	$validator = Validator::make($request->all(), [
             'name' => 'required|min:10',
+            'type' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
-            'description' => 'required',
+            // 'description' => 'required',
             'body' => 'required|min:20'
         ]);
 
@@ -362,19 +363,18 @@ class CabinetAdminController extends Controller
                 ->withInput()
                 ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
-
         
         if( $id !== null ){
         	$event = Event::where('id', $id)->first();
         }else{
         	$event = new Event();
         }
-
         $event->name = $request->name;
-        $event->event_date_start = $request->event_date_start;
-        $event->event_date_end = $request->event_date_end;
+        $event->event_date_start = $request->start_date;
+        $event->event_date_end = $request->end_date;
         $event->body = $request->body;
         $event->description = $request->description;
+        $event->type = $request->type;
         $event->save();
 
         return redirect("admin/events/$event->id");
@@ -396,6 +396,7 @@ class CabinetAdminController extends Controller
     {   
         $events = Event::all();
         $visits = Visit::all();
+        $enrolls = AnonimRequest::with('user')->get();
         $calendarData = [];
 
         foreach ($events as $key => $event) {
@@ -414,6 +415,15 @@ class CabinetAdminController extends Controller
                 'start' => $visit->visit_date,
                 'color' => '#4eb35a',
                 'link' => 'visit-edit/'.$visit->id,
+            ]);
+        }
+
+        foreach ($enrolls as $key => $enroll) {
+            array_push($calendarData, [
+                'title' => $enroll->user->name,
+                'start' => $enroll->date,
+                'color' => '#8b99f6',
+                'link' => 'visit/'.$enroll->user->id,
             ]);
         }
 
