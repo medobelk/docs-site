@@ -76,6 +76,9 @@ Route::prefix('cabinet')->middleware(['isUser'])->group(function () {
 	Route::post('/add-review', 'CabinetController@addReview');
 	Route::post('/add-enroll', 'CabinetController@addEnroll');
 	Route::get('/{id}', 'CabinetController@visit');
+	Route::patch('/change-phone', 'CabinetController@phone');
+	Route::patch('/change-password', 'CabinetController@password');
+	Route::patch('/change-email', 'CabinetController@email');
 });
 
 Route::prefix('admin')->middleware(['isAdmin'])->group(function () {	
@@ -91,15 +94,11 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
 	Route::post('/events', 'CabinetAdminController@editAddEvent');
 	Route::get('/events/{id}', 'CabinetAdminController@events');
 	Route::post('/events/{id}', 'CabinetAdminController@editAddEvent');
+	Route::delete('/events/{id}', 'CabinetAdminController@deleteEvent');
 
 	Route::get('/calendar', 'CabinetAdminController@calendar');
 
-	// Route::get('/oauth', 'CalendarController@oauth');
-	// Route::get('/calendar', 'CalendarController@calendar');
-	// Route::get('/calendar', 'CabinetAdminController@calendar');
-
 	Route::get('/', 'CabinetAdminController@createPatient');
-	// Route::get('/patient', 'CabinetAdminController@createPatient');
 	Route::post('/patient', 'CabinetAdminController@storePatient'); 
 	Route::get('/patients', 'CabinetAdminController@allPatients');
 	Route::get('/patient/{id}', 'CabinetAdminController@showPatient'); //showing Visits too

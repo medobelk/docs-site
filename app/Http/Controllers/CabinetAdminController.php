@@ -380,6 +380,12 @@ class CabinetAdminController extends Controller
         return redirect("admin/events/$event->id");
     }
 
+    public function deleteEvent($id)
+    {
+        Event::where('id', $id)->first()->delete();
+        return redirect('/admin/events');
+    }
+
     public function search(Request $request)
     {   
         if( strlen($request->searchString) > 0){

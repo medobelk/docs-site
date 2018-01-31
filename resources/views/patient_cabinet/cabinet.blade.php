@@ -38,7 +38,7 @@
                       @foreach( $visit->analyzes as $analyze )
                         <div class="analyze">
                           <div class="analyze-info-wrapper">
-                            <a download="{{ $analyze->name }}" href="{{ asset("/storage$analyze->path") }}">
+                            <a download="{{ $analyze->name }}" href="{{ asset("docurolog.od.ua/storage/app/public$analyze->path") }}">
                               <span class="icon is-large">
                                 <i class="fa fa-3x fa-file-text-o" aria-hidden="true"></i>
                               </span>

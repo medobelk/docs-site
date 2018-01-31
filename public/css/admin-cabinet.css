@@ -226,3 +226,10 @@ form{
 #new-analyze-input, .analyze-file-input{
   display: none;
 }
+
+.modal-submit{
+  border: none; 
+  margin-left: 10px; 
+  color: white; 
+  background-color: #7CDC3C;
+}

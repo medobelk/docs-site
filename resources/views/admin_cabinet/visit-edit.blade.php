@@ -119,6 +119,7 @@
       $.each($('.datetimepicker'), function (i, field) {
         $(field).datetimepicker({
           format:'Y-m-d H:i',
+          step: 5
         });
       });
     });

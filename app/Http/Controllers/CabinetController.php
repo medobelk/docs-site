@@ -10,6 +10,7 @@ use App\AnonimRequest;
 use App\Question;
 use App\Review;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CabinetController extends Controller
 {   
@@ -129,5 +130,60 @@ class CabinetController extends Controller
         $enroll->save();
 
         return back();
+    }
+
+    public function phone(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'newPhone' => [
+                'required',
+                'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
+            ],
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back();
+        }
+
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->phone = $request->newPhone;
+        $user->save();
+        
+        return redirect()->back();
+    }
+
+    public function password(Request $request)
+    {   
+        $validator = Validator::make($request->all(), [
+            'newPassword' => 'required|min:8'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back();
+        }
+
+        if( $request->has('newPassword') ){
+            $user = User::where('id', Auth::user()->id)->first();
+            $user->password = Hash::make($request->newPassword);
+            $user->save();
+        }
+        return redirect()->back();
+    }
+
+    public function email(Request $request)
+    {   
+        $validator = Validator::make($request->all(), [
+            'newEmail' => 'required|email'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back();
+        }
+
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->email = $request->newEmail;
+        $user->save();
+        
+        return redirect()->back();
     }
 }

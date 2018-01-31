@@ -59,7 +59,12 @@
             @foreach( $events as $event )
               <div class="info-block">
                 <p class="has-text-weight-semibold">{{ $event->name }}</p>
-                <a class="" href="{{ url('/admin/events/'.$event->id) }}">Редактировать</a>
+                <p><a class="" href="{{ url('/admin/events/'.$event->id) }}">Редактировать</a></p>
+                <form action="{{ url("/admin/events/$event->id") }}" method="POST">
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+                  <input type="submit" style="text-decoration: none;" class="input-as-link" value="Удалить" />
+                </form>
               </div>
             @endforeach
         </section>
@@ -75,7 +80,7 @@
     $.datetimepicker.setLocale('ru');
     // $('#datetimepicker').datetimepicker();
     $.each($('.datetimepicker'), function (i, field) {
-      $(field).datetimepicker({});
+      $(field).datetimepicker({step: 5});
     });
   </script>
 @endsection

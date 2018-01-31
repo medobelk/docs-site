@@ -33,5 +33,29 @@
   	@include('layouts.scripts')
     @include('layouts.form-errors-script')
     @include('layouts.enroll-dates-handler')
+    <script>
+      $(document).ready(function () {
+        $('.control-buttons__phone-change').click(function () {
+          $('#phoneChange').addClass('is-active');
+        });
+
+        $('.control-buttons__pass-change').click(function () {
+          $('#passChange').addClass('is-active');
+        });
+
+        $('.control-buttons__email-change').click(function () {
+          $('#emailChange').addClass('is-active');
+        });
+
+        $('.modal-background').click(function () {
+          $('.is-active').removeClass('is-active');
+        });
+
+        $('.modal-close').click(function () {
+          $('.is-active').removeClass('is-active');
+        });
+
+      });
+    </script>
   </body>
 </html>

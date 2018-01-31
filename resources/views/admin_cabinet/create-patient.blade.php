@@ -69,6 +69,7 @@
         $(field).datetimepicker({
           format:'Y-m-d',
           timepicker: false,
+          step: 5
         });
         // if( user.id !== 0 ){
         //   $(field).datetimepicker({

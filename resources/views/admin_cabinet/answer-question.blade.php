@@ -41,7 +41,7 @@
   <script>
     $.datetimepicker.setLocale('ru');
     $.each($('.datetimepicker'), function (i, field) {
-      $(field).datetimepicker({});
+      $(field).datetimepicker({step: 5});
     });
   </script>
 @endsection

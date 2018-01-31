@@ -69,6 +69,7 @@
         $(field).datetimepicker({
           format:'Y-m-d',
           timepicker: false,
+          step: 5
         });
         $(field).datetimepicker({
           value: moment(user.birth_date).format('YYYY-MM-DD')
