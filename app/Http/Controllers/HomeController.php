@@ -156,6 +156,10 @@ class HomeController extends Controller
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
             'patient_email' => 'required|email',
+            'patient_visit_date' => [
+                'required',
+                'date_format:Y-m-d H:i'
+            ]
             // 'g-recaptcha-response' => 'required'
         ]);
 

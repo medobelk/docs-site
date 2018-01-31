@@ -1,7 +1,6 @@
 <script>
 	$(document).ready(function () {		
 	var availableDatesHours = {!! $availableDatesHours !!};
-	console.log(availableDatesHours);
 	// $('#datetimepicker').datetimepicker({
  //        format: 'dd DD MMM YYYY в HH:mm',
  //        minDate: moment("12/10/2017"),

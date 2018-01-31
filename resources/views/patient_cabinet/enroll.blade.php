@@ -17,24 +17,19 @@
             <p class="info-block-title has-text-weight-semibold">{{ $user->name }}</p>
           </div>
 
-          <div class="info-block">
+          {{--<div class="info-block">
             <p class="info-block-title">Телефон*</p>
-            <input class="input-field" type="text" name="phone" value="{{ $user->phone }}">
-          </div>
+            <input class="input-field" type="text" name="phone" value="@if( old('phone') !== null ){{old('phone')}}@else {{$user->phone}} @endif">
+          </div>--}}
 
           <div class="info-block">
             <p class="info-block-title">Дата*</p>
-            <input class="input-field" type="text" name="date" id="datetimepicker">
+            <input class="input-field" type="text" name="date" id="datetimepicker" value="{{ old('date') }}">
           </div>
         
           <div class="info-block">
             <p class="info-block-title">Суть проблемы</p>
             <textarea class="area-field" name="complaints">{{old('complaints')}}</textarea>
-          </div>
-
-          <div class="info-block">
-            <p class="info-block-title">Рекомендации</p>
-            <textarea class="area-field" name="recomendations">{{old('recomendations')}}</textarea>
           </div>
 
           <p class="has-text-weight-semibold" style="margin-bottom: 10px;">Удостоверьтесь, что все данные указаны верно</p>

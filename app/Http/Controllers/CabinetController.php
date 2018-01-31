@@ -101,13 +101,15 @@ class CabinetController extends Controller
     public function addEnroll(Request $request)
     {   
         $user = Auth::user();
-
         $validator = Validator::make($request->all(), [
-            'phone' => [
+            // 'phone' => [
+            //     'required',
+            //     'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
+            // ],
+            'date' => [
                 'required',
-                'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
+                'date_format:Y-m-d H:i'
             ],
-            'date' => ['required'],
             'complaints' => [
                 'required',
                 'min:30'
@@ -121,9 +123,7 @@ class CabinetController extends Controller
         }
 
         $enroll = new AnonimRequest();
-        $enroll->name = $user->name;
-        $enroll->phone = $request->phone;
-        $enroll->email = $user->email;
+        $enroll->user_id = Auth::user()->id;
         $enroll->complaints = $request->complaints;
         $enroll->date = $request->date;
         $enroll->status = 'fresh';

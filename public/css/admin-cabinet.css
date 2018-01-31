@@ -123,6 +123,7 @@ footer a, footer a:hover{
 
 .visits{
   margin-top: 20px;
+  overflow-wrap: break-word;
 }
 
 .search-field{

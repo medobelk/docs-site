@@ -8,7 +8,7 @@
       <div class="columns" style="justify-content: center;">
         <div class="column is-2"></div>
         <div class="column is-4">
-          <form class="main-content__adding-form" method="POST" action="{{ url("/admin/review/") }}  ">
+          <form class="main-content__adding-form" method="POST" action="{{ url("/cabinet/add-question") }}  ">
             {{ csrf_field() }}
             <div class="info-block">
               <p class="info-block-title">Суть проблемы</p>
@@ -28,13 +28,11 @@
                 </p>
                 <p>{{ $question->complaints }}</p>
               </div>
-
             @endforeach
 
           </form>
         </div>
-
-
+        
         @include('patient_cabinet.sidebar')
 
       </div>
