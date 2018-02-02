@@ -17,18 +17,13 @@
 
   </head>
   <body class="page">
-    
-    <div class="page__wrap">
         
       @include('admin_cabinet.header')
-
-      <div class="test-block">
-      </div>
       
       @yield('content')
       
       @include('admin_cabinet.footer')
-    </div>
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.js"></script> -->
   	@include('layouts.scripts')
     @include('layouts.form-errors-script')

@@ -233,7 +233,7 @@ class HomeController extends Controller
         ";
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-        // mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers);
 
         // несколько получателей
         $to = env('SITE_EMAIL', 'cynerdemid@gmail.com'); // обратите внимание на запятую 

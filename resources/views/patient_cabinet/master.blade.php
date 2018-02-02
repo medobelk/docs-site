@@ -16,19 +16,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.css">
 
   </head>
-  <body class="page">
+  <body>
     
-    <div class="page__wrap">
+        @include('patient_cabinet.header')
         
-      @include('patient_cabinet.header')
-
-      <div class="test-block">
-      </div>
-      
-      @yield('content')
-      
-      @include('patient_cabinet.footer')
-    </div>
+        @yield('content')
+        
+        @include('patient_cabinet.footer')
 
   	@include('layouts.scripts')
     @include('layouts.form-errors-script')

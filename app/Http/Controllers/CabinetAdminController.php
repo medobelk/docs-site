@@ -76,7 +76,7 @@ class CabinetAdminController extends Controller
         ";
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-        // mail($to, $subject, $message, $headers);
+        mail($to, $subject, $message, $headers);
 
         return redirect("admin/visit/$user->id");
     }
@@ -290,6 +290,26 @@ class CabinetAdminController extends Controller
         $question->complaints = $request->complaints;
         $question->answer = $request->answer;
         $question->save();
+
+        $to = $question->email;
+        $subject = 'Ответ';
+        $message = "
+            <html>
+                <head>
+                    <title>Ответ</title>
+                </head>
+                <body>
+                    <h1>Hello $question->name</h1>
+                    <span>
+                        Здравствуйте! Доктор Брезицкий Юрий Иосифович ответил на Ваш вопрос, ознакомьтесь с ответом по ссылке : 
+                        <a href=".url('/QA/getlist/question/'.$id).">".url('/QA/getlist/question/' . $id )."</a>
+                    </span>
+                </body>
+            </html>
+        ";
+        $headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
+        mail($to, $subject, $message, $headers);
 
         return redirect( action('CabinetAdminController@questions') );
     }

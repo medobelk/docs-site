@@ -5,7 +5,6 @@
         <a class="visits__visite" href="{{ url('/cabinet/'.$visit->id) }}">приём {{ date( 'd.m.Y', strtotime($visit->visit_date) ) }}</a>
       </p>
     @endforeach
-
   </div>
   <div class="control-buttons">
     <ul>
@@ -66,4 +65,4 @@
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
 
-</section>
+</div>

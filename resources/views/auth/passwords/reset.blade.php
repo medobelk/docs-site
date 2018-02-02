@@ -16,7 +16,6 @@
     
   </head>
   <body class="page">
-    <div class="page__wrap">
         
       <header class="section">
         <div class="container">
@@ -74,8 +73,6 @@
           <span class="is-pulled-right">дизайн и поддержка сайта <img class="footer-ico" src="{{asset('img/foot-ico.png')}}"> <a>Katrin Briz</a></span>
         </div>
       </footer>
-
-    </div>
 
     @include('layouts.scripts')
     @include('layouts.google-analytics')
