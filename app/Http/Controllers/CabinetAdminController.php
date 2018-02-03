@@ -291,25 +291,27 @@ class CabinetAdminController extends Controller
         $question->answer = $request->answer;
         $question->save();
 
-        $to = $question->email;
-        $subject = 'Ответ';
-        $message = "
-            <html>
-                <head>
-                    <title>Ответ</title>
-                </head>
-                <body>
-                    <h1>$question->name</h1>
-                    <span>
-                        Здравствуйте! Доктор Брезицкий Юрий Иосифович ответил на Ваш вопрос, ознакомьтесь с ответом по ссылке : 
-                        <a href=".url('/QA/getlist/question/'.$id).">".url('/QA/getlist/question/' . $id )."</a>
-                    </span>
-                </body>
-            </html>
-        ";
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-        mail($to, $subject, $message, $headers);
+        if( (boolean)$question->subscribe ){
+            $to = $question->email;
+            $subject = 'Ответ';
+            $message = "
+                <html>
+                    <head>
+                        <title>Ответ</title>
+                    </head>
+                    <body>
+                        <h1>$question->name</h1>
+                        <span>
+                            Здравствуйте! Доктор Брезицкий Юрий Иосифович ответил на Ваш вопрос, ознакомьтесь с ответом по ссылке : 
+                            <a href=".url('/QA/getlist/question/'.$id).">".url('/QA/getlist/question/' . $id )."</a>
+                        </span>
+                    </body>
+                </html>
+            ";
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
+            mail($to, $subject, $message, $headers);
+        }
 
         return redirect( action('CabinetAdminController@questions') );
     }
@@ -359,11 +361,13 @@ class CabinetAdminController extends Controller
 
     public function events($id = null)
     {	
-    	$events = Event::all();
+    	$events = Event::where('type', 'published')->get();
     	$event = collect(['id' => 0, 'name' => '', 'description' => '', 'type' => 'hidden', 'body' => '', 'event_date_start' => '', 'event_date_end' => '']);
-    	if( $id !== null ){
+    	
+        if( $id !== null ){
     		$event = Event::where('id', $id)->first()->toArray();
     	}
+
     	return view('admin_cabinet.events')->with([ 'events' => $events, 'event' => $event ]);
     }
 
@@ -420,7 +424,7 @@ class CabinetAdminController extends Controller
 
     public function calendar()
     {   
-        $events = Event::all();
+        $events = Event::where('type', 'hidden')->get();
         $visits = Visit::all();
         $enrolls = AnonimRequest::with('user')->get();
         $calendarData = [];
