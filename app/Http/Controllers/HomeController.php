@@ -73,7 +73,7 @@ class HomeController extends Controller
 
     public function sertificate($id)
     {   
-        $sertificate = Sertificate::where('id', $id)->first();
+        $sertificate = Sertificate::where('id', $id)->firstOrFail();
         return view('infoPages.sertificate')->with('sertificate', $sertificate);
     }
 
@@ -99,9 +99,8 @@ class HomeController extends Controller
 
     public function dialogs(Request $request, $id)
     {
-        $question = Question::where('id', $id)->first();
-        $answer = Answer::where('question_id', $id)->first();
-        return view('dialog')->with( ['question' => $question, 'answer' => $answer] );;
+        $question = Question::where('id', $id)->firstOrFail();
+        return view('dialog')->with( 'question', $question );
     }
 
     public function contacts()
@@ -113,8 +112,10 @@ class HomeController extends Controller
     {   
         // $lastReview = Review::where('status', 'APPROVED')->orderBy('created_at', 'desc')->first();
         $lastReview = Review::where('status', 'APPROVED')->latest()->with('user')->first();
+        $licenses = Sertificate::where('type', 'license')->get();
+        $conferences = Sertificate::where('type', 'conference')->get();
 
-        return view('about-doctor')->with('review', $lastReview);
+        return view('about-doctor')->with(['licenses' => $licenses, 'conferences' => $conferences, 'review' => $lastReview]);
     }
 
     public function diseases()

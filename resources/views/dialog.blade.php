@@ -32,9 +32,9 @@
                   <div class="reviws-list__reviws">
                     <div class="reviws-body">
                       <div class="last-reviews">
-                        @if( isset($answer) )
+                        @if( $question->answer !== null && strlen($question->answer) >0 )
                         <div class="review"><a class="review__name">Ответ</a>
-                          <p class="review__text">{{ $answer->body }}</p>
+                          <p class="review__text">{{ $question->answer }}</p>
                         </div>
                         @else
                         <div class="review"><p class="review__name">Ответ</p>
