@@ -48,6 +48,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {   
+        if( $exception->getStatusCode() === 404 ){
+            return redirect()->action('HomeController@undefinderRouter', ['undfPath' => substr(url()->current(), strrpos(url()->current(), '/'))]);
+        }
 
         if ($exception instanceof \Illuminate\Session\TokenMismatchException)
         {
