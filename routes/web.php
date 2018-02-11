@@ -10,20 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/mailable', function () {
-    $user = [
-		"_token" => "syBvMw9SOA8lzJPLmH1uqpVPLuO0zIfn6ipFtjs7",
-		"name" => "medobelk medobelkmedobelkmedobelk",
-		"password" => "6A5lJcato",
-		"email" => "evgeniy@studnote.com",
-		"phone" => "+380962422008",
-		"visit_date" => "12/29/2017 7:17 PM",
-		"control_visit" => "01/04/2018 7:16 PM",
-	];
-
-    return new App\Mail\UserRegistered($user);
-});
+// Route::get('/mailable', function (){
+// 	return new App\Mail\AnswerPosted;
+// });
 
 Route::get('/', 'HomeController@index');
 Route::post('/enroll', 'HomeController@enroll');
@@ -106,7 +95,7 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
 	Route::patch('/patient/{id}', 'CabinetAdminController@updatePatient');
 	Route::delete('/patient/{id}', 'CabinetAdminController@deletePatient');
 
-	Route::get('/visit/{userId}', 'CabinetAdminController@createVisit');
+	Route::get('/visit/{userId}/{enrollId?}', 'CabinetAdminController@createVisit');
 	Route::post('/visit/{userId}', 'CabinetAdminController@storeVisit');
 	Route::get('/visit-edit/{id}', 'CabinetAdminController@editVisit');
 	Route::patch('/visit/{id}', 'CabinetAdminController@updateVisit');
@@ -124,13 +113,8 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
 	Route::delete('/review/{id}', 'CabinetAdminController@deleteReview');
 });
 
-
-Route::group(['prefix' => 'voyager-admin'], function () {
-    Voyager::routes();
-});
-
 Auth::routes();
 
-Route::get('/{undfPath}', 'HomeController@undefinderRouter');
+// Route::get('/{undfPath}', 'HomeController@undefinderRouter');
 
 //Route::get('/home', 'HomeController@index')->name('home');

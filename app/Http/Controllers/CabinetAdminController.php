@@ -12,6 +12,7 @@ use App\Review;
 use App\Event;
 use App\Analyze;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Storage;
@@ -58,25 +59,7 @@ class CabinetAdminController extends Controller
         $user->birth_date = $request->birth_date;
         $user->save();
 
-        $to = $user->email;
-        $subject = 'Регистрация';
-        $message = "
-            <html>
-                <head>
-                    <title>Регистрация</title>
-                </head>
-                <body>
-                    <p>Здравствуйте {$user->name}. Вы были зарегистрированы на сайте <a href='http://docurolog.od.ua/'>docurolog.od.ua</p>
-                    <p>Можете ознакомиться со своей историей болезни.</p>
-                    <h4>Данные:</h4>
-                    <p>Логин - {$user->email}</p>
-                    <p>Пароль - {$request->password}</p>
-                </body>
-            </html>
-        ";
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-        mail($to, $subject, $message, $headers);
+        Mail::to($user->email)->send(new \App\Mail\UserRegistered($user->toArray(), $request->password));
 
         return redirect("admin/visit/$user->id");
     }
@@ -138,15 +121,16 @@ class CabinetAdminController extends Controller
         return back();
     }
 
-    public function createVisit($userId)
+    public function createVisit($userId, $enrollId = null)
     {   
         $user = User::where('id', $userId)->first();
-        return view('admin_cabinet.visit-create')->with('user', $user);
+        $enroll = $enrollId === null ?: AnonimRequest::find($enrollId);
+
+        return view('admin_cabinet.visit-create')->with(['user' => $user, 'enroll' => $enroll]);
     }
 
     public function storeVisit(Request $request)
     {   
-
         $validator = Validator::make($request->all(), [
             'treatment' => 'required',
             'complaints' => 'required',
@@ -160,6 +144,10 @@ class CabinetAdminController extends Controller
                 ->with('form_errors', array_combine($validator->errors()->keys(), $validator->errors()->all()));
         }
 
+        if( $request->enrollId !== null ){
+            AnonimRequest::find($request->enrollId)->delete();
+        }
+        
         $visit = new Visit();
         $visit->user_id = $request->userId;
         $visit->complaints = $request->complaints;
@@ -292,25 +280,7 @@ class CabinetAdminController extends Controller
         $question->save();
 
         if( (boolean)$question->subscribe ){
-            $to = $question->email;
-            $subject = 'Ответ';
-            $message = "
-                <html>
-                    <head>
-                        <title>Ответ</title>
-                    </head>
-                    <body>
-                        <h1>$question->name</h1>
-                        <span>
-                            Здравствуйте! Доктор Брезицкий Юрий Иосифович ответил на Ваш вопрос, ознакомьтесь с ответом по ссылке : 
-                            <a href=".url('/QA/getlist/question/'.$id).">".url('/QA/getlist/question/' . $id )."</a>
-                        </span>
-                    </body>
-                </html>
-            ";
-            $headers  = 'MIME-Version: 1.0' . "\r\n";
-            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-            mail($to, $subject, $message, $headers);
+            Mail::to($question->email)->send( new \App\Mail\AnswerPosted( $question ));
         }
 
         return redirect( action('CabinetAdminController@questions') );
@@ -426,7 +396,7 @@ class CabinetAdminController extends Controller
     {   
         $events = Event::where('type', 'hidden')->get();
         $visits = Visit::all();
-        $enrolls = AnonimRequest::with('user')->get();
+        $enrolls = AnonimRequest::where('status', 'fresh')->with('user')->get();
         $calendarData = [];
 
         foreach ($events as $key => $event) {
@@ -453,7 +423,7 @@ class CabinetAdminController extends Controller
                 'title' => $enroll->user->name,
                 'start' => $enroll->date,
                 'color' => '#8b99f6',
-                'link' => 'visit/'.$enroll->user->id,
+                'link' => 'visit/'.$enroll->user->id.'/'.$enroll->id,
             ]);
         }
 

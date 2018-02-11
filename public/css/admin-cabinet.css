@@ -242,3 +242,8 @@ form{
   color: white; 
   background-color: #7CDC3C;
 }
+
+.name-link{
+  color: inherit;
+  text-decoration: underline;
+}

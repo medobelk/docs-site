@@ -11,7 +11,7 @@
             <div class="visit-info-block">
               <p class="info-block-title has-text-weight-semibold">
                 <a class="patient-link" style="@if( is_null($question->answer) || strlen($question->answer) === 0 ) color: #e00 @endif" href="{{ url('/admin/patient/'.$question->user['id']) }}">
-                  {{ $question->user['name'] }}
+                  {{ $question->name }}
                 </a>
                 {{ date('d.m.Y', strtotime($question->created_at) ) }}
               </p>

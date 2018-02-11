@@ -18,10 +18,12 @@ class UserRegistered extends Mailable
      * @return void
      */
     public $user;
+    public $password;
 
-    public function __construct( $user )
+    public function __construct( $user, $password )
     {
         $this->user = $user;
+        $this->password = $password;
     }
 
     /**
@@ -31,6 +33,6 @@ class UserRegistered extends Mailable
      */
     public function build()
     {   
-        return $this->view('emails.user-registered')->with('user', $this->user);
+        return $this->view('emails.user-registered')->with(['user' => $this->user, 'password' => $this->password]);
     }
 }

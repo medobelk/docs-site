@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
-
     public function index(Request $request)
     {   
 
@@ -156,7 +155,7 @@ class HomeController extends Controller
                 'required',
                 'regex:/^(\+380[1-9][0-9]{8}|0[1-9][0-9]{8})$/'
             ],
-            'patient_email' => 'required|email',
+            'patient_email' => 'required|email|unique:users,email',
             'patient_visit_date' => [
                 'required',
                 'date_format:Y-m-d H:i'
@@ -215,58 +214,8 @@ class HomeController extends Controller
         //         ->withInput()
         //         ->with('form_errors', $errors);
         // }
-
-        $to = $user->email;
-        $subject = 'Регистрация';
-        $message = "
-            <html>
-                <head>
-                    <title>Регистрация</title>
-                </head>
-                <body>
-                    <p>Здравствуйте {$user->name}. Вы были автоматически зарегистрированы на сайте <a href='http://docurolog.od.ua/'>docurolog.od.ua</p>
-                    <p>Можете ознакомиться со своей историей болезни.</p>
-                    <h4>Данные:</h4>
-                    <p>Логин - {$user->email}</p>
-                    <p>Пароль - {$password}</p>
-                </body>
-            </html>
-        ";
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-        mail($to, $subject, $message, $headers);
-
-        // несколько получателей
-        $to = env('SITE_EMAIL', 'cynerdemid@gmail.com'); // обратите внимание на запятую 
-        // тема письма
-        $subject = 'Новый Пользователь';
-        // текст письма
-        $message = "
-            <html>
-                <head>
-                    <title>Новый Пользователь</title>
-                </head>
-                <body>
-                    <h1>Новая Запись</h1>
-                    <p><b>{$user->name}</b> создал новую заявку на Вашем сайте в ".date('d.m.Y', strtotime($enroll->created_at))."</p>
-                    <h4>Данные</h4>
-                    <p>Номер: {$user->phone}</p>
-                    <p>Почта: {$user->email}</p>
-                    <p>Жалобы:</p>
-                    <span>{$enroll->complaints}</span>
-                </body>
-            </html>
-        ";
-
-        // Для отправки HTML-письма должен быть установлен заголовок Content-type
-        $headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";        
-
-        // Отправляем
-        mail($to, $subject, $message, $headers);
-
-        // Mail::to( 'urologinod@gmail.com' )->send( new EnrollRegistered( $userRequest ) );
-        // Mail::to( env('MAIL_USERNAME') )->send( new EnrollRegistered( $userRequest ) );
+        Mail::to($user->email)->send(new \App\Mail\UserRegistered($user->toArray(), $password));
+        Mail::to(env('SITE_EMAIL', 'cynerdemid@gmail.com'))->send(new \App\Mail\newRegistration($user, $enroll));
 
         return redirect('success-enroll');
     }

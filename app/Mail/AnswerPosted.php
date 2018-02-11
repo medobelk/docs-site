@@ -17,15 +17,11 @@ class AnswerPosted extends Mailable
      *
      * @return void
      */
-    public $person;
     public $question;
-    public $id;
 
-    public function __construct( Question $question)
+    public function __construct(Question $question)
     {
-        $this->person = $question->name;
-        $this->question = $question->body;
-        $this->id = $question->id;
+        $this->question = $question;
     }
 
     /**
@@ -35,6 +31,6 @@ class AnswerPosted extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.answer-posted');
+        return $this->view('emails.answer-posted')->with('question', $this->question);
     }
 }

@@ -58,13 +58,13 @@
 
                 <input class="submit-button has-text-weight-semibold is-uppercase is-size-5" type="submit" value="логин"/>
                 
-                {{--<div class="info-block rd-links">
+                <div class="info-block rd-links">
                   <label>
                     <a class="" href="{{ route('password.request') }}">
                       Забыли Пароль?
                     </a>
                   </label>
-                </div>--}}
+                </div>
 
                 </form>
               </div>

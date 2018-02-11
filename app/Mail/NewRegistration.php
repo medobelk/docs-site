@@ -6,9 +6,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\User;
 use App\AnonimRequest;
 
-class EnrollRegistered extends Mailable
+class NewRegistration extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -17,11 +18,13 @@ class EnrollRegistered extends Mailable
      *
      * @return void
      */
-    public $visit;
+    public $user;
+    public $enroll;
 
-    public function __construct( AnonimRequest $visit )
+    public function __construct(User $user, AnonimRequest $enroll)
     {
-        $this->visit = $visit;
+        $this->user = $user;
+        $this->enroll = $enroll;
     }
 
     /**
@@ -31,6 +34,6 @@ class EnrollRegistered extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.enroll-registered')->with('visit', $this->visit);
+        return $this->view('emails.new-registration')->with(['user' => $this->user, 'enroll' => $this->enroll]);
     }
 }

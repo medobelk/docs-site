@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\MailResetPasswordToken;
 
-class User extends \TCG\Voyager\Models\User
+class User extends Authenticatable
 {
     use Notifiable;
 
@@ -27,6 +28,11 @@ class User extends \TCG\Voyager\Models\User
         'password', 'remember_token',
     ];
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MailResetPasswordToken($token));
+    }
+
     public function visits()
     {
         return $this->hasMany(Visit::class);
@@ -35,6 +41,11 @@ class User extends \TCG\Voyager\Models\User
     public function anonimrequests()
     {
         return $this->hasMany(AnonimRequest::class);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
     }
 
     public function analyzes()

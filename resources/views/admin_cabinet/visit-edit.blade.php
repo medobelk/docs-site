@@ -11,7 +11,7 @@
               <div class="user-block">
                 <div class="info-block">
                   <p class="info-block-title">Ф.И.О.</p>
-                  <p class="is-italic has-text-weight-bold">{{ $visit->user->name }}</p>
+                  <p class="is-italic has-text-weight-bold"><a href="{{ url('/admin/patient/'.$visit->user->id) }}" class="name-link">{{ $visit->user->name }}</a></p>
                 </div>
                 <div class="info-block">
                   <p class="info-block-title">Электронный Адрес</p>

@@ -10,7 +10,7 @@
               <div class="user-block">
                 <div class="info-block">
                   <p class="info-block-title">Ф.И.О.</p>
-                  <p class="is-italic has-text-weight-bold">{{ $user->name }}</p>
+                  <p class="is-italic has-text-weight-bold"><a href="{{ url('/admin/patient/'.$user->id) }}" class="name-link">{{ $user->name }}</a></p>
                 </div>
                 <div class="info-block">
                   <p class="info-block-title">Электронный Адрес</p>
@@ -29,6 +29,7 @@
               <form enctype="multipart/form-data" class="main-content__adding-form" method="POST"  action="{{ url("/admin/visit/$user->id") }}  ">
               {{ csrf_field() }}
               <input type="hidden" name="userId" value="{{$user->id}}">
+              <input type="hidden" name="enrollId" value="@if( isset($enroll->id) ){{$enroll->id}}@endif">
               <div class="info-block">
                 <p class="info-block-title">Дата Визита</p>
                 <input class="input-field datetimepicker" name="visit_date" readonly type="text" value="{{old('visit_date')}}"/>
@@ -36,7 +37,7 @@
 
               <div class="info-block">
                 <p class="info-block-title">Жалобы</p>
-                <textarea class="area-field" name="complaints">{{old('complaints')}}</textarea>
+                <textarea class="area-field" name="complaints">@if( old('complaints') !== null ){{old('complaints')}}@elseif( isset( $enroll->complaints )){{$enroll->complaints }}@endif</textarea>
               </div>
 
               <div class="info-block">
