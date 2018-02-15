@@ -11,8 +11,8 @@
       </div>
       <div class="columns" style="justify-content: center;">
         <div class="column is-4">
-          @foreach( $enrolls as $enroll )
           <h4 class="has-text-centered is-size-3 ">Заявки</h4>
+          @foreach( $enrolls as $enroll )
           <div class="user-block">
             <div class="info-block">
               <p class="info-block-title">Ф.И.О.</p>
@@ -29,8 +29,6 @@
             
             <div class="rd-links is-flex">
               <a href='{{ url("/admin/visit/".$enroll->user->id."/$enroll->id") }}' class="">Записать</a>  
-              <a href='{{ url("/admin/patient/".$enroll->user->id) }}' class="">Визиты</a>  
-              <a href='{{ url("/admin/patient-edit/".$enroll->user->id) }}' class="">Редактировать</a>  
               <form action="{{ url("/admin/enroll/$enroll->id") }}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
