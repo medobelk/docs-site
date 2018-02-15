@@ -380,6 +380,12 @@ class CabinetAdminController extends Controller
         return redirect('/admin/events');
     }
 
+    public function deleteEnroll($id)
+    {
+        AnonimRequest::where('id', $id)->first()->delete();
+        return redirect()->back();   
+    }
+
     public function search(Request $request)
     {   
         if( strlen($request->searchString) > 0){
@@ -427,6 +433,6 @@ class CabinetAdminController extends Controller
             ]);
         }
 
-    	return view('admin_cabinet.calendar')->with('calendarData', collect($calendarData));
+    	return view('admin_cabinet.calendar')->with(['calendarData' => collect($calendarData), 'enrolls' => $enrolls]);
     }
 }

@@ -22,7 +22,7 @@
                 </div>
                 <div class="info-block">
                   <p class="info-block-title">Дата Рождения</p>
-                  <p class="is-italic has-text-weight-bold">{{ $user->birth_date }}</p>
+                  <p class="is-italic has-text-weight-bold">{{ date( 'Y-m-d', strtotime( $user->birth_date )) }}</p>
                 </div>
               </div>
 
@@ -32,7 +32,7 @@
               <input type="hidden" name="enrollId" value="@if( isset($enroll->id) ){{$enroll->id}}@endif">
               <div class="info-block">
                 <p class="info-block-title">Дата Визита</p>
-                <input class="input-field datetimepicker" name="visit_date" readonly type="text" value="{{old('visit_date')}}"/>
+                <input class="input-field datetimepicker" name="visit_date" readonly type="text" value="@if( old('visit_date') !== null ){{old('visit_date')}}@elseif( isset( $enroll->date )){{$enroll->date }}@endif"/>
               </div>
 
               <div class="info-block">

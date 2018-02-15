@@ -22,7 +22,7 @@
                 </div>
                 <div class="info-block">
                   <p class="info-block-title">Дата Рождения</p>
-                  <p class="is-italic has-text-weight-bold">{{ $user->birth_date }}</p>
+                  <p class="is-italic has-text-weight-bold">{{ date( 'Y-m-d', strtotime($user->birth_date)) }}</p>
                 </div>
                 <div class="is-clearfix rd-links has-text-centered">
                   <a href="{{ url("/admin/visit/$user->id") }}" class="is-pulled-left">Записать</a>  

@@ -23,7 +23,7 @@
                 </div>
                 <div class="info-block">
                   <p class="info-block-title">Дата Рождения</p>
-                  <p class="is-italic has-text-weight-bold">{{ $visit->user->birth_date }}</p>
+                  <p class="is-italic has-text-weight-bold">{{ date( 'Y-m-d', strtotime($visit->user->birth_date)) }}</p>
                 </div>
               </div>
 

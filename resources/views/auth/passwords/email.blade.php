@@ -45,7 +45,7 @@
                   <input class="input-field" type="email" name="email" value="{{ old('email') }}" required  />
                 </div>
 
-                <input class="submit-button has-text-weight-semibold is-uppercase is-size-5" type="submit" value="отправить ссылку восстановления"/>
+                <input class="submit-button has-text-weight-semibold is-uppercase is-size-5" type="submit" value="восстановить пароль"/>
 
                 </form>
               </div>

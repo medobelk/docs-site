@@ -111,6 +111,14 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
 	Route::post('/review/{id}', 'CabinetAdminController@updateReview');
 	Route::put('/review/{id}', 'CabinetAdminController@reviewStatus');
 	Route::delete('/review/{id}', 'CabinetAdminController@deleteReview');
+
+	Route::get('/reviews', 'CabinetAdminController@reviews');
+	Route::get('/review-edit/{id}', 'CabinetAdminController@editReview');
+	Route::post('/review/{id}', 'CabinetAdminController@updateReview');
+	Route::put('/review/{id}', 'CabinetAdminController@reviewStatus');
+	Route::delete('/review/{id}', 'CabinetAdminController@deleteReview');
+
+	Route::delete('/enroll/{id}', 'CabinetAdminController@deleteEnroll');	
 });
 
 Auth::routes();
