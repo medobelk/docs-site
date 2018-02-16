@@ -433,6 +433,8 @@ class CabinetAdminController extends Controller
             ]);
         }
 
-    	return view('admin_cabinet.calendar')->with(['calendarData' => collect($calendarData), 'enrolls' => $enrolls]);
+        $upcomingEnrolls = AnonimRequest::where('status', 'fresh')->whereDate('date', '>=', date('Y-m-d', time()) )->whereTime('date', '>=', date('H:i:m', time()))->with('user')->get();
+
+    	return view('admin_cabinet.calendar')->with(['calendarData' => collect($calendarData), 'enrolls' => $upcomingEnrolls]);
     }
 }

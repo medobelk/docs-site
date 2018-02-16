@@ -28,7 +28,7 @@ class CabinetController extends Controller
     public function question()
     {   
         $user_id = Auth::user()->id;
-        $questions = Question::where('user_id', $user_id)->orderBy('created_at', 'desc')->get(['id', 'complaints', 'created_at']);
+        $questions = Question::where('user_id', $user_id)->orderBy('created_at', 'desc')->get(['id', 'complaints', 'created_at', 'answer']);
     	return view('patient_cabinet.question')->with('questions', $questions);
     }
 

@@ -25,6 +25,9 @@
               <div class="visit-info-block">
                 <p class="info-block-title has-text-weight-semibold">
                   {{ date('d.m.Y', strtotime($question->created_at) ) }}
+                  @if( strlen($question->answer) > 0 && $question->answer !== null)
+                    <a class="patient-link" style="margin-left: 10px;" href="{{ url('QA/getlist/question/'.$question->id) }}">Ответ</a>
+                  @endif
                 </p>
                 <p>{{ $question->complaints }}</p>
               </div>
