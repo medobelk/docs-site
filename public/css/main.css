@@ -5527,6 +5527,10 @@ footer {
   width: 80%;
 }
 
+.serf__link, .diplom__link{
+  width: 50%;
+}
+
 .serf_title-main{
   padding-top: 0!important;
   margin-bottom: 20px;

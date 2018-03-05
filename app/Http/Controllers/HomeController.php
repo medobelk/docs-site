@@ -84,11 +84,12 @@ class HomeController extends Controller
 
     public function questions()
     {
-        $questions = Question::whereRaw('LENGTH(answer) > 0')->get()->toArray();
+        $questions = Question::whereNull('user_id')->whereRaw('LENGTH(answer) > 0')->get()->toArray();
 
         $questionsLeftPart = array_slice($questions, 0, count($questions) / 2);
-        $questionsMiddlePart = array_slice($questions, count($questions) / 2);
 
+        $questionsMiddlePart = array_slice($questions, count($questions) / 2);
+        
         return view('questions')->with([
            
             'questionsLeftPart' => $questionsLeftPart,

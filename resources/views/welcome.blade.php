@@ -33,8 +33,8 @@
                         <p class="diplom__link">Дипломы, сертификаты</p>
                       </a>
 
-                      <a class="serf" href="{{ url('/reviews') }}"><img class="serf__image" src="img/serf.png" alt="" role="presentation"/>
-                        <p class="serf__link">Отзывы пациентов</p>
+                      <a class="serf" href="http://www.eurolab.ua/consultation-doctors/33178/"><img class="serf__image" src="img/serf.png" alt="" role="presentation"/>
+                        <p class="serf__link">Отзывы, eurolab</p>
                       </a>
                     
                     </div>
