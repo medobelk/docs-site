@@ -44,6 +44,8 @@ Route::get('/Pagec/view/name/zistit', 'HomeController@zistit');
 Route::get('/Pagec/view/name/obrezanie', 'HomeController@obrez');
 Route::get('/Pagec/view/name/sertificates', 'HomeController@sertificates');
 Route::get('/Pagec/view/name/sertificate/{id}', 'HomeController@sertificate');
+Route::get('/Pagec/view/name/injections', 'HomeController@injections');
+Route::get('/Pagec/view/name/plasmolifting', 'HomeController@plasmolifting');
 
 Route::get('/reviews', 'HomeController@reviews');
 Route::get('/Pagec/view/name/about', 'HomeController@about');

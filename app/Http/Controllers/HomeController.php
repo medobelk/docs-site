@@ -148,6 +148,16 @@ class HomeController extends Controller
         return view('disease-kidneys');
     }
 
+    public function injections()
+    {
+        return view('infoPages.injections');
+    }
+
+    public function plasmolifting()
+    {
+        return view('infoPages.plasmolifting');
+    }
+
     public function enroll(Request $request)
     {   
         $validator = Validator::make($request->all(), [

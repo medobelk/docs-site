@@ -5994,11 +5994,79 @@ textarea.form-field__text-field{
     }
 }
 
-
-
-
         @media (max-width: 530px) {
 			 .zabs-body {
 			    padding-top: 20px!important;
 			}
 		}
+
+
+.info-content li::before{
+      content: "-";
+      padding-right: 2px;
+}
+
+.info-wrapper{
+  margin-bottom: 50px;
+}
+
+.info-wrapper h4{
+  padding-bottom: 30px;
+}
+
+.info-wrapper h4 a{
+  color: #616b80;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.info-content-wrapper{
+  display: flex; 
+  align-items: flex-start;
+}
+
+.info-square{
+  height: 55px;
+  width: 55px;
+  min-width: 55px;
+  max-width: 55px;
+  margin-top: 7px;
+  text-align: center;
+  line-height: 55px;
+}
+
+.info-square-blue{
+  background-color: #64c8e2;
+}
+
+.info-square-dark{
+  background-color: #616b80;
+}
+
+.square-content{
+  font-size: 30px;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.info-content{
+  font-size: 14px; 
+  margin-left: 15px; 
+  line-height: 16px; 
+  color: #3f3f3f; 
+  font-family: 'Segoe UI';
+}
+
+.is-italic{
+  font-style: italic;
+}
+
+.no-mr-lf{
+  margin-left: 0;
+}
+
+.info-content li:not(:first-child){
+  margin: 5px 0;
+}
