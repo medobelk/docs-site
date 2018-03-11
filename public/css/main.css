@@ -70,6 +70,19 @@ a {
       display: block;
       clear: both; } }
 
+@media (max-width: 992px) {
+  .info-content-wrapper{
+    flex-direction: column;
+    align-items: center !important;
+  }
+  .info-square{
+    margin: 0 0 15px !important;
+  }
+  .method__title{
+    text-align: center !important; 
+  }
+}
+
 @media (min-width: 992px) {
   .container, .contacts__container, .prices__container, .merhods__container, .about-page__container, .diseases__container, .all-questions__container, .zabolevania-pochek__container, .zabolevania-mans__container, .zabolevania-womans__container, .zabolevania-all__container, .main-content__container, .main-content-events__container, .main-content-patients__container, .header__container, .header-patient__container, .header-doctor__container, footer .footer-patient-body, .intro__container, .all-reviews__container {
     max-width: 100%;
@@ -80,7 +93,8 @@ a {
     .container:after, .contacts__container:after, .prices__container:after, .merhods__container:after, .about-page__container:after, .diseases__container:after, .all-questions__container:after, .zabolevania-pochek__container:after, .zabolevania-mans__container:after, .zabolevania-womans__container:after, .zabolevania-all__container:after, .main-content__container:after, .main-content-events__container:after, .main-content-patients__container:after, .header__container:after, .header-patient__container:after, .header-doctor__container:after, footer .footer-patient-body:after, .intro__container:after, .all-reviews__container:after {
       content: " ";
       display: block;
-      clear: both; } }
+      clear: both; } 
+}
 
 @media (min-width: 1200px) {
   .container, .contacts__container, .prices__container, .merhods__container, .about-page__container, .diseases__container, .all-questions__container, .zabolevania-pochek__container, .zabolevania-mans__container, .zabolevania-womans__container, .zabolevania-all__container, .main-content__container, .main-content-events__container, .main-content-patients__container, .header__container, .header-patient__container, .header-doctor__container, footer .footer-patient-body, .intro__container, .all-reviews__container {
