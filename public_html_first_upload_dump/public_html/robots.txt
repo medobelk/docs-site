@@ -1,5 +1,0 @@
-User-agent: *
-Disallow:
-sitemap: http://docurolog.od.ua/sitemap.xml
-
-Host: www.docurolog.od.ua
