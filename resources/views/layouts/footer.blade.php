@@ -7,7 +7,7 @@
       <SPAN>704 37 58</SPAN></a>
       <p class="footer-item__grafic">График работы : <br>Пн-Пт с 9:00 до 15:00
       </p>
-      <p class="footer-item__address">Семинарская 7, кабинет №21
+      <p class="footer-item__address">Богдана Хмельницкого, 24
       </p>
     </div>
     <div class="footer-item two">

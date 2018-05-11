@@ -38,7 +38,7 @@
     </div>
     <div class="header__adress">
       <div class="header-adress"><img class="header-adress__icon" src="{{ asset('img/marker-header.png') }}" alt="" role="presentation"/>
-        <span class="header-adress__text">Семинарская 7, каб. 21</span>
+        <span class="header-adress__text">Богдана Хмельницкого, 24</span>
       </div>
     </div>
     <div class="header__nav">
