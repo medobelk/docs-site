@@ -51,7 +51,7 @@
                       <div class="image">
                         <img class="contacts-item__icon ico-two" src="img/marker-ico.png" alt="" role="presentation"/>
                       </div>
-                      <span class="contacts-item__value">Семинарская 7, кабинет 21</span>
+                      <span class="contacts-item__value">Богдана Хмельницкого, 24</span>
                       </div>
                     </div>
                     <div class="contacts-item">
