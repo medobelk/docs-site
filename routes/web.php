@@ -36,23 +36,28 @@ Route::post('/create-answer', 'VoyagerQuestionsController@createAnswer');
 Route::get('/success-question', 'HomeController@successQuestion');
 
 //misc info routes
-Route::get('/Pagec/view/name/erect-disfunction', 'HomeController@erectDisfunction');
-Route::get('/Pagec/view/name/pielonefrit', 'HomeController@pielonefrit');
-Route::get('/Pagec/view/name/prostatit', 'HomeController@prostatit');
-Route::get('/Pagec/view/name/uretrit', 'HomeController@uretrit');
-Route::get('/Pagec/view/name/zistit', 'HomeController@zistit');
-Route::get('/Pagec/view/name/obrezanie', 'HomeController@obrez');
-Route::get('/Pagec/view/name/sertificates', 'HomeController@sertificates');
-Route::get('/Pagec/view/name/sertificate/{id}', 'HomeController@sertificate');
-Route::get('/Pagec/view/name/injections', 'HomeController@injections');
-Route::get('/Pagec/view/name/plasmolifting', 'HomeController@plasmolifting');
+Route::prefix('/Pagec/view/name')->group(function () {
+	Route::get('/erect-disfunction', 'HomeController@erectDisfunction');
+	Route::get('/pielonefrit', 'HomeController@pielonefrit');
+	Route::get('/prostatit', 'HomeController@prostatit');
+	Route::get('/uretrit', 'HomeController@uretrit');
+	Route::get('/zistit', 'HomeController@zistit');
+	Route::get('/obrezanie', 'HomeController@obrez');
+	Route::get('/sertificates', 'HomeController@sertificates');
+	Route::get('/sertificate/{id}', 'HomeController@sertificate');
+	Route::get('/injections', 'HomeController@injections');
+	Route::get('/plasmolifting', 'HomeController@plasmolifting');
+	Route::get('/varicocele', 'HomeController@varicocele');
+
+	//misc main routes
+	Route::get('/about', 'HomeController@about');
+	Route::get('/hvor', 'HomeController@diseases');
+	Route::get('/methods', 'HomeController@treatment');
+});
 
 Route::get('/reviews', 'HomeController@reviews');
-Route::get('/Pagec/view/name/about', 'HomeController@about');
 Route::get('/pricing', 'HomeController@pricing');
-Route::get('/Pagec/view/name/hvor', 'HomeController@diseases');
 Route::get('/contacts', 'HomeController@contacts');
-Route::get('/Pagec/view/name/methods', 'HomeController@treatment');
 Route::get('/disease-man', 'HomeController@diseaseMan');
 Route::get('/disease-wooman', 'HomeController@diseaseWooman');
 Route::get('/disease-kidneys', 'HomeController@diseaseKidneys');

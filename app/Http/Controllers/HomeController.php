@@ -158,6 +158,11 @@ class HomeController extends Controller
         return view('infoPages.plasmolifting');
     }
 
+    public function varicocele()
+    {
+        return view('infoPages.varicocele');
+    }
+
     public function enroll(Request $request)
     {   
         $validator = Validator::make($request->all(), [
